@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { Route } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
-
 import AuthenticatedRoute from './components/AuthenticatedRoute/AuthenticatedRoute'
 import AutoDismissAlert from './components/AutoDismissAlert/AutoDismissAlert'
 import Header from './components/Header/Header'
@@ -10,6 +9,11 @@ import SignIn from './components/SignIn/SignIn'
 import SignOut from './components/SignOut/SignOut'
 import ChangePassword from './components/ChangePassword/ChangePassword'
 import Board from './components/Board/Board'
+
+const testingStyle = {
+  textAlign: 'center',
+  justifyContent: 'center'
+}
 
 class App extends Component {
   constructor (props) {
@@ -42,7 +46,7 @@ class App extends Component {
 
     return (
       <Fragment>
-        <Header user={user} />
+        <Header user={user} style={testingStyle}/>
         {msgAlerts.map(msgAlert => (
           <AutoDismissAlert
             key={msgAlert.id}
@@ -53,7 +57,7 @@ class App extends Component {
             deleteAlert={this.deleteAlert}
           />
         ))}
-        <main className="container">
+        <main className="container" style={testingStyle}>
           <Route path='/sign-up' render={() => (
             <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
           )} />

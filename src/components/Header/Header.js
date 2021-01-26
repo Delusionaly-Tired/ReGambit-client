@@ -2,6 +2,12 @@ import React, { Fragment } from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 
+// const testingStyle = {
+//   textAlign: 'center',
+//   justifyContent: 'center',
+//   backgroundColor: 'pink'
+// }
+
 const authenticatedOptions = (
   <Fragment>
     <Nav.Link href="#change-password">Change Password</Nav.Link>
@@ -23,19 +29,21 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-  <Navbar bg="primary" variant="dark" expand="md">
-    <Navbar.Brand href="#">
+  <main className='testing'>
+    <Navbar bg="primary" variant="dark" expand="md">
+      {/* <Navbar.Brand href="#"> */}
       Regambit
-    </Navbar.Brand>
-    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-    <Navbar.Collapse id="basic-navbar-nav">
-      <Nav className="ml-auto">
-        { user && <span className="navbar-text mr-2">Welcome, {user.email}</span>}
-        { alwaysOptions }
-        { user ? authenticatedOptions : unauthenticatedOptions }
-      </Nav>
-    </Navbar.Collapse>
-  </Navbar>
+      {/* </Navbar.Brand> */}
+      <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="ml-auto">
+          { user && <span className="navbar-text mr-2">Welcome, {user.email}</span>}
+          { alwaysOptions }
+          { user ? authenticatedOptions : unauthenticatedOptions }
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
+  </main>
 )
 
 export default Header
