@@ -14,7 +14,6 @@ import Sidebar from './components/Sidebar/Sidebar'
 import Experience from './components/Experience/Experience'
 // import OpeningCreate from './components/OpeningCreate/OpeningCreate'
 
-
 class App extends Component {
   constructor (props) {
     super(props)
