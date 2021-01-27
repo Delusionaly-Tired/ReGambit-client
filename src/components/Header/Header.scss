@@ -3,12 +3,14 @@
 .testing {
 display: flex; 
 background-color: pink;
-
+font-family: 'Cinzel', serif;
+font-size: 30px;
 // text-align: center;
 // justify-content: center;
 }
 
 .rightDiv {
+    font-size: 30px;
 display: flex;
 position: right;
 text-align: right;
