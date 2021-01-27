@@ -72,7 +72,11 @@ class App extends Component {
             <OpeningCreate msgAlert={this.msgAlert} user={user} />
           )} /> */}
         </main>
-        {/* <Board /> */}
+        <div className="contents">
+          {/* <Board /> */}
+          <Experience />
+          <Sidebar />
+        </div>
       </Fragment>
     )
   }
