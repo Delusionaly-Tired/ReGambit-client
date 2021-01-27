@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import { Route } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
+import './App.scss'
+
 import AuthenticatedRoute from './components/AuthenticatedRoute/AuthenticatedRoute'
 import AutoDismissAlert from './components/AutoDismissAlert/AutoDismissAlert'
 import Header from './components/Header/Header'
@@ -9,8 +11,8 @@ import SignIn from './components/SignIn/SignIn'
 import SignOut from './components/SignOut/SignOut'
 import ChangePassword from './components/ChangePassword/ChangePassword'
 // import Board from './components/Board/Board'
-// import Sidebar from './components/Sidebar/Sidebar'
-// import Experience from './components/Experience/Experience'
+import Sidebar from './components/Sidebar/Sidebar'
+import Experience from './components/Experience/Experience'
 // import OpeningCreate from './components/OpeningCreate/OpeningCreate'
 
 class App extends Component {
