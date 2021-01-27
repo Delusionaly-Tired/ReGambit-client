@@ -1,0 +1,16 @@
+@import '~bootstrap/scss/bootstrap';
+
+.testing {
+display: flex; 
+background-color: pink;
+
+// text-align: center;
+// justify-content: center;
+}
+
+.rightDiv {
+display: flex;
+position: right;
+text-align: right;
+justify-content: right;
+}
