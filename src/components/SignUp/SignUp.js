@@ -58,7 +58,7 @@ class SignUp extends Component {
               <Form.Label>Email address</Form.Label>
               <Form.Control
                 required
-                type="email"
+                type="string"
                 name="email"
                 value={email}
                 placeholder="Enter email"

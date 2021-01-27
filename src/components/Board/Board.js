@@ -1,15 +1,16 @@
 import React from 'react'
-import chessBoard from 'chessboardjsx'
+import Chessboard from 'chessboardjsx'
+import './Board.scss'
 
-const Board = () => {
-  // const boardStyles = {
-  //   margin: '50px',
-  //   background: 'red'
-  // }
-
-  return (
-    <chessBoard />
-  )
+class Board extends Chessboard {
+  render () {
+    return (
+      <div className="board">
+        <Chessboard position='start'/>
+      </div>
+    )
+  }
 }
+console.log(Chessboard)
 
 export default Board
