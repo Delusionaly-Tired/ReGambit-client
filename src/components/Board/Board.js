@@ -1,9 +1,16 @@
-// import React from 'react'
-// import Board from 'chessboardjsx'
-// const Board = () => (
-//   <div></div>
-// )
+import React from 'react'
+import Chessboard from 'chessboardjsx'
+import './Board.scss'
 
-// console.log(Chessboard)
+class Board extends Chessboard {
+  render () {
+    return (
+      <div className="board">
+        <Chessboard position='start'/>
+      </div>
+    )
+  }
+}
+console.log(Chessboard)
 
-// export default Board
+export default Board

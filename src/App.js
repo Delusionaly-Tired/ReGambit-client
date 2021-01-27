@@ -78,7 +78,6 @@ class App extends Component {
           <Experience />
           <Sidebar />
         </div>
-        {/* <Board /> */}
       </Fragment>
     )
   }
