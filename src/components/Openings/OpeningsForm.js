@@ -1,27 +1,36 @@
 import React from 'react'
 
-const OpeningsForm = ({ openings, handleSubmit, handleChange }) => (
+const OpeningForm = ({ opening, handleSubmit, handleChange }) => (
   <form onSubmit={handleSubmit}>
-    <label>Title</label>
+    <label>Name</label>
     <input
       required
-      placeholder='Enter openings title'
-      // This name should line up with the state we want to change
-      name='title'
-      value={openings.title}
+      placeholdder='Enter name of opening'
+      // this name should line up with the state we want to change
+      name='name'
+      value={opening.name}
       onChange={handleChange}
     />
-    <label>Director</label>
+    <label>Type</label>
     <input
       required
-      placeholder='Enter openings director'
-      // This name should line up with the state we want to change
-      name='director'
-      value={openings.director}
+      placeholdder='Enter opening type'
+      // this name should line up with the state we want to change
+      name='type'
+      value={opening.type}
+      onChange={handleChange}
+    />
+    <label>Skill</label>
+    <input
+      required
+      placeholdder='Enter skill of opening'
+      // this name should line up with the state we want to change
+      name='skill'
+      value={opening.skill}
       onChange={handleChange}
     />
     <button type='submit'>Submit</button>
   </form>
 )
 
-export default OpeningsForm
+export default OpeningForm
