@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import { Route } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
+import './App.scss'
+
 import AuthenticatedRoute from './components/AuthenticatedRoute/AuthenticatedRoute'
 import AutoDismissAlert from './components/AutoDismissAlert/AutoDismissAlert'
 import Header from './components/Header/Header'
@@ -9,6 +11,8 @@ import SignIn from './components/SignIn/SignIn'
 import SignOut from './components/SignOut/SignOut'
 import ChangePassword from './components/ChangePassword/ChangePassword'
 // import Board from './components/Board/Board'
+import Sidebar from './components/Sidebar/Sidebar'
+import Experience from './components/Experience/Experience'
 
 class App extends Component {
   constructor (props) {
@@ -66,7 +70,11 @@ class App extends Component {
             <ChangePassword msgAlert={this.msgAlert} user={user} />
           )} />
         </main>
-        {/* <Board /> */}
+        <div className="contents">
+          {/* <Board /> */}
+          <Experience />
+          <Sidebar />
+        </div>
       </Fragment>
     )
   }
