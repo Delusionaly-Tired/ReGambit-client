@@ -2,15 +2,15 @@ import React, { Component } from 'react'
 import Spinner from 'react-bootstrap/Spinner'
 // import withRouter so we have access to the match route prop
 import { withRouter } from 'react-router-dom'
-import { movieShow } from '../../api/movies'
+import { openingShow } from '../../api/openings'
 
-class MovieShow extends Component {
+class OpeningShow extends Component {
   constructor (props) {
     super(props)
 
     // initially our movie state will be null, until it is fetched from the api
     this.state = {
-      movie: null
+      opening: null
     }
   }
 
@@ -18,28 +18,28 @@ class MovieShow extends Component {
     const { user, match, msgAlert } = this.props
 
     // make a request for a single movie
-    movieShow(match.params.id, user)
+    openingShow(match.params.id, user)
     // set the movie state to the movie we got back in the resopnse's data
-      .then(res => this.setState({ movie: res.data.movie }))
+      .then(res => this.setState({ opening: res.data.opening }))
       .then(() => msgAlert({
-        heading: 'Showing Movie Successfully',
-        message: 'The movie is now displayed.',
+        heading: 'Showing Opening Successfully',
+        message: 'The opening is now displayed.',
         variant: 'success'
       }))
       .catch(error => {
         msgAlert({
-          heading: 'Showing Movie Failed',
-          message: 'Failed to show movie with error: ' + error.message,
+          heading: 'Showing Opening Failed',
+          message: 'Failed to show opening with error: ' + error.message,
           variant: 'danger'
         })
       })
   }
 
   render () {
-    const { movie } = this.state
+    const { opening } = this.state
 
     // if we don't have a movie yet
-    if (!movie) {
+    if (!opening) {
       // A Spinner is just a nice loading message we get from react bootstrap
       return (
         <Spinner animation="border" role="status">
@@ -50,13 +50,14 @@ class MovieShow extends Component {
 
     return (
       <div>
-        <h3>{movie.title}</h3>
-        <h4>Directed by: {movie.director}</h4>
-        <button>Delete Movie</button>
-        <button>Update Movie</button>
+        <h3>{opening.title}</h3>
+        <h4>Type: {opening.type}</h4>
+        <h4>Skill: {opening.skill}</h4>
+        <button>Delete Opening</button>
+        <button>Update Opening</button>
       </div>
     )
   }
 }
 
-export default withRouter(MovieShow)
+export default withRouter(OpeningShow)

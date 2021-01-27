@@ -15,6 +15,7 @@ import Sidebar from './components/Sidebar/Sidebar'
 import Experience from './components/Experience/Experience'
 // import OpeningsCreate from './components/Openings/OpeningsCreate'
 import OpeningIndex from './components/Openings/OpeningIndex'
+import OpeningShow from './components/Openings/OpeningShow'
 
 class App extends Component {
   constructor (props) {
@@ -76,6 +77,9 @@ class App extends Component {
           )} /> */}
           <Route user={user} path='/openings' render={() => (
             <OpeningIndex msgAlert={this.msgAlert} user={user} />
+          )} />
+          <Route user={user} path='/openings/:id' render={() => (
+            <OpeningShow msgAlert={this.msgAlert} user={user} />
           )} />
         </main>
         <div className="contents">
