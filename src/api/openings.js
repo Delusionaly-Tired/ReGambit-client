@@ -11,7 +11,7 @@ export const openingsIndex = user => {
     }
   })
 }
-export const movieCreate = (opening, user) => {
+export const openingsCreate = (opening, user) => {
   return axios({
     url: apiUrl + '/openings',
     method: 'POST',
@@ -20,7 +20,7 @@ export const movieCreate = (opening, user) => {
       // we need the user, so we have access to their token
       'Authorization': `Bearer ${user.token}`
     },
-    // send the movie object as our data for creating a movie
+    // send the openings object as our data for creating a opening
     data: { opening }
   })
 }
