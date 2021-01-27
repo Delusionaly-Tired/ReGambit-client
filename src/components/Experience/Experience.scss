@@ -1,4 +1,11 @@
-.beginner{
+.questions{
   display: flex;
+}
+h3{
+  height: 100px;
+}
+
+.beginner, .experienced, .advanced{
   flex-wrap: wrap;
+  height: 60px;
 }
