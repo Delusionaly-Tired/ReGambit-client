@@ -13,7 +13,7 @@ import ChangePassword from './components/ChangePassword/ChangePassword'
 // import Board from './components/Board/Board'
 import Sidebar from './components/Sidebar/Sidebar'
 import Experience from './components/Experience/Experience'
-import OpeningCreate from './components/OpeningCreate/OpeningCreate'
+import OpeningForm from './components/OpeningForm/OpeningForm'
 
 class App extends Component {
   constructor (props) {
@@ -71,7 +71,7 @@ class App extends Component {
             <ChangePassword msgAlert={this.msgAlert} user={user} />
           )} />
           <AuthenticatedRoute user={user} path='/create-opening' render={() => (
-            <OpeningCreate msgAlert={this.msgAlert} user={user} />
+            <OpeningForm msgAlert={this.msgAlert} user={user} />
           )} />
         </main>
         <div className="contents">
