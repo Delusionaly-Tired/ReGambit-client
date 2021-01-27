@@ -13,7 +13,7 @@ import ChangePassword from './components/ChangePassword/ChangePassword'
 // import Board from './components/Board/Board'
 import Sidebar from './components/Sidebar/Sidebar'
 import Experience from './components/Experience/Experience'
-// import OpeningCreate from './components/OpeningCreate/OpeningCreate'
+// import OpeningCreate from './components/Openings/OpeningsCreate'
 
 class App extends Component {
   constructor (props) {
