@@ -14,7 +14,7 @@ class OpeningsCreate extends Component {
       // createdId will be null, until we successfully create a openingsopenings
       createdId: null
     }
-  }
+  },
 
   handleSubmit = event => {
     event.preventDefault()
