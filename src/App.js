@@ -1,10 +1,9 @@
 import React, { Component, Fragment } from 'react'
 import { Route } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
-import './App.scss'
-
 import AuthenticatedRoute from './components/AuthenticatedRoute/AuthenticatedRoute'
 import AutoDismissAlert from './components/AutoDismissAlert/AutoDismissAlert'
+import './App.scss'
 import Header from './components/Header/Header'
 import SignUp from './components/SignUp/SignUp'
 import SignIn from './components/SignIn/SignIn'
@@ -13,7 +12,8 @@ import ChangePassword from './components/ChangePassword/ChangePassword'
 // import Board from './components/Board/Board'
 import Sidebar from './components/Sidebar/Sidebar'
 import Experience from './components/Experience/Experience'
-import OpeningForm from './components/OpeningForm/OpeningForm'
+// import OpeningCreate from './components/OpeningCreate/OpeningCreate'
+
 
 class App extends Component {
   constructor (props) {
@@ -70,15 +70,16 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword msgAlert={this.msgAlert} user={user} />
           )} />
-          <AuthenticatedRoute user={user} path='/create-opening' render={() => (
-            <OpeningForm msgAlert={this.msgAlert} user={user} />
-          )} />
+          {/* <AuthenticatedRoute user={user} path='/create-opening' render={() => (
+            <OpeningCreate msgAlert={this.msgAlert} user={user} />
+          )} /> */}
         </main>
         <div className="contents">
           {/* <Board /> */}
           <Experience />
           <Sidebar />
         </div>
+        {/* <Board /> */}
       </Fragment>
     )
   }
