@@ -1,12 +1,7 @@
 import React, { Fragment } from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
-
-// const testingStyle = {
-//   textAlign: 'center',
-//   justifyContent: 'center',
-//   backgroundColor: 'pink'
-// }
+import './Header.scss'
 
 const authenticatedOptions = (
   <Fragment>
@@ -16,10 +11,10 @@ const authenticatedOptions = (
 )
 
 const unauthenticatedOptions = (
-  <Fragment>
+  <div className='rightDiv mr-2'>
     <Nav.Link href="#sign-up">Sign Up</Nav.Link>
     <Nav.Link href="#sign-in">Sign In</Nav.Link>
-  </Fragment>
+  </div>
 )
 
 const alwaysOptions = (
@@ -30,7 +25,7 @@ const alwaysOptions = (
 
 const Header = ({ user }) => (
   <main className='testing'>
-    <Navbar bg="primary" variant="dark" expand="md">
+    <Navbar expand="md">
       {/* <Navbar.Brand href="#"> */}
       Regambit
       {/* </Navbar.Brand> */}

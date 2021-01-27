@@ -8,12 +8,7 @@ import SignUp from './components/SignUp/SignUp'
 import SignIn from './components/SignIn/SignIn'
 import SignOut from './components/SignOut/SignOut'
 import ChangePassword from './components/ChangePassword/ChangePassword'
-import Board from './components/Board/Board'
-
-const testingStyle = {
-  textAlign: 'center',
-  justifyContent: 'center'
-}
+// import Board from './components/Board/Board'
 
 class App extends Component {
   constructor (props) {
@@ -46,7 +41,7 @@ class App extends Component {
 
     return (
       <Fragment>
-        <Header user={user} style={testingStyle}/>
+        <Header user={user}/>
         {msgAlerts.map(msgAlert => (
           <AutoDismissAlert
             key={msgAlert.id}
@@ -57,7 +52,7 @@ class App extends Component {
             deleteAlert={this.deleteAlert}
           />
         ))}
-        <main className="container" style={testingStyle}>
+        <main className="container">
           <Route path='/sign-up' render={() => (
             <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
           )} />
@@ -71,7 +66,7 @@ class App extends Component {
             <ChangePassword msgAlert={this.msgAlert} user={user} />
           )} />
         </main>
-        <Board />
+        {/* <Board /> */}
       </Fragment>
     )
   }
