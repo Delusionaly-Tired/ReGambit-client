@@ -1,4 +1,14 @@
-.beginner{
+.questions{
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  max-width: 50%;
+}
+
+h3{
+  height: 100px;
+  width: 500px;
+}
+
+.beginner, .experienced, .advanced{
+  height: 60px;
 }
