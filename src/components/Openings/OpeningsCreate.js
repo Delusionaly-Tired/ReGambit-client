@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import OpeningsForm from './OpeningsForm'
+import { Redirect } from 'react-router-dom'
 
 class OpeningsCreate extends Component {
   constructor (props) {
@@ -9,8 +11,8 @@ class OpeningsCreate extends Component {
       openings: {
         name: '',
         type: '',
-        skill: '',
-        },
+        skill: ''
+      },
       // createdId will be null, until we successfully create a openingsopenings
       createdId: null
     }
@@ -22,8 +24,8 @@ class OpeningsCreate extends Component {
     const { user, msgAlert } = this.props
     const { openings } = this.state
 
-    // create a openings, pass it the openingsopenings data and the user for its token
-    openingsCreate(openings, user)
+    // create a openings, pass it the openings data and the user for its token
+    OpeningsCreate(openings, user)
       // set the createdId to the id of the openings we just created
       .then(res => this.setState({ createdId: res.data.openings._id }))
       .then(() => msgAlert({
@@ -34,27 +36,25 @@ class OpeningsCreate extends Component {
   }
 
   render () {
-    // destructure our openings and createdId state
-      const { moive, createdId } = this.state
+  // destructure our openings and createdId state
+    const { opening, createdId } = this.state
 
-      // if the book has been created and we sits id
-      if (createdId) {
-        // redirect to the openings show page
-        return <Redirect to={`/openings/${createdId}`} />
-      }
-
-      return (
-        <div>
-          <h3>Create Opening</h3>
-          <OpeningsForm
-            opening={opening}
-            handleChange
-          />
-        </div>
-      )
-
-
+    // if the book has been created and we sits id
+    if (createdId) {
+      // redirect to the openings show page
+      return <Redirect to={`/openings/${createdId}`} />
     }
+
+    return (
+      <div>
+        <h3>Create Opening</h3>
+        <OpeningsForm
+          opening={opening}
+          handleChange
+        />
+      </div>
+    )
+  }
 }
 
 export default OpeningsCreate
