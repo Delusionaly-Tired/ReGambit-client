@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import openingsCreate from '../../api/openings'
 
 class OpeningsCreate extends Component {
   constructor (props) {
@@ -9,8 +10,8 @@ class OpeningsCreate extends Component {
       openings: {
         name: '',
         type: '',
-        skill: '',
-        },
+        skill: ''
+      },
       // createdId will be null, until we successfully create a openingsopenings
       createdId: null
     }
@@ -35,26 +36,26 @@ class OpeningsCreate extends Component {
 
   render () {
     // destructure our openings and createdId state
-      const { moive, createdId } = this.state
+    const { moive, createdId } = this.state
 
-      // if the book has been created and we sits id
-      if (createdId) {
-        // redirect to the openings show page
-        return <Redirect to={`/openings/${createdId}`} />
-      }
-
-      return (
-        <div>
-          <h3>Create Opening</h3>
-          <OpeningsForm
-            opening={opening}
-            handleChange
-          />
-        </div>
-      )
-
-
+    // if the book has been created and we sits id
+    if (createdId) {
+      // redirect to the openings show page
+      return <Redirect to={`/openings/${createdId}`} />
     }
+
+    return (
+      <div>
+        <h3>Create Opening</h3>
+        <OpeningsForm
+          opening={opening}
+          handleChange
+        />
+      </div>
+    )
+
+
+  }
 }
 
 export default OpeningsCreate
