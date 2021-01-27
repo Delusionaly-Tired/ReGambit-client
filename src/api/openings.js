@@ -1,5 +1,6 @@
 import apiUrl from '../apiConfig'
 import axios from 'axios'
+
 export const openingsIndex = user => {
   return axios({
     url: apiUrl + '/openings',
@@ -11,6 +12,7 @@ export const openingsIndex = user => {
     }
   })
 }
+
 export const openingsCreate = (opening, user) => {
   return axios({
     url: apiUrl + '/openings',
@@ -24,6 +26,7 @@ export const openingsCreate = (opening, user) => {
     data: { opening }
   })
 }
+
 // get a single opening
 export const openingsShow = (id, user) => {
   return axios({
