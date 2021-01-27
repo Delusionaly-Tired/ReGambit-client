@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import Nav from 'react-bootstrap/Nav'
 // import Sidebar from '../Sidebar/Sidebar'
 import './Experience.scss'
@@ -18,12 +18,12 @@ import './Experience.scss'
 
 const Experience = () => {
   return (
-    <Fragment className="questions">
+    <div className="questions">
       <h3>How knowledgable are you about chess?</h3>
       <Nav.Link href="#beginner" className="beginner" onClick={this.handleClick}>I&apos;ve heard of Chess</Nav.Link>
       <Nav.Link href="#experienced" className="experienced" onClick={this.handleClick}>I watched all of the Queen&apos;s gambit and understood everything perfectly.</Nav.Link>
       <Nav.Link href="#advanced" className="advanced" onClick={this.handleClick}>Just call me Bobby Fischer</Nav.Link>
-    </Fragment>
+    </div>
   )
 }
 
