@@ -11,6 +11,7 @@ class Board extends Chessboard {
     )
   }
 }
+
 console.log(Chessboard)
 
 export default Board
