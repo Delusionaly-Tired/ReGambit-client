@@ -2,14 +2,65 @@
 
 .signInRow{
 display: flex;
-border: inset 2px pink;
-align-content: left;
+border: inset 3px rgb(252, 10, 151);
+justify-content: left;
+max-width: 55%;
+max-height: 50%;
+font-family: 'Potta One', cursive;
+
+
 }
 
-
-.h3Test{
+.form-label{
     display: flex;
-    border: inset 2px pink;
-    align-content: left;
+    margin-bottom: 40px;
+    margin-top: -150px;
+    font-family: 'Potta One', cursive;
+    color: rgb(252, 0, 155);
+    -webkit-text-stroke: 1px rgb(3, 3, 3);
+   font-size: 30px;
+   display: inline-block;
+
+}
+.form-group{
+    display: flex;
+    border: inset 3px rgb(252, 10, 151);
+    margin-left: 20px ;
+    text-align: center;
+    margin-bottom: 40px;
+    font-family: 'Potta One', cursive;
+    color: rgb(252, 0, 155);
+    -webkit-text-stroke: 1px rgb(3, 3, 3);
+   font-size: 30px;
+   display: inline-block;
+}
+
+.h3{
+    display: flex;
+    width: 600px;
+    max-height: 50px;
+    text-align: center;
+    justify-content: center;
+   }
+.btn.btn-primary{
+    display: flex;
+   -webkit-text-stroke: 1px rgb(3, 3, 3);
+    background : rgb(252, 0, 155);
+    font-size: 25px;
+}
+.tester2{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+.h3Test{
+display: flex;
+width: 500px;
+height: 200px;
+border: inset 2px pink;
+justify-content: left;
+max-width: 25% ;
     }
+    
+
     
