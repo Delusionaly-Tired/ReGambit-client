@@ -51,7 +51,7 @@ class SignIn extends Component {
     return (
       <main className="signInRow">
         <div>
-          <h3>Sign In</h3>
+          <h3 className='h3'>Sign In</h3>
           <Form onSubmit={this.onSignIn}>
             <Form.Group controlId="email">
               <Form.Label>Email address</Form.Label>
@@ -75,13 +75,14 @@ class SignIn extends Component {
                 onChange={this.handleChange}
               />
             </Form.Group>
-            <Button
-              variant="primary"
-              type="submit"
-              id="subBtn"
-            >
+            <div className='tester2'>
+              <Button
+                variant="primary"
+                type="submit"
+              >
               Submit
-            </Button>
+              </Button>
+            </div>
           </Form>
         </div>
       </main>
