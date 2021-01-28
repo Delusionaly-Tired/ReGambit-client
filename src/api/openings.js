@@ -22,6 +22,6 @@ export const openingCreate = (opening, user) => {
 export const openingShow = (id, user) => {
   return axios({
     url: apiUrl + '/openings/' + id,
-    method: 'GET',
+    method: 'GET'
   })
 }
