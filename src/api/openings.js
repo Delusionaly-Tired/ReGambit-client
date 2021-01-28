@@ -5,9 +5,7 @@ export const openingIndex = user => {
   return axios({
     url: apiUrl + '/openings',
     method: 'GET',
-    headers: {
-      'Authorization': `Bearer ${user.token}`
-    }
+    headers: {}
   })
 }
 
@@ -26,8 +24,6 @@ export const openingShow = (id, user) => {
   return axios({
     url: apiUrl + '/opening/' + id,
     method: 'GET',
-    headers: {
-      'Authorization': `Bearer ${user.token}`
-    }
+    headers: {}
   })
 }

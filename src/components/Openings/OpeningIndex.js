@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Spinner from 'react-bootstrap/Spinner'
-import { openingIndex } from
+import { openingIndex } from '../../api/openings'
 
 class OpeningIndex extends Component {
   constructor (props) {
@@ -40,10 +40,10 @@ class OpeningIndex extends Component {
 
   render () {
     // destructure our openings state
-    const { openings } = this.state
+    const { opening } = this.state
 
     // if we haven't fetched any openings yet from the API
-    if (!openings) {
+    if (!opening) {
       // A Spinner is just a nice loading message we get from react bootstrap
       return (
         <Spinner animation="border" role="status">
@@ -64,7 +64,7 @@ class OpeningIndex extends Component {
       <div>
         <h3>Openings</h3>
         <ul>
-          {openingsJsx}
+          {openingJsx}
         </ul>
       </div>
     )
