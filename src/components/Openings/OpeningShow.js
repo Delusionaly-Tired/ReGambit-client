@@ -1,8 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import Spinner from 'react-bootstrap/Spinner'
 // import withRouter so we have access to the match route prop
-import { withRouter } from 'react-router-dom'
+import { withRouter, Redirect, Link } from 'react-router-dom'
 import { openingShow } from '../../api/openings'
+import apiUrl from '../../apiConfig'
+import axios from 'axios'
 
 class OpeningShow extends Component {
   constructor (props) {
@@ -10,7 +12,8 @@ class OpeningShow extends Component {
 
     // initially our movie state will be null, until it is fetched from the api
     this.state = {
-      opening: null
+      opening: null,
+      deleted: false
     }
   }
 
@@ -35,9 +38,24 @@ class OpeningShow extends Component {
       })
   }
 
-  render () {
-    const { opening } = this.state
+  deleteOpening = () => {
+    // axios.delete(`${apiUrl}/books/${this.props.match.params.id}`)
+    axios({
+      url: `${apiUrl}/openings/${this.props.match.params.id}`,
+      method: 'delete'
+    })
+      .then(() => this.setState({ deleted: true }))
+      // .then(() => this.setState({ redirect: '/index-books' }))
+      .catch(console.error)
+  }
 
+  render () {
+    let openingJsx
+    const { opening, deleted } = this.state
+
+    if (deleted) {
+      return <Redirect to="/openings"/>
+    }
     // if we don't have a movie yet
     if (!opening) {
       // A Spinner is just a nice loading message we get from react bootstrap
@@ -45,6 +63,18 @@ class OpeningShow extends Component {
         <Spinner animation="border" role="status">
           <span className="sr-only">Loading...</span>
         </Spinner>
+      )
+    } else {
+      openingJsx = (
+        <Fragment>
+          <h3>{opening.title}</h3>
+          <h3>Type: {opening.type}</h3>
+          <h3>Skill: {opening.skill}</h3>
+          <button>
+            <Link to={`/update-opening/${opening._id}`}>Update Opening</Link>
+          </button>
+          <button onClick={this.deleteOpening}>Delete opening</button>
+        </Fragment>
       )
     }
 
@@ -55,6 +85,7 @@ class OpeningShow extends Component {
         <h4>Skill: {opening.skill}</h4>
         <button>Delete Opening</button>
         <button>Update Opening</button>
+        {deleted ? <Redirect to="/openings"/> : openingJsx}
       </div>
     )
   }
