@@ -24,7 +24,7 @@ class OpeningIndex extends Component {
         this.setState({ openings: res.data.openings })
       })
       // dummy data until we create actual openings
-      // .then(res => this.setState({ openings: [{ _id: 1, title: 'jaws' }, { _id: 2, title: 'The Phantom Menace' }] }))
+      // .then(res => this.setState({ openings: [{ _id: 1, name: 'jaws' }, { _id: 2, name: 'The Phantom Menace' }] }))
       .then(() => msgAlert({
         heading: 'Loaded Openings Successfully',
         message: 'All openings retrieved. Click on one to go to its page.',
@@ -56,7 +56,7 @@ class OpeningIndex extends Component {
     const openingJsx = openings.map(opening => (
       <Link to={`/openings/${opening._id}`} key={opening._id}>
         <li>
-          {opening.title}
+          {opening.name}
         </li>
       </Link>
     ))

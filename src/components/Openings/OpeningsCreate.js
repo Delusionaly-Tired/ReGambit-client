@@ -53,7 +53,7 @@ class OpeningsCreate extends Component {
       return {
         // set the opening state, to what it used to be (...state.opening)
         // but replace the property with `name` to its current `value`
-        // ex. name could be `title` or `director`
+        // ex. name could be `name` or `director`
         opening: { ...state.opening, [event.target.name]: event.target.value }
       }
     })
