@@ -5,7 +5,7 @@ import Board from '../Board/Board'
 import Sidebar from '../Sidebar/Sidebar'
 import Experience from '../Experience/Experience'
 // import OpeningsCreate from './components/Openings/OpeningsCreate'
-// import './Header.scss'
+import './Landing.scss'
 
 const authenticatedOptions = (
   <Fragment>
