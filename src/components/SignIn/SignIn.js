@@ -78,6 +78,7 @@ class SignIn extends Component {
             <Button
               variant="primary"
               type="submit"
+              id="subBtn"
             >
               Submit
             </Button>

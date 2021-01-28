@@ -1,15 +1,43 @@
 @import '~bootstrap/scss/bootstrap';
 
 .signInRow{
+    font-family: 'Potta One', cursive;
 display: flex;
-border: inset 2px pink;
-align-content: left;
+border: inset 5px rgb(252, 10, 151);
+justify-content: left;
+max-width: 55%;
+
 }
+
+.form-label{
+    font-family: 'Potta One', cursive;
+    color: rgb(252, 0, 155);
+    -webkit-text-stroke: 1px rgb(3, 3, 3);
+   font-size: 30px;
+   display: inline-block;
+
+}
+.form-group{
+    margin-bottom: 25px;
+    display: inline-block;
+}
+// .btn-primary{
+//     border: black;
+//     color: pink;
+//     text-align: center;
+//     text-decoration: none;
+//     display: inline-block;
+//     font-size: 16px;
+
+// }
 
 
 .h3Test{
-    display: flex;
-    border: inset 2px pink;
-    align-content: left;
+display: flex;
+width: 500px;
+height: 200px;
+border: inset 2px pink;
+justify-content: left;
+max-width: 25% ;
     }
     

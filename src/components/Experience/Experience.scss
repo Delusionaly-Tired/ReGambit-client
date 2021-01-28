@@ -1,14 +1,26 @@
+@import '~bootstrap/scss/bootstrap';
+
 .questions{
+  font-family: 'Potta One', cursive;
   display: flex;
   flex-direction: column;
   max-width: 50%;
+  
 }
 
 h3{
+  font-family: 'Potta One', cursive;
+  color: rgb(252, 0, 155);
+  -webkit-text-stroke: 1px rgb(3, 3, 3);
   height: 100px;
   width: 500px;
 }
 
 .beginner, .experienced, .advanced{
-  height: 60px;
+  font-family: 'Potta One', cursive;
+  display: flex;
+
+ height: 60px;
+ justify-content: left;
+  max-width: 75%;
 }
