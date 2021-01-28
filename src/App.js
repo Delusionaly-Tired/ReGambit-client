@@ -13,7 +13,10 @@ import ChangePassword from './components/ChangePassword/ChangePassword'
 import Board from './components/Board/Board'
 import Sidebar from './components/Sidebar/Sidebar'
 import Experience from './components/Experience/Experience'
-import OpeningCreate from './components/Openings/OpeningsCreate'
+import OpeningsCreate from './components/Openings/OpeningsCreate'
+import OpeningIndex from './components/Openings/OpeningIndex'
+import OpeningShow from './components/Openings/OpeningShow'
+
 
 class App extends Component {
   constructor (props) {
@@ -70,21 +73,15 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword msgAlert={this.msgAlert} user={user} />
           )} />
-          {<AuthenticatedRoute user={user} path='/create-opening' render={() => (
-            <OpeningCreate msgAlert={this.msgAlert} user={user} />
-          )} />}
-          {<AuthenticatedRoute user={user} path='/update-opening' render={() => (
-            <OpeningCreate msgAlert={this.msgAlert} user={user} />
-          )} />}
-          {<Route user={user} path='/search-opening' render={() => (
-            <OpeningCreate msgAlert={this.msgAlert} user={user} />
-          )} />}
-          {<Route user={user} path='/all-opening' render={() => (
-            <OpeningCreate msgAlert={this.msgAlert} user={user} />
-          )} />}
-          {<AuthenticatedRoute user={user} path='/delete-opening' render={() => (
-            <OpeningCreate msgAlert={this.msgAlert} user={user} />
-          )} />}
+          <AuthenticatedRoute user={user} path='/create-opening' render={() => (
+            <OpeningsCreate msgAlert={this.msgAlert} user={user} />
+          )} />
+          <Route user={user} path='/openings' render={() => (
+            <OpeningIndex msgAlert={this.msgAlert} user={user} />
+          )} />
+          <Route user={user} path='/openings/:id' render={() => (
+            <OpeningShow msgAlert={this.msgAlert} user={user} />
+          )} />
         </main>
         <div className="contents">
           {<Board />}
