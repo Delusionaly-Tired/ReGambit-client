@@ -9,7 +9,7 @@ const OpeningsForm = ({ opening, handleSubmit, handleChange }) => (
       // this name should line up with the state we want to change
       name='name'
       defaultValue={opening.name}
-      onChange={this.handleChange}
+      onChange={handleChange}
     />
     <label>Type</label>
     <input
@@ -18,7 +18,7 @@ const OpeningsForm = ({ opening, handleSubmit, handleChange }) => (
       // this name should line up with the state we want to change
       name='type'
       defaultValue={opening.type}
-      onChange={this.handleChange}
+      onChange={handleChange}
     />
     <label>Skill</label>
     <input
@@ -27,7 +27,7 @@ const OpeningsForm = ({ opening, handleSubmit, handleChange }) => (
       // this name should line up with the state we want to change
       name='skill'
       defaultValue={opening.skill}
-      onChange={this.handleChange}
+      onChange={handleChange}
     />
     <button type='submit'>Submit</button>
   </form>
