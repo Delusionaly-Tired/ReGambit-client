@@ -19,7 +19,7 @@ class OpeningShow extends Component {
 
   componentDidMount () {
     const { user, match, msgAlert } = this.props
-
+    console.log(match)
     // make a request for a single opening
     openingShow(match.params.id, user)
     // set the opening state to the opening we got back in the resopnse's data
