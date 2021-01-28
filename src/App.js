@@ -17,7 +17,6 @@ import OpeningsCreate from './components/Openings/OpeningsCreate'
 import OpeningIndex from './components/Openings/OpeningIndex'
 import OpeningShow from './components/Openings/OpeningShow'
 
-
 class App extends Component {
   constructor (props) {
     super(props)
