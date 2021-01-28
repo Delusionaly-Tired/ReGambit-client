@@ -10,7 +10,7 @@ class OpeningShow extends Component {
   constructor (props) {
     super(props)
 
-    // initially our movie state will be null, until it is fetched from the api
+    // initially our opening state will be null, until it is fetched from the api
     this.state = {
       opening: null,
       deleted: false
@@ -20,9 +20,9 @@ class OpeningShow extends Component {
   componentDidMount () {
     const { user, match, msgAlert } = this.props
 
-    // make a request for a single movie
+    // make a request for a single opening
     openingShow(match.params.id, user)
-    // set the movie state to the movie we got back in the resopnse's data
+    // set the opening state to the opening we got back in the resopnse's data
       .then(res => this.setState({ opening: res.data.opening }))
       .then(() => msgAlert({
         heading: 'Showing Opening Successfully',
@@ -56,7 +56,7 @@ class OpeningShow extends Component {
     if (deleted) {
       return <Redirect to="/openings"/>
     }
-    // if we don't have a movie yet
+    // if we don't have a opening yet
     if (!opening) {
       // A Spinner is just a nice loading message we get from react bootstrap
       return (

@@ -6,14 +6,14 @@ class OpeningsCreate extends Component {
   constructor (props) {
     super(props)
 
-    // initially our openings title and director will be empty until they are filled in
+    // initially our opening title and director will be empty until they are filled in
     this.state = {
-      openings: {
+      opening: {
         name: '',
         type: '',
         skill: ''
       },
-      // createdId will be null, until we successfully create a openingsopenings
+      // createdId will be null, until we successfully create an opening
       createdId: null
     }
   }
@@ -22,15 +22,15 @@ class OpeningsCreate extends Component {
     event.preventDefault()
 
     const { user, msgAlert } = this.props
-    const { openings } = this.state
+    const { opening } = this.state
 
-    // create a openings, pass it the openings data and the user for its token
-    OpeningsCreate(openings, user)
-      // set the createdId to the id of the openings we just created
-      .then(res => this.setState({ createdId: res.data.openings._id }))
+    // create an opening, pass it the opening data and the user for its token
+    OpeningsCreate(opening, user)
+      // set the createdId to the id of the opening we just created
+      .then(res => this.setState({ createdId: res.data.opening._id }))
       .then(() => msgAlert({
-        heading: 'Created openings Succesfully',
-        message: 'openings has been created successfully. Now viewing the openings.',
+        heading: 'Created opening Succesfully',
+        message: 'opening has been created successfully. Now viewing the opening.',
         variant: 'success'
       }))
   }
