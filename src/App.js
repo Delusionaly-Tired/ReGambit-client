@@ -72,10 +72,10 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword msgAlert={this.msgAlert} user={user} />
           )} />
-          <AuthenticatedRoute user={user} path='/create-opening' render={() => (
+          <Route user={user} path='/create-opening' render={() => (
             <OpeningsCreate msgAlert={this.msgAlert} user={user} />
           )} />
-          <Route user={user} path='/openings' render={() => (
+          <Route user={user} exact path='/openings' render={() => (
             <OpeningIndex msgAlert={this.msgAlert} user={user} />
           )} />
           <Route user={user} path='/openings/:id' render={() => (
@@ -83,7 +83,7 @@ class App extends Component {
           )} />
         </main>
         <div className="contents">
-          {<Board />}
+          <Board />
           <Experience />
           <Sidebar />
         </div>
