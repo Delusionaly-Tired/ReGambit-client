@@ -19,6 +19,7 @@ class OpeningShow extends Component {
 
   componentDidMount () {
     const { user, match, msgAlert } = this.props
+    console.log(user)
     console.log(match)
     // make a request for a single opening
     openingShow(match.params.id, user)
