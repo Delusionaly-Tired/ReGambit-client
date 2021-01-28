@@ -21,7 +21,6 @@ class OpeningsCreate extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    console.log(event.target)
     const { user, msgAlert } = this.props
     const { opening } = this.state
 
