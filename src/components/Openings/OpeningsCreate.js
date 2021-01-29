@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import OpeningsForm from './OpeningsForm'
 import { Redirect } from 'react-router-dom'
 import { openingCreate } from '../../api/openings'
+import './OpeningAll.scss'
 
 class OpeningsCreate extends Component {
   constructor (props) {
