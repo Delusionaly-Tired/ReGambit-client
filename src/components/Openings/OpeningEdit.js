@@ -35,7 +35,7 @@ class UpdateOpening extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
     const { user, match } = this.props
-    console.log(match)
+    console.log(event)
     axios({
       method: 'patch',
       url: `${apiUrl}/openings/${match.params.id}`,
