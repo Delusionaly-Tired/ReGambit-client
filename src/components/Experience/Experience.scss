@@ -1,29 +1,35 @@
 @import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Hanalei+Fill&display=swap');
 
 .questions{
-  font-family: 'Potta One', cursive;
-  display: flex;
-  flex-direction: column;
-  // max-width: 50%;
-  margin-top: 15px;
-  margin-left: 10px;
-  margin-right: 10px;
-  border: 1px solid #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    text-align: left;
+    height: 83.5vh;
+    border: 1px black;
+    background: content-box radial-gradient(rgb(250, 104, 148), rgb(202, 230, 241,));
 }
 
 h3{
   display: flex;
-  font-family: 'Potta One', cursive;
-  color: rgb(129, 0, 155);
+  font-family: 'Hanalei Fill', cursive;
+  color: rgb(252, 10, 159);
   -webkit-text-stroke: 1px rgb(3, 3, 3);
-  // height: 100px;
-  // width: 500px;
   text-align: center;
+  border: 1px solid black;
 }
 
+
 .beginner, .experienced, .advanced{
-  font-family: 'Potta One', cursive;
   display: flex;
+  text-align: left;
   justify-content: left;
-  text-align: center;
+    font-family: 'Hanalei Fill', cursive;
+    font-size: 16px;
+    text-align: left;
+    border: 1px solid black;
+    
+    // border: .5px solid black;
+    
 }

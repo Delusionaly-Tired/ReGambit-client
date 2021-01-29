@@ -15,6 +15,7 @@ import ChangePassword from './components/ChangePassword/ChangePassword'
 import OpeningsCreate from './components/Openings/OpeningsCreate'
 import OpeningIndex from './components/Openings/OpeningIndex'
 import OpeningShow from './components/Openings/OpeningShow'
+import UpdateOpening from './components/Openings/OpeningEdit'
 import Landing from './components/Landing/Landing'
 
 class App extends Component {
@@ -80,6 +81,9 @@ class App extends Component {
           )} />
           <Route user={user} path='/openings/:id' render={() => (
             <OpeningShow msgAlert={this.msgAlert} user={user} />
+          )} />
+          <Route user={user} path='/update-opening/:id' render={() => (
+            <UpdateOpening msgAlert={this.msgAlert} user={user} />
           )} />
           <Route user={user} exact path='/' render={() => (
             <Landing user={user} />
