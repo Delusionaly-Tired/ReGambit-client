@@ -15,10 +15,11 @@ background-image:
 	background-repeat: repeat-x;
 	background-size: 60px 30px, 60px 30px, 60px 30px;
 	height: 90px;
-	margin: 15px auto;
+	margin: 15px;
 	text-align: center;
     justify-content: center;
-    border-radius: 50px;
+	border-radius: 60px;
+	border: 1px solid black;
 }
 
 .rightDiv {

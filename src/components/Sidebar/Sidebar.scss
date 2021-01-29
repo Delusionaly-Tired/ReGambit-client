@@ -1,10 +1,6 @@
 .sidebar{
-  background-color: blue;
-  margin-left: 10px;
-  margin-top: 20px;
-  margin-right: 10px;
-  // height: 550px;
-  // width: 600px;
+  background-color: pink;
+max-height: auto ;
   transition: right 1s ease-out;
-  border: inset 2px black;
+  border: 1px solid black
 }

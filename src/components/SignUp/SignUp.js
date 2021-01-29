@@ -53,7 +53,7 @@ class SignUp extends Component {
     return (
       <div className="signUpBoi">
         <div>
-          <h3>Sign Up</h3>
+          <h3 className='signUph3'>Sign Up</h3>
           <Form onSubmit={this.onSignUp}>
             <Form.Group controlId="email">
               <Form.Label>Email address</Form.Label>

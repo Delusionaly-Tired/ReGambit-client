@@ -1,29 +1,53 @@
 @import '~bootstrap/scss/bootstrap';
+@import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Hanalei+Fill&display=swap');
 
 .questions{
-  font-family: 'Potta One', cursive;
-  display: flex;
-  flex-direction: column;
-  // max-width: 50%;
-  margin-top: 15px;
-  margin-left: 10px;
-  margin-right: 10px;
-  border: 1px solid #000;
-}
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    text-align: left;
+    border: 1px solid black;
+    max-height: 90%;
+    }
 
+.beginner{
+display: flex;
+text-align: left;
+justify-content: left;
+max-height: fit-content;
+margin: 0 -14px;
+
+}
+.experienced{
+  display: flex;
+  text-align: left;
+  justify-content: left;
+  margin: 0 -14px;
+  
+}
+.advanced{
+  display: flex;
+  text-align: left;
+  justify-content: left;
+  margin: 0 -14px;
+  
+}
 h3{
   display: flex;
-  font-family: 'Potta One', cursive;
-  color: rgb(129, 0, 155);
+  font-family: 'Hanalei Fill', cursive;
+  color: rgb(252, 10, 159);
   -webkit-text-stroke: 1px rgb(3, 3, 3);
-  // height: 100px;
-  // width: 500px;
-  text-align: center;
+  text-align: left;
+  font-size: 20px;
+
 }
 
 .beginner, .experienced, .advanced{
-  font-family: 'Potta One', cursive;
-  display: flex;
   justify-content: left;
-  text-align: center;
+    max-width: 30%;
+    max-height: 80%;
+    font-family: 'Hanalei Fill', cursive;
+    font-size: 20px;
+    text-align: left;
 }
