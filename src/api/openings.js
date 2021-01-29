@@ -4,8 +4,7 @@ import axios from 'axios'
 export const openingIndex = user => {
   return axios({
     url: apiUrl + '/openings',
-    method: 'GET',
-    headers: {}
+    method: 'GET'
   })
 }
 
@@ -22,8 +21,7 @@ export const openingCreate = (opening, user) => {
 
 export const openingShow = (id, user) => {
   return axios({
-    url: apiUrl + '/opening/' + id,
-    method: 'GET',
-    headers: {}
+    url: apiUrl + '/openings/' + id,
+    method: 'GET'
   })
 }

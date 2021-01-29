@@ -67,7 +67,7 @@ class OpeningShow extends Component {
     } else {
       openingJsx = (
         <Fragment>
-          <h3>{opening.title}</h3>
+          <h3>{opening.name}</h3>
           <h3>Type: {opening.type}</h3>
           <h3>Skill: {opening.skill}</h3>
           <button>
@@ -80,7 +80,7 @@ class OpeningShow extends Component {
 
     return (
       <div>
-        <h3>{opening.title}</h3>
+        <h3>{opening.name}</h3>
         <h4>Type: {opening.type}</h4>
         <h4>Skill: {opening.skill}</h4>
         <button>Delete Opening</button>

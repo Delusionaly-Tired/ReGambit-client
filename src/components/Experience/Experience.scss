@@ -4,25 +4,26 @@
   font-family: 'Potta One', cursive;
   display: flex;
   flex-direction: column;
-  max-width: 50%;
+  // max-width: 50%;
   margin-top: 15px;
   margin-left: 10px;
   margin-right: 10px;
+  border: 1px solid #000;
 }
 
 h3{
+  display: flex;
   font-family: 'Potta One', cursive;
-  color: rgb(252, 0, 155);
+  color: rgb(129, 0, 155);
   -webkit-text-stroke: 1px rgb(3, 3, 3);
-  height: 100px;
-  width: 500px;
+  // height: 100px;
+  // width: 500px;
+  text-align: center;
 }
 
 .beginner, .experienced, .advanced{
   font-family: 'Potta One', cursive;
   display: flex;
-
- height: 60px;
- justify-content: left;
-  max-width: 75%;
+  justify-content: left;
+  text-align: center;
 }
