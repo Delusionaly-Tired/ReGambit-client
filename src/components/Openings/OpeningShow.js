@@ -1,7 +1,7 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import Spinner from 'react-bootstrap/Spinner'
 // import withRouter so we have access to the match route prop
-import { withRouter, Redirect, Link } from 'react-router-dom'
+import { withRouter, Redirect } from 'react-router-dom'
 import { openingShow } from '../../api/openings'
 import apiUrl from '../../apiConfig'
 import axios from 'axios'
@@ -39,11 +39,14 @@ class OpeningShow extends Component {
       })
   }
 
-  deleteOpening = () => {
+  deleteOpening = (user) => {
     // axios.delete(`${apiUrl}/books/${this.props.match.params.id}`)
     axios({
       url: `${apiUrl}/openings/${this.props.match.params.id}`,
-      method: 'delete'
+      method: 'DELETE',
+      header: {
+        'Authorization': `Bearer ${user.token}`
+      }
     })
       .then(() => this.setState({ deleted: true }))
       // .then(() => this.setState({ redirect: '/index-books' }))
@@ -65,18 +68,6 @@ class OpeningShow extends Component {
           <span className="sr-only">Loading...</span>
         </Spinner>
       )
-    } else {
-      openingJsx = (
-        <Fragment>
-          <h3>{opening.name}</h3>
-          <h3>Type: {opening.type}</h3>
-          <h3>Skill: {opening.skill}</h3>
-          <button>
-            <Link to={`/update-opening/${opening._id}`}>Update Opening</Link>
-          </button>
-          <button onClick={this.deleteOpening}>Delete opening</button>
-        </Fragment>
-      )
     }
 
     return (
@@ -84,7 +75,7 @@ class OpeningShow extends Component {
         <h3>{opening.name}</h3>
         <h4>Type: {opening.type}</h4>
         <h4>Skill: {opening.skill}</h4>
-        <button>Delete Opening</button>
+        <button onClick={this.deleteOpening}>Delete Opening</button>
         <button>Update Opening</button>
         {deleted ? <Redirect to="/openings"/> : openingJsx}
       </div>
