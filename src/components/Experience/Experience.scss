@@ -1,14 +1,37 @@
+@import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Hanalei+Fill&display=swap');
+
 .questions{
-  display: flex;
-  flex-direction: column;
-  max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin: 0px 2px;
+    justify-content: left;
+    text-align: left;
+    height: fit-content;
+    border: solid 2px black;
+    box-shadow: inset 0px 0px 10px 0px rgba(58, 37, 13, 0.863);
 }
 
 h3{
-  height: 100px;
-  width: 500px;
+  display: flex;
+  font-family: 'Hanalei Fill', cursive;
+  color: rgb(92, 44, 12);
+  -webkit-text-stroke: 1px rgb(235, 217, 217);
+  text-align: center;
+  
 }
 
+
 .beginner, .experienced, .advanced{
-  height: 60px;
+  display: flex;
+  text-align: left;
+  justify-content: left;
+    font-family: 'Hanalei Fill', cursive;
+    font-size: 16px;
+    text-align: left;
+    border-top: 2px solid black;
+
+      
+  // -webkit-text-stroke: .8px rgb(241, 228, 228);
+  text-shadow: .33px .4px 1px white;
 }

@@ -1,7 +1,11 @@
 import React, { Fragment } from 'react'
 import Nav from 'react-bootstrap/Nav'
-import Navbar from 'react-bootstrap/Navbar'
-import './Header.scss'
+// import Navbar from 'react-bootstrap/Navbar'
+import Board from '../Board/Board'
+import Sidebar from '../Sidebar/Sidebar'
+import Experience from '../Experience/Experience'
+// import OpeningsCreate from './components/Openings/OpeningsCreate'
+import './Landing.scss'
 
 const authenticatedOptions = (
   <Fragment>
@@ -26,22 +30,15 @@ const alwaysOptions = (
   </Fragment>
 )
 
-const Header = ({ user }) => (
-  <main className='testing'>
-    <Navbar expand="md">
-      {/* <Navbar.Brand href="#"> */}
-      RE-Gambit
-      {/* </Navbar.Brand> */}
-      <Navbar.Toggle aria-controls="basic-navbar-nav"/>
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="ml-auto">
-          { user && <span className="navbar-text mr-2">Welcome, {user.email}</span>}
-          { alwaysOptions }
-          { user ? authenticatedOptions : unauthenticatedOptions }
-        </Nav>
-      </Navbar.Collapse>
-    </Navbar>
-  </main>
+const Landing = ({ user }) => (
+  <div className="contents">
+    <Board />
+    <Experience />
+    <Sidebar />
+    <alwaysOptions/>
+    <authenticatedOptions/>
+    <unauthenticatedOptions/>
+  </div>
 )
 
-export default Header
+export default Landing

@@ -4,10 +4,7 @@ import axios from 'axios'
 export const openingIndex = user => {
   return axios({
     url: apiUrl + '/openings',
-    method: 'GET',
-    headers: {
-      'Authorization': `Bearer ${user.token}`
-    }
+    method: 'GET'
   })
 }
 
@@ -24,10 +21,7 @@ export const openingCreate = (opening, user) => {
 
 export const openingShow = (id, user) => {
   return axios({
-    url: apiUrl + '/opening/' + id,
-    method: 'GET',
-    headers: {
-      'Authorization': `Bearer ${user.token}`
-    }
+    url: apiUrl + '/openings/' + id,
+    method: 'GET'
   })
 }
