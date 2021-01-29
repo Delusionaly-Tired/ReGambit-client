@@ -13,9 +13,11 @@ margin: auto;
 
 .container{
     display: flex;
+    padding: 10px;
     justify-content: center;
     max-height: 100vh;
     font-family: 'Hanalei Fill', cursive;
+    box-sizing: border-box;
 }
 #email.form-control{
     background: pink;
