@@ -1,21 +1,41 @@
 @import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Hanalei+Fill&display=swap');
 
 .signInRow{
 display: flex;
-border: inset 3px rgb(252, 10, 151);
-justify-content: left;
-max-width: 55%;
-max-height: 50%;
-font-family: 'Potta One', cursive;
-
-
+border: outset 1px rgb(0, 0, 0);
+justify-content: center;
+max-width: 40%;
+max-height: 40%;
+// font-family: 'Hanalei Fill', cursive;
+font-family: 'Hanalei Fill', cursive;
+text-align: center;
+box-shadow: 0px 10px 25px 1px rgb(221, 143, 228);
+margin: 0px 0px 10px 10px;
 }
 
-.form-label{
+.container{
     display: flex;
-    margin-bottom: 40px;
-    margin-top: -150px;
-    font-family: 'Potta One', cursive;
+    justify-content: center;
+    max-width: 55%;
+    max-height: 50%;
+    font-family: 'Hanalei Fill', cursive;
+}
+#email.form-control{
+    background: pink;
+    border: 1px solid black;
+}
+#password.form-control{
+    background: pink;  
+    border: 1px solid black;
+}
+#passwordConfirmation.form-control{
+    background: pink;  
+    border: 1px solid black;
+}
+.form-label{
+    display: flex; 
+    font-family: 'Hanalei Fill', cursive;
     color: rgb(252, 0, 155);
     -webkit-text-stroke: 1px rgb(3, 3, 3);
    font-size: 30px;
@@ -24,11 +44,9 @@ font-family: 'Potta One', cursive;
 }
 .form-group{
     display: flex;
-    border: inset 3px rgb(252, 10, 151);
-    margin-left: 20px ;
-    text-align: center;
+   text-align: center;
     margin-bottom: 40px;
-    font-family: 'Potta One', cursive;
+    font-family: 'Hanalei Fill', cursive;
     color: rgb(252, 0, 155);
     -webkit-text-stroke: 1px rgb(3, 3, 3);
    font-size: 30px;
@@ -37,30 +55,26 @@ font-family: 'Potta One', cursive;
 
 .h3{
     display: flex;
-    width: 600px;
+    // switch to percentages
+    // justify content in the center 
     max-height: 50px;
     text-align: center;
     justify-content: center;
+    font-family: 'Hanalei Fill', cursive;
    }
 .btn.btn-primary{
     display: flex;
    -webkit-text-stroke: 1px rgb(3, 3, 3);
     background : rgb(252, 0, 155);
     font-size: 25px;
+    border: 1px solid black;
+    margin: 10px ;
 }
 .tester2{
     display: flex;
     text-align: center;
     justify-content: center;
 }
-.h3Test{
-display: flex;
-width: 500px;
-height: 200px;
-border: inset 2px pink;
-justify-content: left;
-max-width: 25% ;
-    }
     
 
     
