@@ -39,17 +39,20 @@ class OpeningShow extends Component {
       })
   }
 
-  deleteOpening = (user) => {
-    // axios.delete(`${apiUrl}/books/${this.props.match.params.id}`)
+  deleteOpening = () => {
+    const { user, match } = this.props
+    console.log(user)
+    console.log(match)
     axios({
-      url: `${apiUrl}/openings/${this.props.match.params.id}`,
+      url: `${apiUrl}/openings/${match.params.id}`,
       method: 'DELETE',
-      header: {
+      headers: {
         'Authorization': `Bearer ${user.token}`
       }
     })
-      .then(() => this.setState({ deleted: true }))
-      // .then(() => this.setState({ redirect: '/index-books' }))
+      .then(() => {
+        this.setState({ deleted: true })
+      })
       .catch(console.error)
   }
 
