@@ -30,7 +30,7 @@ const Header = ({ user }) => (
   <main className='testing'>
     <Navbar expand="md">
       {/* <Navbar.Brand href="#"> */}
-      RE-Gambit//
+      RE-Gambit
       {/* </Navbar.Brand> */}
       <Navbar.Toggle aria-controls="basic-navbar-nav"/>
       <Navbar.Collapse id="basic-navbar-nav">

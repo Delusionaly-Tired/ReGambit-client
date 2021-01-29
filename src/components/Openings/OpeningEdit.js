@@ -1,6 +1,6 @@
 // imports
 import React, { Component, Fragment } from 'react'
-import { Redirect } from 'react-router-dom'
+import { Redirect, withRouter } from 'react-router-dom'
 
 // import axios & apiConfig
 import axios from 'axios'
@@ -35,7 +35,6 @@ class UpdateOpening extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
     const { user, match } = this.props
-    console.log(match)
     axios({
       method: 'patch',
       url: `${apiUrl}/openings/${match.params.id}`,
@@ -109,4 +108,4 @@ class UpdateOpening extends Component {
 }
 
 // export
-export default UpdateOpening
+export default withRouter(UpdateOpening)

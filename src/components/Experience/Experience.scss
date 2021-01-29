@@ -4,20 +4,21 @@
 .questions{
     display: flex;
     flex-direction: column;
+    margin: 0px 2px;
     justify-content: left;
     text-align: left;
-    height: 83.5vh;
-    border: 1px black;
-    background: content-box radial-gradient(rgb(250, 104, 148), rgb(202, 230, 241,));
+    height: fit-content;
+    border: solid 2px black;
+    box-shadow: inset 0px 0px 10px 0px rgba(58, 37, 13, 0.863);
 }
 
 h3{
   display: flex;
   font-family: 'Hanalei Fill', cursive;
-  color: rgb(252, 10, 159);
-  -webkit-text-stroke: 1px rgb(3, 3, 3);
+  color: rgb(92, 44, 12);
+  -webkit-text-stroke: 1px rgb(235, 217, 217);
   text-align: center;
-  border: 1px solid black;
+  
 }
 
 
@@ -28,8 +29,9 @@ h3{
     font-family: 'Hanalei Fill', cursive;
     font-size: 16px;
     text-align: left;
-    border: 1px solid black;
-    
-    // border: .5px solid black;
-    
+    border-top: 2px solid black;
+
+      
+  // -webkit-text-stroke: .8px rgb(241, 228, 228);
+  text-shadow: .33px .4px 1px white;
 }
