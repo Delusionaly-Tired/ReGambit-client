@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Spinner from 'react-bootstrap/Spinner'
 // import withRouter so we have access to the match route prop
-import { withRouter, Redirect } from 'react-router-dom'
+import { withRouter, Redirect, Link } from 'react-router-dom'
 import { openingShow } from '../../api/openings'
 import apiUrl from '../../apiConfig'
 import axios from 'axios'
@@ -79,7 +79,9 @@ class OpeningShow extends Component {
         <h4>Type: {opening.type}</h4>
         <h4>Skill: {opening.skill}</h4>
         <button onClick={this.deleteOpening}>Delete Opening</button>
-        <button>Update Opening</button>
+        <button>
+          <Link to={`/update-opening/${opening._id}`}>Update Opening</Link>
+        </button>
         {deleted ? <Redirect to="/openings"/> : openingJsx}
       </div>
     )

@@ -1,100 +1,112 @@
-import React, { Component } from 'react'
-import Spinner from 'react-bootstrap/Spinner'
-import { Redirect, withRouter } from 'react-router-dom'
+// imports
+import React, { Component, Fragment } from 'react'
+import { Redirect } from 'react-router-dom'
 
-import { OpeningsShow, OpeningsUpdate } from '../../api/openings'
+// import axios & apiConfig
+import axios from 'axios'
+import apiUrl from '../../apiConfig'
 
-import OpeningsForm from '../OpeningsForm/OpeningsForm'
-
-class openingsUpdate extends Component {
-  constructor () {
-    super()
+// class
+class UpdateOpening extends Component {
+  constructor (props) {
+    super(props)
 
     this.state = {
-      openings: null,
+      opening: {
+        name: '',
+        type: '',
+        skill: ''
+      },
       updated: false
     }
   }
 
-  componentDidMount () {
-    const { user, match, msgAlert } = this.props
-    openingsShow(match.params.id, user)
-      .then(res => this.setState({ openings: res.data.openings }))
-      .then(() => {
-        msgAlert({
-          heading: 'Showing openings Successfully',
-          variant: 'success',
-          message: 'You can now edit the openings.'
-        })
-      })
-      .catch(err => {
-        msgAlert({
-          heading: 'Showing openings Failed',
-          variant: 'danger',
-          message: 'openings is not displayed due to error: ' + err.message
-        })
-      })
+  async componentDidMount () {
+    // we're going to "try" some things (our request)
+    try {
+      const res = await axios(`${apiUrl}/openings/${this.props.match.params.id}`)
+      this.setState({ opening: res.data.opening })
+    } catch (err) {
+      // if anything goes wrong in the try block, hanlde error
+      console.error(err)
+    }
   }
 
   handleSubmit = (event) => {
     event.preventDefault()
-
-    const { user, match, msgAlert } = this.props
-    const { openings } = this.state
-
-    openingsUpdate(match.params.id, openings, user)
-      .then(res => this.setState({ updated: true }))
-      .then(() => {
-        msgAlert({
-          heading: 'Updated openings Successfully',
-          variant: 'success',
-          message: 'openings has been updated.'
-        })
-      })
-      .catch(err => {
-        msgAlert({
-          heading: 'Updating openings Failed',
-          variant: 'danger',
-          message: 'openings was not updated due to error: ' + err.message
-        })
-      })
+    const { user, match } = this.props
+    console.log(match)
+    axios({
+      method: 'patch',
+      url: `${apiUrl}/openings/${match.params.id}`,
+      headers: {
+        'Authorization': `Bearer ${user.token}`
+      },
+      data: { opening: this.state.opening }
+    })
+      .then(() => this.setState({ updated: true }))
+      .catch(console.error)
   }
 
-  // same handleChange from openingsCreate
-  handleChange = event => {
-    this.setState({ openings: { ...this.state.openings, [event.target.name]: event.target.value } })
+  handleInputChange = (event) => {
+    event.persist()
+    // merge/combine the updatedField & the current state.book
+    this.setState(currState => {
+      const updatedField = {
+        [event.target.name]: event.target.value
+      }
+      // spread operator (...) will turn an object/array into coma
+      // separate values or key/value pairs
+      // { ...{ title: '', author: '' }, ...{ title: 'a' } }
+      // { title: '', author: '', title: 'a' }
+      // {author: '', title: 'a' }
+      const newOpening = { ...currState.opening, ...updatedField }
+
+      // Object.assign copies key/values pairs from one or more objects to a target object
+      // Empty object is the 1st arg (modified in place)
+      // state is the 2nd arg
+      // updatedField is the 3rd arg (comes after the state so it overrides the state values)
+      // const newBook = Object.assign({}, this.state.book, updatedField)
+
+      return { opening: newOpening }
+    })
   }
 
   render () {
-    const { openings, updated } = this.state
-
-    // if we don't have a openings yet
-    if (!openings) {
-      // A Spinner is just a nice loading message we get from react bootstrap
-      return (
-        <Spinner animation="border" role="status">
-          <span className="sr-only">Loading...</span>
-        </Spinner>
-      )
+    if (this.state.updated) {
+      return <Redirect to={`{/openings/${this.props.match.params.id}}`}/>
     }
-
-    // if the openings is deleted
-    if (updated) {
-      // redirect to the openingss index page
-      return <Redirect to={`/openings/${this.props.match.params.id}`} />
-    }
-
     return (
-      <div>
-        <h3>Edit openings</h3>
-        <openingsForm
-          openings={openings}
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-        />
-      </div>
+      <Fragment>
+        <h2>Update an Opening:</h2>
+        <form onSubmit={this.handleSubmit}>
+          <input
+            name="name"
+            type="text"
+            placeholder="Opening name here"
+            value={this.state.opening.name}
+            onChange={this.handleInputChange}
+          />
+          <input
+            name="type"
+            type="text"
+            placeholder="Opening type here"
+            value={this.state.opening.type}
+            onChange={this.handleInputChange}
+          />
+          <input
+            name="skill"
+            type="text"
+            placeholder="Opening skill here"
+            value={this.state.opening.skill}
+            onChange={this.handleInputChange}
+          />
+          <button type="submit">Submit</button>
+        </form>
+      </Fragment>
     )
   }
 }
 
-export default withRouter(openingsUpdate)
+// export
+export default UpdateOpening
