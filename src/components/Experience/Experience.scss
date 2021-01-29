@@ -4,10 +4,11 @@
 .questions{
     display: flex;
     flex-direction: column;
+    margin: 0px 2px;
     justify-content: left;
     text-align: left;
-    height: 83.5vh;
-    border: 1px black;
+    height: fit-content;
+    border: solid 2px black;
     background: content-box radial-gradient(rgb(250, 104, 148), rgb(202, 230, 241,));
 }
 
@@ -17,7 +18,7 @@ h3{
   color: rgb(252, 10, 159);
   -webkit-text-stroke: 1px rgb(3, 3, 3);
   text-align: center;
-  border: 1px solid black;
+  
 }
 
 
@@ -28,8 +29,6 @@ h3{
     font-family: 'Hanalei Fill', cursive;
     font-size: 16px;
     text-align: left;
-    border: 1px solid black;
-    
-    // border: .5px solid black;
+    border-top: 2px solid black;
     
 }

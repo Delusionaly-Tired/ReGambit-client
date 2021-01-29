@@ -7,7 +7,6 @@ border: outset 1px rgb(0, 0, 0);
 justify-content: center;
 max-width: 40%;
 max-height: 40%;
-// font-family: 'Hanalei Fill', cursive;
 font-family: 'Hanalei Fill', cursive;
 text-align: center;
 box-shadow: 0px 10px 25px 1px rgb(221, 143, 228);
@@ -17,7 +16,7 @@ margin: 0px 0px 10px 10px;
 .container{
     display: flex;
     justify-content: center;
- height: 80vh;
+    max-height: fit-content;
     font-family: 'Hanalei Fill', cursive;
 }
 #email.form-control{
