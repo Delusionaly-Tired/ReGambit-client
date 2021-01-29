@@ -1,5 +1,4 @@
 @import '~bootstrap/scss/bootstrap';
-@import '~bootstrap/scss/bootstrap';
 @import url('https://fonts.googleapis.com/css2?family=Hanalei+Fill&display=swap');
 
 .questions{
@@ -7,47 +6,30 @@
     flex-direction: column;
     justify-content: left;
     text-align: left;
-    border: 1px solid black;
-    max-height: 90%;
-    }
+    height: 83.5vh;
+    border: 1px black;
+    background: content-box radial-gradient(rgb(250, 104, 148), rgb(202, 230, 241,));
+}
 
-.beginner{
-display: flex;
-text-align: left;
-justify-content: left;
-max-height: fit-content;
-margin: 0 -14px;
-
-}
-.experienced{
-  display: flex;
-  text-align: left;
-  justify-content: left;
-  margin: 0 -14px;
-  
-}
-.advanced{
-  display: flex;
-  text-align: left;
-  justify-content: left;
-  margin: 0 -14px;
-  
-}
 h3{
   display: flex;
   font-family: 'Hanalei Fill', cursive;
   color: rgb(252, 10, 159);
   -webkit-text-stroke: 1px rgb(3, 3, 3);
-  text-align: left;
-  font-size: 20px;
-
+  text-align: center;
+  border: 1px solid black;
 }
 
+
 .beginner, .experienced, .advanced{
+  display: flex;
+  text-align: left;
   justify-content: left;
-    max-width: 30%;
-    max-height: 80%;
     font-family: 'Hanalei Fill', cursive;
-    font-size: 20px;
+    font-size: 16px;
     text-align: left;
+    border: 1px solid black;
+    
+    // border: .5px solid black;
+    
 }
