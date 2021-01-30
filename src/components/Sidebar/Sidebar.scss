@@ -1,7 +1,7 @@
 @import '~bootstrap/scss/bootstrap';
 @import url('https://fonts.googleapis.com/css2?family=Gorditas&display=swap');
 
-.sidebar{
+div.sidebar{
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -11,8 +11,8 @@ background-image:url(https://thumbs.dreamstime.com/t/wood-texture-background-bro
   transition: right 1s ease-out;
 height: fit-content;
 border-radius: 10px ;
-border: 1px rgb(56, 15, 15);
+border: 1px solid rgb(56, 15, 15);
 font-family: 'Gorditas', cursive;
-box-shadow: inset 0px 0px 100px 0px rgba(78, 32, 32, 0.863);
-text-shadow: .8px .4px rgb(255, 253, 253);
+box-shadow: inset 0px 10px 100px 10px rgba(87, 33, 33, 0.863);
+text-shadow: .8px .1px rgb(255, 253, 253);
   }
