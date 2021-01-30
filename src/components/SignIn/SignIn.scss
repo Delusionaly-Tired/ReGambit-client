@@ -13,21 +13,13 @@ margin: auto;
 
 .container{
     display: flex;
-    padding: 10px;
+    padding: 5vh;
     justify-content: center;
     // max-height: 100vh;
     box-sizing: border-box;
 }
-#email.form-control{
-    background: pink;
-    border: 1px solid black;
-}
-#password.form-control{
-    background: pink;  
-    border: 1px solid black;
-}
-#passwordConfirmation.form-control{
-    background: pink;  
+#email.form-control, #password.form-control, #passwordConfirmation.form-control{
+    
     border: 1px solid black;
 }
 form, .form-label{
@@ -35,9 +27,10 @@ form, .form-label{
     font-family: 'Gorditas', cursive;
     // color: rgb(252, 0, 155);
     -webkit-text-stroke: 1px rgb(238, 212, 212);
-   font-size: 30px;
+//    font-size: 30px;
    display: inline-block;
    color: rgb(43, 14, 7);
+   justify-content: center;
 
 }
 .form-group{
@@ -49,6 +42,7 @@ form, .form-label{
     -webkit-text-stroke: 1px rgb(3, 3, 3);
    font-size: 30px;
    display: inline-block;
+   justify-content: center;
 }
 
 .h3{
@@ -58,7 +52,7 @@ form, .form-label{
     justify-content: center;
     font-family: 'Gorditas', cursive;
    }
-.btn.btn-primary{
+.btn.btn-primary, button.submitBtn{
     display: flex;
    -webkit-text-stroke: 1px rgb(3, 3, 3);
    background-image:
