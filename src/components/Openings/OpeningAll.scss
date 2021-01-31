@@ -18,7 +18,7 @@ color: rgb(102, 23, 23);
    -webkit-text-stroke: 1px rgb(2, 0, 0);
     font-size: 25px;
 }
-.createForm{
+.createForm, .showOpeningDiv {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -29,7 +29,7 @@ color: rgb(102, 23, 23);
     border: solid 1px rgb(243, 200, 200);
     box-shadow: 0px 10px 25px 1px rgb(54, 20, 18);
     }
-    button.submitBtn{
+    button.submitBtn, .updateBtn, .deleteBtn{
         width: fit-content;
         justify-content: center;
         text-align: center;
@@ -43,3 +43,48 @@ color: rgb(102, 23, 23);
         display: flex;
         justify-content: center;
     }
+    ul{
+border: solid 1px rgb(80, 24, 24);
+box-shadow: 0px 10px 25px 1px rgb(54, 20, 18);
+
+    }
+    .createh3, {
+        display: flex;
+        border: 1px solid (255, 124, 124);
+        font-size: 60px ;
+        text-align: center;
+        justify-content: center;
+        text-shadow:  8px 9px 2px rgb(88, 19, 19);
+        margin-bottom: 10vh;
+    }
+    .openingDiv1 , .openingEdit, .updateH2{
+display: flex;
+flex-direction: column;
+justify-content: center;
+text-align: center;
+
+
+    }
+    .updateForm , .updatePage{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 40px;
+        font-family: 'Gorditas', cursive;
+
+  display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        
+        
+    }
+    .openingsDiv2{
+        display: flex;
+        flex-direction: column;
+        font-size: 20px;
+        width: fit-content;
+
+
+    }
+    

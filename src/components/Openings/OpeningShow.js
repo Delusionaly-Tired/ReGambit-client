@@ -74,12 +74,12 @@ class OpeningShow extends Component {
     }
 
     return (
-      <div>
-        <h3>{opening.name}</h3>
-        <h4>Type: {opening.type}</h4>
-        <h4>Skill: {opening.skill}</h4>
-        <button onClick={this.deleteOpening}>Delete Opening</button>
-        <button>
+      <div className="showOpeningDiv">
+        <h3 className='openingEdit'>{opening.name}</h3>
+        <h4 className='openType'>Type: {opening.type}</h4>
+        <h4 className='openType'>Skill: {opening.skill}</h4>
+        <button onClick={this.deleteOpening} className='submitBtn'>Delete Opening</button>
+        <button className='submitBtn'>
           <Link to={`/update-opening/${opening._id}`}>Update Opening</Link>
         </button>
         {deleted ? <Redirect to="/openings"/> : openingJsx}

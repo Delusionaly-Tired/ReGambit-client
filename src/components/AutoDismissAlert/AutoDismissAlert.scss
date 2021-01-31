@@ -9,7 +9,7 @@
   display: flex;
   left: 0;
   margin: auto;
-  width: 20rem;
+  max-width: 20rem;
   position: fixed;
   right: 0;
   z-index: 10000;
@@ -43,7 +43,7 @@
   }
 }
 .containerAlerts{
-  font-size: 15px;
+  text-size: 10px;
   color: rgb(253, 0, 139);
     background-attachment: pink;
     font-family: 'Hanalei Fill', cursive;
