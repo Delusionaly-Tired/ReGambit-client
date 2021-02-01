@@ -9,7 +9,11 @@
     justify-content: center;
     font-family: 'Gorditas', cursive;
     text-align: center;
-    font-size: 40px;
+    
+}
+.showOpeningDiv{
+    font-family: 'Gorditas', cursive;
+
 }
 
 label{
@@ -29,14 +33,17 @@ color: rgb(102, 23, 23);
     border: solid 1px rgb(243, 200, 200);
     box-shadow: 0px 10px 25px 1px rgb(54, 20, 18);
     }
-    button.submitBtn, .updateBtn, .deleteBtn{
+   .submitBtn, .updateBtn, .deleteBtn , .a{
         width: fit-content;
+        flex-direction: column;
         justify-content: center;
+        display: flex;
         text-align: center;
        -webkit-text-stroke: 1px rgb(2, 0, 0);
         color: white;
         border: 1px solid black;
         margin: 10px ;
+        color: white;
 
     }
     .submitOpen{
@@ -49,6 +56,8 @@ box-shadow: 0px 10px 25px 1px rgb(54, 20, 18);
 
     }
     .createh3, {
+        color: white;
+        -webkit-text-stroke: 1px black;
         display: flex;
         border: 1px solid (255, 124, 124);
         font-size: 60px ;
@@ -65,26 +74,34 @@ text-align: center;
 
 
     }
-    .updateForm , .updatePage{
+    .updateForm {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        font-size: 40px;
+        color:rgb(243, 233, 233);
+        -webkit-text-stroke: 1px rgb(2, 0, 0);
+        font-size: 60px;
         font-family: 'Gorditas', cursive;
-
-  display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-        
+        text-shadow:  8px 9px 2px rgb(88, 19, 19);
         
     }
     .openingsDiv2{
         display: flex;
         flex-direction: column;
         font-size: 20px;
+        margin: auto;
         width: fit-content;
 
 
+    }
+    input{
+display: flex;
+margin: auto;
+
+    }
+    .openType {
+color: white;
+        border: 1px outset rgb(41, 16, 16);
+        box-shadow: inset 2px 2px 10px rgb(34, 2, 2);
     }
     
