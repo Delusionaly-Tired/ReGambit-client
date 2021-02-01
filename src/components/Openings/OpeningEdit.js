@@ -83,19 +83,19 @@ class UpdateOpening extends Component {
             <input
               name="name"
               type="text"
-              placeholder="Opening name here"
+              placeholder="NAME"
               value={this.state.opening.name}
               onChange={this.handleInputChange}
             />
             <input
               name="type"
               type="text"
-              placeholder="Opening type here"
+              placeholder="TYPE"
               value={this.state.opening.type}
               onChange={this.handleInputChange}
             />
             <input
-              name="skill"
+              name="SKILL"
               type="text"
               placeholder="Opening skill here"
               value={this.state.opening.skill}
