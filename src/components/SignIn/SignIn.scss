@@ -19,20 +19,24 @@ margin: 0px 0px 10px 10px;
     max-height: fit-content;
     font-family: 'Hanalei Fill', cursive;
 }
+
 #email.form-control{
     background: pink;
     border: 1px solid black;
 }
+
 #password.form-control{
-    background: pink;  
+    background: pink;
     border: 1px solid black;
 }
+
 #passwordConfirmation.form-control{
-    background: pink;  
+    background: pink;
     border: 1px solid black;
 }
+
 .form-label{
-    display: flex; 
+    display: flex;
     font-family: 'Hanalei Fill', cursive;
     color: rgb(252, 0, 155);
     -webkit-text-stroke: 1px rgb(3, 3, 3);
@@ -40,6 +44,7 @@ margin: 0px 0px 10px 10px;
    display: inline-block;
 
 }
+
 .form-group{
     display: flex;
    text-align: center;
@@ -51,15 +56,20 @@ margin: 0px 0px 10px 10px;
    display: inline-block;
 }
 
-.h3{
+h3{
     display: flex;
-    // switch to percentages
-    // justify content in the center 
     max-height: 50px;
     text-align: center;
     justify-content: center;
     font-family: 'Hanalei Fill', cursive;
    }
+
+li {
+    font-size: 24px;
+    color: #999988;
+    -webkit-text-stroke: 1px rgba(3, 3, 3, 0.95);
+   }
+
 .btn.btn-primary{
     display: flex;
    -webkit-text-stroke: 1px rgb(3, 3, 3);
@@ -68,11 +78,9 @@ margin: 0px 0px 10px 10px;
     border: 1px solid black;
     margin: 10px ;
 }
+
 .tester2{
     display: flex;
     text-align: center;
     justify-content: center;
 }
-    
-
-    
