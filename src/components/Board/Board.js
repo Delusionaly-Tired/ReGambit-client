@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Chessboard from 'chessboardjsx'
 import './Board.scss'
-import Chess from 'chess.js'
+// import Chess from 'chess.js'
 
 export default class Board extends Chessboard {
   render () {
@@ -20,9 +20,9 @@ export class MoveCheck extends Component {
     square: ''
   }
 
-  componentDidMount () {
-    this.game = new Chess()
-  }
+  // componentDidMount () {
+  //   this.game = new Chess()
+  // }
 
   onDrop = ({ sourceSquare, targetSquare }) => {
     const move = this.game.move({ from: sourceSquare, to: targetSquare })
