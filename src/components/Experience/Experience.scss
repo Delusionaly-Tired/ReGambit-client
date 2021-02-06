@@ -18,14 +18,17 @@ h3, h4{
   color: rgb(48, 21, 3);
   -webkit-text-stroke: 1px rgb(235, 217, 217);
   text-align: center;
+
 }
 
 .beginner, .experienced, .advanced{
   display: flex;
   justify-content: left;
-  font-family: 'Gorditas', cursive;
-  font-size: 16px;
-  border-top: 2px solid black;
+    font-family: 'Gorditas', cursive;
+    font-size: 16px;
+    border-top: 2px solid black;
+
+
   // -webkit-text-stroke: .8px rgb(241, 228, 228);
   text-shadow: .33px .4px 1px white;
 }
