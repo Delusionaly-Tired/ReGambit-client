@@ -18,8 +18,9 @@ margin: auto;
     // max-height: 100vh;
     box-sizing: border-box;
 }
-
-#email.form-control #password.form-control #passwordConfirmation.form-control{
+#email.form-control,
+#password.form-control,
+#passwordConfirmation.form-control{
 
     border: 1px solid rgb(221, 213, 213);
 }
