@@ -12,7 +12,18 @@
     
 }
 .showOpeningDiv{
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+   -webkit-text-stroke: 1px rgb(2, 0, 0); 
+    font-size: 20px;
+    margin: 10px ;
+    text-align: center;
+    border: solid 1px rgb(243, 200, 200);
+    box-shadow: 0px 10px 25px 1px rgb(54, 20, 18);
     font-family: 'Gorditas', cursive;
+    min-width: 100%;
+    height: 100vh;
 
 }
 
@@ -22,7 +33,7 @@ color: rgb(102, 23, 23);
    -webkit-text-stroke: 1px rgb(2, 0, 0);
     font-size: 25px;
 }
-.createForm, .showOpeningDiv {
+.createForm {
     display: flex;
     flex-direction: column;
     justify-content: center;
