@@ -101,6 +101,13 @@ class UpdateOpening extends Component {
               value={this.state.opening.skill}
               onChange={this.handleInputChange}
             />
+            <input
+              name="name"
+              type="text"
+              placeholder="Comment here"
+              value={this.state.post.title}
+              onChange={this.handleInputChange}
+            />
             <button type="submit" className='submitBtn'>Submit</button>
           </form>
         </Fragment>
