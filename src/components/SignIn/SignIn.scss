@@ -14,62 +14,28 @@ margin: auto;
     display: flex;
     padding: 5vh;
     justify-content: center;
-<<<<<<< HEAD
-    max-height: fit-content;
-    font-family: 'Hanalei Fill', cursive;
-}
-
-#email.form-control{
-    background: pink;
-    border: 1px solid black;
-}
-
-#password.form-control{
-    background: pink;
-    border: 1px solid black;
-}
-
-#passwordConfirmation.form-control{
-    background: pink;
-    border: 1px solid black;
-}
-
-.form-label{
-    display: flex;
-    font-family: 'Hanalei Fill', cursive;
-    color: rgb(252, 0, 155);
-    -webkit-text-stroke: 1px rgb(3, 3, 3);
-   font-size: 30px;
-=======
     // max-height: 100vh;
     box-sizing: border-box;
 }
-#email.form-control, 
-#password.form-control, 
-#passwordConfirmation.form-control{
-    
+
+#email.form-control #password.form-control #passwordConfirmation.form-control{
+
     border: 1px solid rgb(221, 213, 213);
 }
 
 form{
 
-    display: flex; 
+    display: flex;
     font-size: 30px;
     font-family: 'Gorditas', cursive;
     -webkit-text-stroke: 1px rgb(238, 212, 212);
->>>>>>> divs
    display: inline-block;
    color: rgb(43, 14, 7);
    justify-content: center;
    border: outset 1px rgb(236, 225, 225);
 
 }
-<<<<<<< HEAD
-
-.form-group{
-=======
 form{
->>>>>>> divs
     display: flex;
    text-align: center;
     margin-bottom: 40px;
@@ -90,7 +56,6 @@ h3{
     font-family: 'Gorditas', cursive;
     font-size: 40px;
    }
-<<<<<<< HEAD
 
 li {
     font-size: 24px;
@@ -98,10 +63,7 @@ li {
     -webkit-text-stroke: 1px rgba(3, 3, 3, 0.95);
    }
 
-.btn.btn-primary{
-=======
 .btn.btn-primary, button.submitBtn{
->>>>>>> divs
     display: flex;
    -webkit-text-stroke: 1px rgb(3, 3, 3);
    background-image:
