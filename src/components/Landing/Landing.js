@@ -8,6 +8,7 @@ import './Landing.scss'
 
 const Landing = ({ user }) => (
   <div className="contents">
+
     <Board />
     <Experience />
     <Sidebar />

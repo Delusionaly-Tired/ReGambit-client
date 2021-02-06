@@ -51,7 +51,9 @@ class SignIn extends Component {
     return (
       <main className="signInRow">
         <div>
-          <h3 className='h3'>Sign In</h3>
+          <div>
+            <h3 className='h3'>Sign In</h3>
+          </div>
           <Form onSubmit={this.onSignIn}>
             <Form.Group controlId="email">
               <Form.Label>Email address</Form.Label>
@@ -64,17 +66,19 @@ class SignIn extends Component {
                 onChange={this.handleChange}
               />
             </Form.Group>
-            <Form.Group controlId="password">
-              <Form.Label>Password</Form.Label>
-              <Form.Control
-                required
-                name="password"
-                value={password}
-                type="password"
-                placeholder="Password"
-                onChange={this.handleChange}
-              />
-            </Form.Group>
+            <div className='passForm'>
+              <Form.Group controlId="password">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  required
+                  name="password"
+                  value={password}
+                  type="password"
+                  placeholder="Password"
+                  onChange={this.handleChange}
+                />
+              </Form.Group>
+            </div>
             <div className='tester2'>
               <Button
                 variant="primary"
