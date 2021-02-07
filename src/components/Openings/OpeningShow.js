@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Spinner from 'react-bootstrap/Spinner'
-import PostCreate from '../Posts/PostCreate.js'
 // import withRouter so we have access to the match route prop
 import { withRouter, Redirect, Link } from 'react-router-dom'
 import { openingShow } from '../../api/openings'
@@ -79,21 +78,10 @@ class OpeningShow extends Component {
         <h3 className='openingEdit'>{opening.name}</h3>
         <h3 className='openType'>Type: {opening.type}</h3>
         <h3 className='openType'>Skill: {opening.skill}</h3>
-        <div className='blogForm'>Veniam vidisse in quibusdam. Iis cillum doctrina relinqueret qui laboris quis
-        enim excepteur tamen, nam fore est legam ne fabulas anim hic laboris
-        firmissimum. Incurreret nulla non admodum concursionibus non quid te consequat
-        nam elit offendit graviterque non in dolore ex sint, ex tamen fabulas ita
-        nescius in culpa litteris nam eiusmod in admodum an hic enim noster culpa
-        arbitror. Culpa exercitation laboris anim litteris eu cernantur fugiat
-        offendit.Iis dolore comprehenderit, sint mentitum firmissimum a fugiat fabulas
-        proident, commodo ut eiusmod. Cillum ita ab esse laborum o quae relinqueret
-        cupidatat ipsum offendit, et laborum cohaerescant ad non quamquam fidelissimae,
-        id se quis multos nulla, e iis elit voluptate qui qui dolore minim non
-        excepteur, hic quid de summis. Nam ab anim summis duis. Sint aliquip ne
-        ingeniis.</div>
-        <div className="postForm">
-          {PostCreate}
-        </div>
+        <div className='blogForm'>Non quis quis qui ea sit proident ipsum sunt mollit qui. Exercitation amet consequat exercitation est ut velit magna sint nisi adipisicing nisi aute. Anim aliquip proident fugiat id. Et sunt laborum nisi dolor sit eu culpa.</div>
+        <h4 className="skillTest"> TYPE</h4>
+        <p className="testTitle">tester</p>
+        <h4 className="skillTest">Skill</h4>
         <button onClick={this.deleteOpening} className='submitBtn'>Delete Opening</button>
         <button className='submitBtn'>
           <Link to={`/update-opening/${opening._id}`}>Update Opening</Link>
