@@ -1,7 +1,7 @@
 import React from 'react'
 // import './postAll.scss'
 
-const PostsForm = ({ post, handleSubmit, handleChange }) => (
+const PostForm = ({ post, handleSubmit, handleChange }) => (
   <form className="createForm" onSubmit={handleSubmit}>
     <label>Title</label>
     <input
@@ -27,4 +27,4 @@ const PostsForm = ({ post, handleSubmit, handleChange }) => (
   </form>
 )
 
-export default PostsForm
+export default PostForm
