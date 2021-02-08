@@ -17,8 +17,13 @@ class PostCreate extends Component {
         content: ''
       },
       // createdId will be null, until we successfully create an post
-      createdId: null
+      createdId: null,
+      openingID: this.props.id
     }
+  }
+
+  componentDidMount () {
+    console.log(this.props.match.params.id)
   }
 
   handleSubmit = event => {
@@ -36,6 +41,7 @@ class PostCreate extends Component {
       },
       data: { post: this.state.post }
     })
+      .then(res => this.setState({ openingID: match.params.id }))
       .then(res => this.setState({ createdId: res.data.post._id }))
       .then(res => console.log(match.params.id))
       .then(() => msgAlert({
@@ -44,7 +50,6 @@ class PostCreate extends Component {
         variant: 'success'
       }))
       .catch(error => {
-        console.log(match.params.id)
         console.log(post)
         msgAlert({
           heading: 'Failed to Create post',
@@ -73,13 +78,17 @@ class PostCreate extends Component {
 
   render () {
   // destructure our posts and createdId state
-    const { post, createdId } = this.state
+    const { post, createdId, openingID } = this.state
 
     // if the post has been created and we sits id
     if (createdId) {
       console.log(createdId)
       // redirect to the posts show page
       return <Redirect to={`/posts/${createdId}`} />
+    }
+
+    if (openingID) {
+      console.log(openingID)
     }
 
     return (

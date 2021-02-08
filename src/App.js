@@ -83,7 +83,7 @@ class App extends Component {
           <Route user={user} path='/openings/:id' render={() => (
             <OpeningShow msgAlert={this.msgAlert} user={user} />
           )} />
-          <Route user={user} exact path='/openings/:id' render={() => (
+          <Route user={user} exact path='/openings/:id' render={(props) => (
             <PostCreate msgAlert={this.msgAlert} user={user} />
           )} />
           <AuthenticatedRoute user={user} path='/update-opening/:id' render={() => (
