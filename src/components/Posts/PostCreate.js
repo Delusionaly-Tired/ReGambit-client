@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PostForm from './PostForm'
-import { withRouter, Redirect } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
 // import { postCreate } from '../../api/posts'
@@ -14,11 +14,11 @@ class PostCreate extends Component {
     this.state = {
       post: {
         title: '',
-        content: ''
+        content: '',
+        openingID: this.props.match.params.id
       },
       // createdId will be null, until we successfully create an post
-      createdId: null,
-      openingID: this.props.match.params.id
+      createdId: null
     }
   }
 
@@ -34,8 +34,8 @@ class PostCreate extends Component {
     console.log(match)
     console.log(post)
     axios({
-      method: 'POST',
-      url: `${apiUrl}/openings/${match.params.id}/posts`,
+      method: 'PATCH',
+      url: `${apiUrl}/openings/${match.params.id}`,
       headers: {
         'Authorization': `Bearer ${user.token}`
       },
@@ -83,8 +83,6 @@ class PostCreate extends Component {
     // if the post has been created and we sits id
     if (createdId) {
       console.log(createdId)
-      // redirect to the posts show page
-      return <Redirect to={`/posts/${createdId}`} />
     }
 
     if (openingID) {

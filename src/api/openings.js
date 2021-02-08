@@ -8,14 +8,14 @@ export const openingIndex = user => {
   })
 }
 
-export const openingCreate = (opening, user) => {
+export const openingCreate = (opening, user, post) => {
   return axios({
     url: apiUrl + '/openings',
     method: 'POST',
     headers: {
       'Authorization': `Bearer ${user.token}`
     },
-    data: { opening: opening }
+    data: { opening: opening, post: post }
   })
 }
 
