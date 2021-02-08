@@ -18,7 +18,7 @@ class PostCreate extends Component {
       },
       // createdId will be null, until we successfully create an post
       createdId: null,
-      openingID: this.props.id
+      openingID: this.props.match.params.id
     }
   }
 
