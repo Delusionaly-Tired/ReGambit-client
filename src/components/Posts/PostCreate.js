@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import PostForm from './PostForm'
-import { Redirect } from 'react-router-dom'
-import { postCreate } from '../../api/posts'
+import { withRouter, Redirect } from 'react-router-dom'
+import axios from 'axios'
+import apiUrl from '../../apiConfig'
+// import { postCreate } from '../../api/posts'
 // import './PostsAll.scss'
 
 class PostCreate extends Component {
@@ -21,19 +23,29 @@ class PostCreate extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    const { user, msgAlert } = this.props
+    const { user, match, msgAlert } = this.props
     const { post } = this.state
-
-    // create an post, pass it the post data and the user for its token
-    postCreate(post, user)
-      // set the createdId to the id of the post we just created
+    console.log(user)
+    console.log(match)
+    console.log(post)
+    axios({
+      method: 'POST',
+      url: `${apiUrl}/openings/${match.params.id}/posts`,
+      headers: {
+        'Authorization': `Bearer ${user.token}`
+      },
+      data: { post: this.state.post }
+    })
       .then(res => this.setState({ createdId: res.data.post._id }))
+      .then(res => console.log(match.params.id))
       .then(() => msgAlert({
         heading: 'Created post Succesfully',
         message: 'post has been created successfully. Now viewing the post.',
         variant: 'success'
       }))
       .catch(error => {
+        console.log(match.params.id)
+        console.log(post)
         msgAlert({
           heading: 'Failed to Create post',
           message: 'Could not create post with error: ' + error.message,
@@ -83,4 +95,4 @@ class PostCreate extends Component {
   }
 }
 
-export default PostCreate
+export default withRouter(PostCreate)
