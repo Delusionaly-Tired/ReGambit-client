@@ -1,10 +1,10 @@
 @import '~bootstrap/scss/bootstrap';
-@import url('https://fonts.googleapis.com/css2?family=Gorditas&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap');
 
 .testing {
 display: flex;
 color: rgb(0, 0, 0);
-font-family: 'Hanalei Fill', cursive;
+font-family: 'Yusei Magic', sans-serif;
 font-size: 48px;
 -webkit-text-stroke: 1px rgb(255, 246, 246);
 border-radius: 3px;
@@ -27,7 +27,7 @@ background-image:
 	display: flex;
 	font-size: 24px;
 	color:black;
-	font-family: 'Gorditas', cursive;
+	font-family: 'Yusei Magic', sans-serif;
    justify-content: right;
     -webkit-text-stroke: 1px rgb(255, 246, 246);
 }
@@ -35,7 +35,7 @@ background-image:
 	display: flex;
 	font-size: 24px;
 	color:black;
-    font-family: 'Gorditas', cursive;
+    font-family: 'Yusei Magic', sans-serif;
     -webkit-text-stroke: .81px rgb(0, 0, 0);
 }
 .navbar-text.mr-2{

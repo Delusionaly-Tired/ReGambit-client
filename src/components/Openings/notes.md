@@ -9,5 +9,7 @@
 - use almost same syntax for comment
 - post.title
 -post.content
+// 
 
 // after blog form access post.title post.content
+// fit image in the body 

@@ -1,11 +1,12 @@
 @import '~bootstrap/scss/bootstrap';
-@import url('https://fonts.googleapis.com/css2?family=Gorditas&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap');
+
 
 .signInRow{
 display: flex;
 
 justify-content: center;
-font-family: 'Gorditas', cursive;
+font-family: 'Yusei Magic', sans-serif;
 text-align: center;
 margin: auto;
 }
@@ -27,7 +28,7 @@ form{
 
     display: flex;
     font-size: 30px;
-    font-family: 'Gorditas', cursive;
+    font-family: 'Yusei Magic', sans-serif;
     -webkit-text-stroke: 1px rgb(238, 212, 212);
    display: inline-block;
    color: rgb(43, 14, 7);
@@ -39,7 +40,7 @@ form{
     display: flex;
    text-align: center;
     margin-bottom: 40px;
-    font-family: 'Gorditas', cursive;
+    font-family: 'Yusei Magic', sans-serif;
     // color: rgb(252, 0, 155);
     -webkit-text-stroke: 1px rgb(3, 3, 3);
    display: inline-block;
@@ -53,7 +54,7 @@ h3{
     max-height: 50px;
     text-align: center;
     justify-content: center;
-    font-family: 'Gorditas', cursive;
+    font-family: 'Yusei Magic', sans-serif;
     font-size: 40px;
    }
 
