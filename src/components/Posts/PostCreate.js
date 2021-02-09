@@ -22,35 +22,44 @@ class PostCreate extends Component {
     }
   }
 
-  componentDidMount () {
-    console.log(this.props.match.params.id)
+  async componentDidMount () {
+    // we're going to "try" some things (our request)
+    try {
+      const res = await axios(`${apiUrl}/openings/${this.props.match.params.id}`)
+      console.log(res)
+      // this.setState({ opening: res.data.opening })
+      // console.log(res)
+    } catch (err) {
+      // if anything goes wrong in the try block, hanlde error
+      console.error(err)
+    }
   }
 
   handleSubmit = event => {
     event.preventDefault()
     const { user, match, msgAlert } = this.props
     const { post } = this.state
-    console.log(user)
     console.log(match)
     console.log(post)
+    console.log(this)
     axios({
       method: 'PATCH',
       url: `${apiUrl}/openings/${match.params.id}`,
       headers: {
         'Authorization': `Bearer ${user.token}`
       },
-      data: { post: this.state.post }
+      data: { opening: this.state.post }
     })
-      .then(res => this.setState({ openingID: match.params.id }))
-      .then(res => this.setState({ createdId: res.data.post._id }))
       .then(res => console.log(match.params.id))
+      .then(res => this.setState({ openingID: match.params.id }))
+      .then(res => this.setState({ createdId: res.data.post.id }))
       .then(() => msgAlert({
         heading: 'Created post Succesfully',
         message: 'post has been created successfully. Now viewing the post.',
         variant: 'success'
       }))
       .catch(error => {
-        console.log(post)
+        console.log(this.state)
         msgAlert({
           heading: 'Failed to Create post',
           message: 'Could not create post with error: ' + error.message,
