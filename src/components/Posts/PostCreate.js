@@ -50,9 +50,9 @@ class PostCreate extends Component {
       },
       data: { opening: this.state.post }
     })
-      .then(res => console.log(match.params.id))
-      .then(res => this.setState({ openingID: match.params.id }))
-      .then(res => this.setState({ createdId: res.data.post.id }))
+      .then(res => console.log(post))
+      // .then(res => this.setState({ openingID: match.params.id }))
+      // .then(res => this.setState({ createdId: res.data.post.id }))
       .then(() => msgAlert({
         heading: 'Created post Succesfully',
         message: 'post has been created successfully. Now viewing the post.',
