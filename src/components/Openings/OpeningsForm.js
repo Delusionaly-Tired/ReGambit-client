@@ -1,7 +1,8 @@
 import React from 'react'
+import './OpeningAll.scss'
 
 const OpeningsForm = ({ opening, handleSubmit, handleChange }) => (
-  <form onSubmit={handleSubmit}>
+  <form className="createForm" onSubmit={handleSubmit}>
     <label>Name</label>
     <input
       required
@@ -29,7 +30,9 @@ const OpeningsForm = ({ opening, handleSubmit, handleChange }) => (
       defaultValue={opening.skill}
       onChange={handleChange}
     />
-    <button type='submit'>Submit</button>
+    <div className='submitOpen'>
+      <button type='submit' className='submitBtn'>Submit</button>
+    </div>
   </form>
 )
 

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Spinner from 'react-bootstrap/Spinner'
 import { openingIndex } from '../../api/openings'
+import './OpeningAll.scss'
 
 class OpeningIndex extends Component {
   constructor (props) {
@@ -62,8 +63,8 @@ class OpeningIndex extends Component {
     ))
 
     return (
-      <div>
-        <h3>Openings</h3>
+      <div className='openingDiv1'>
+        <h3 className='createh3'>Openings</h3>
         <ul>
           {openingJsx}
         </ul>

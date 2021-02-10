@@ -19,10 +19,12 @@ import './Experience.scss'
 const Experience = () => {
   return (
     <div className="questions">
-      <h3>How knowledgable are you about chess?</h3>
-      <Nav.Link href="#openings" className="beginner" onClick={this.handleClick}>I&apos;ve heard of Chess</Nav.Link>
-      <Nav.Link href="#experienced" className="experienced" onClick={this.handleClick}>I watched all of the Queen&apos;s gambit and understood everything perfectly.</Nav.Link>
-      <Nav.Link href="#advanced" className="advanced" onClick={this.handleClick}>Just call me Bobby Fischer</Nav.Link>
+      <h3 className="expHead">How knowledgable are you about chess?</h3>
+      <div className="expDiv">
+        <Nav.Link href="#openings" className="beginner" onClick={this.handleClick}>I&apos;ve heard of Chess</Nav.Link>
+        <Nav.Link href="#experienced" className="experienced" onClick={this.handleClick}>I watched all of the Queen&apos;s gambit and understood everything perfectly.</Nav.Link>
+        <Nav.Link href="#advanced" className="advanced" onClick={this.handleClick}>Just call me Bobby Fischer</Nav.Link>
+      </div>
     </div>
   )
 }

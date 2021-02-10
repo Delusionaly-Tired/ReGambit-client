@@ -76,33 +76,35 @@ class UpdateOpening extends Component {
       return <Redirect to={`{/openings/${this.props.match.params.id}}`}/>
     }
     return (
-      <Fragment>
-        <h2>Update an Opening:</h2>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            name="name"
-            type="text"
-            placeholder="Opening name here"
-            value={this.state.opening.name}
-            onChange={this.handleInputChange}
-          />
-          <input
-            name="type"
-            type="text"
-            placeholder="Opening type here"
-            value={this.state.opening.type}
-            onChange={this.handleInputChange}
-          />
-          <input
-            name="skill"
-            type="text"
-            placeholder="Opening skill here"
-            value={this.state.opening.skill}
-            onChange={this.handleInputChange}
-          />
-          <button type="submit">Submit</button>
-        </form>
-      </Fragment>
+      <main className='updatePage'>
+        <Fragment>
+          <h2 className='updateForm'>Update an Opening:</h2>
+          <form onSubmit={this.handleSubmit} className='openingsDiv2'>
+            <input
+              name="name"
+              type="text"
+              placeholder="NAME"
+              value={this.state.opening.name}
+              onChange={this.handleInputChange}
+            />
+            <input
+              name="type"
+              type="text"
+              placeholder="TYPE"
+              value={this.state.opening.type}
+              onChange={this.handleInputChange}
+            />
+            <input
+              name="SKILL"
+              type="text"
+              placeholder="Opening skill here"
+              value={this.state.opening.skill}
+              onChange={this.handleInputChange}
+            />
+            <button type="submit" className='submitBtn'>Submit</button>
+          </form>
+        </Fragment>
+      </main>
     )
   }
 }

@@ -17,6 +17,7 @@ import OpeningIndex from './components/Openings/OpeningIndex'
 import OpeningShow from './components/Openings/OpeningShow'
 import UpdateOpening from './components/Openings/OpeningEdit'
 import Landing from './components/Landing/Landing'
+import PostCreate from './components/Posts/PostCreate'
 
 class App extends Component {
   constructor (props) {
@@ -73,7 +74,7 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword msgAlert={this.msgAlert} user={user} />
           )} />
-          <Route user={user} path='/create-opening' render={() => (
+          <AuthenticatedRoute user={user} path='/create-opening' render={() => (
             <OpeningsCreate msgAlert={this.msgAlert} user={user} />
           )} />
           <Route user={user} exact path='/openings' render={() => (
@@ -82,7 +83,10 @@ class App extends Component {
           <Route user={user} path='/openings/:id' render={() => (
             <OpeningShow msgAlert={this.msgAlert} user={user} />
           )} />
-          <Route user={user} path='/update-opening/:id' render={() => (
+          <Route user={user} exact path='/openings/:id' render={(props) => (
+            <PostCreate msgAlert={this.msgAlert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/update-opening/:id' render={() => (
             <UpdateOpening msgAlert={this.msgAlert} user={user} />
           )} />
           <Route user={user} exact path='/' render={() => (
