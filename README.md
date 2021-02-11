@@ -42,6 +42,5 @@ The app itself is relatively simple. A user signs up on the [website](https://de
 
 ## Wireframe
 
-![Landing Page] (https://imgur.com/6683KaS)
-![Home Page] (https://imgur.com/RUBA09K)
-![ERD] (https://imgur.com/a/kAVbNaX)
+![Landing Page](https://imgur.com/6683KaS)
+![Home Page](https://imgur.com/RUBA09K)
