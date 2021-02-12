@@ -5,6 +5,7 @@ import { withRouter, Redirect, Link } from 'react-router-dom'
 import { openingShow } from '../../api/openings'
 import apiUrl from '../../apiConfig'
 import axios from 'axios'
+import PostCreate from './../Posts/PostCreate.js'
 
 class OpeningShow extends Component {
   constructor (props) {
@@ -78,8 +79,27 @@ class OpeningShow extends Component {
         <h3 className='openingEdit'>{opening.name}</h3>
         <h3 className='openType'>{opening.type}</h3>
         <h3 className='openType'>{opening.skill}</h3>
-        <div className='blogForm'>Non quis quis qui ea sit proident ipsum sunt mollit qui. Exercitation amet consequat exercitation est ut velit magna sint nisi adipisicing nisi aute. Anim aliquip proident fugiat id. Et sunt laborum nisi dolor sit eu culpa.
-          <button onClick={this.deleteOpening} className='submitBtn'>Delete Opening</button>  <button className='submitBtn'><Link to={`/update-opening/${opening._id}`}>Update Opening</Link></button>
+        <div className='blogForm'>Ad dolor e tempor a id laborum consectetur, amet et ne enim pariatur, malis eu
+        in irure fabulas, non quem anim eram offendit, ab e elit minim noster qui
+        admodum quid quibusdam aliquip ex quo nulla voluptate singulis. Excepteur ubi
+        aute id irure et eiusmod. A se quid fabulas eu in velit firmissimum o ea anim
+        ullamco concursionibus, velit hic se aliqua appellat et mentitum ad quae sed est
+        cillum fabulas arbitrantur, offendit duis fugiat do labore, doctrina tamen nam
+        nescius despicationes.In aute cernantur offendit sed commodo quis minim ne enim,
+        eu mandaremus imitarentur nam quo ut sunt iudicem, fabulas summis enim excepteur
+        summis, ea sunt illum est cernantur, laboris ea tempor vidisse, est laborum iis
+        offendit. Quo senserit consectetur, ita esse aliquip, ad quis efflorescere, aut
+        admodum imitarentur ita singulis adipisicing sed nostrud, tempor aut et tempor
+        mandaremus do dolor ne eu minim officia, amet commodo de instituendarum. Ullamco
+        nam aute, iudicem multos minim qui aute iis ab ex elit summis magna, iudicem e
+        anim, de quid litteris deserunt, senserit quem dolore singulis multos aut
+        offendit eu quibusdam, id commodo graviterque. Ea elit eiusmod distinguantur qui
+        anim pariatur ea amet veniam est noster quamquam ne deserunt hic iudicem sed
+        laboris.
+        </div>
+        <button onClick={this.deleteOpening} className='submitBtn'>Delete Opening</button>  <button className='submitBtn'><Link to={`/update-opening/${opening._id}`}>Update Opening</Link></button>
+        <div>
+          <PostCreate/>
         </div>
         <h4 className="skillTest">TITLE</h4>
         <p className="testTitle">tester</p>

@@ -1,119 +1,86 @@
-import React, { Component } from 'react'
-import PostForm from './PostForm'
+import React, { Fragment, useState } from 'react'
+// import PostForm from './PostForm'
 import { withRouter } from 'react-router-dom'
-import axios from 'axios'
-import apiUrl from '../../apiConfig'
-// import { postCreate } from '../../api/posts'
+// import axios from 'axios'
+// import apiUrl from '../../apiConfig'
+import { postCreate } from '../../api/posts'
 // import './PostsAll.scss'
 
-class PostCreate extends Component {
-  constructor (props) {
-    super(props)
-
-    // initially our opening states will be empty until they are filled in
-    this.state = {
-      opening: {
-        posts: [],
-        openingID: this.props.match.params.id
-      },
-      // createdId will be null, until we successfully create an post
-      updated: false
-    }
-  }
-
-  async componentDidMount () {
-    // we're going to "try" some things (our request)
-    try {
-      const res = await axios(`${apiUrl}/openings/${this.props.match.params.id}`)
-      console.log(res)
-      console.log(res.data.opening.posts)
-      // this.setState({ opening: res.data.opening })
-      // console.log(res)
-    } catch (err) {
-      // if anything goes wrong in the try block, hanlde error
-      console.error(err)
-    }
-  }
+function PostCreate (props) {
+  const [title, content] = useState('')
 
   // when an input changes, update the state that corresponds with the input's name
-  handleChange = (event) => {
+  const handleChange = event => {
     event.persist()
-    this.setState(currState => {
-      const storedPost = {
-        [event.target.name]: event.target.value
-      }
-      const throwPost = { ...currState.opening, ...storedPost }
-      return { opening: throwPost }
-    })
+    // setContent(lastPost => {
+    //   const updateContentFieldHandler = { [event.target.name]: event.target.value }
+    //   const updatedContent = Object.assign({}, lastPost, updateContentFieldHandler)
+    //   return updatedContent
+    // })
   }
 
-  handleSubmit = event => {
+  async function handleSubmit (event) {
     event.preventDefault()
-    const { user, match, msgAlert, throwPost } = this.props
-    const { post, opening, openingID } = this.state
-    console.log(match)
-    console.log(post)
-    console.log(this)
-    axios({
-      method: 'PATCH',
-      url: `${apiUrl}/openings/${match.params.id}`,
-      headers: {
-        'Authorization': `Bearer ${user.token}`
-      },
-      data: { opening: opening }
-    })
-      .then(res => console.log(this))
-      .then(() => console.log('THIS Printed Above'))
-      // .then(res => console.log(post))
-      // .then(() => console.log('Post Printed Above'))
-      .then(res => console.log(opening))
-      .then(() => console.log('Opening Printed Above'))
-      .then(res => this.setState({ openingID: match.params.id }))
-      .then(res => console.log(openingID))
-      .then(() => console.log('OpeningID Printed Above'))
-      .then(res => console.log(throwPost))
-      .then(() => console.log('Updated Post Printed Above'))
-      // .then(res => this.setState({ opening }))
-      // .then(() => this.setState({ updated: true }))
-      // .then(res => this.setState({ createdId: res.data.post.id }))
-      // .then(() => this.setState({ opening: throwPost }))
-      .then(() => msgAlert({
-        heading: 'Created post Succesfully',
-        message: 'post has been created successfully. Now viewing the post.',
+    event.target.reset()
+
+    const { user, msgAlert, opening, createNewPost } = props
+    const openingID = opening.id
+
+    try {
+      const res = await postCreate(title, content, user, openingID)
+      await createNewPost(res.data.newPost)
+      // .then(res => {
+      //   this.setState({ postID: res.data.post.id })
+      //   console.log(res)
+      // })
+      // .then(res => console.log(this))
+      // .then(() => console.log('THIS Printed Above'))
+      // .then(() => console.log('Opening Printed Above'))
+      // .then(res => console.log(openingID))
+      // .then(() => console.log('OpeningID Printed Above'))
+      msgAlert({
+        heading: 'Created post successfully',
+        message: 'Nice.',
         variant: 'success'
-      }))
-      .then(() => this.state.push(`${apiUrl}/openings/${match.params.id}`))
-      .catch(error => {
-        console.log(this.state)
-        msgAlert({
-          heading: 'Failed to Create post',
-          message: 'Could not create post with error: ' + error.message,
-          variant: 'danger'
-        })
       })
+    } catch (error) {
+      console.log(this.state)
+      msgAlert({
+        heading: 'Failed to create comment',
+        message: `Failed because: ${error.message}`,
+        variant: 'danger'
+      })
+    }
   }
 
-  render () {
-  // destructure our posts and createdId state
-    const { opening, updated, post } = this.state
-
-    // if the post has been created and we sits id
-    if (updated) {
-      console.log('This is the loop in render coming from the alert boxes.')
-      console.log(post)
-    }
-
-    return (
+  return (
+    <Fragment>
       <div id='postsDiv1'>
         <h3 className='posth3'>Create post</h3>
-        <PostForm
-          opening={opening}
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-        />
+        <form className="createForm" onSubmit={handleSubmit}>
+          <label>Title</label>
+          <input
+            required
+            placeholder='Put the title of your comment here'
+            // this name should line up with the state we want to change
+            name='title'
+            onChange={handleChange}
+          />
+          <label>Content</label>
+          <input
+            required
+            placeholder='Put your message here'
+            // this name should line up with the state we want to change
+            name='content'
+            onChange={handleChange}
+          />
+          <div className='submitOpen'>
+            <button type='submit' className='submitBtn'>Submit Post</button>
+          </div>
+        </form>
       </div>
-    )
-  }
+    </Fragment>
+  )
 }
 
 export default withRouter(PostCreate)
