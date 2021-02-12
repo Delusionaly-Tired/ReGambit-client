@@ -23,8 +23,8 @@ function PostCreate (props) {
     event.preventDefault()
     event.target.reset()
 
-    const { user, msgAlert, opening, createNewPost } = props
-    const openingID = opening.id
+    const { user, msgAlert, match, createNewPost } = props
+    const openingID = match.params.id
 
     try {
       const res = await postCreate(title, content, user, openingID)
@@ -44,7 +44,6 @@ function PostCreate (props) {
         variant: 'success'
       })
     } catch (error) {
-      console.log(this.state)
       msgAlert({
         heading: 'Failed to create comment',
         message: `Failed because: ${error.message}`,
