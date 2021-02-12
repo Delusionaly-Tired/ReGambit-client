@@ -12,13 +12,12 @@ class PostCreate extends Component {
 
     // initially our opening states will be empty until they are filled in
     this.state = {
-      post: {
-        title: '',
-        content: '',
+      opening: {
+        posts: [],
         openingID: this.props.match.params.id
       },
       // createdId will be null, until we successfully create an post
-      createdId: null
+      updated: false
     }
   }
 
@@ -27,6 +26,7 @@ class PostCreate extends Component {
     try {
       const res = await axios(`${apiUrl}/openings/${this.props.match.params.id}`)
       console.log(res)
+      console.log(res.data.opening.posts)
       // this.setState({ opening: res.data.opening })
       // console.log(res)
     } catch (err) {
@@ -35,10 +35,22 @@ class PostCreate extends Component {
     }
   }
 
+  // when an input changes, update the state that corresponds with the input's name
+  handleChange = (event) => {
+    event.persist()
+    this.setState(currState => {
+      const storedPost = {
+        [event.target.name]: event.target.value
+      }
+      const throwPost = { ...currState.opening, ...storedPost }
+      return { opening: throwPost }
+    })
+  }
+
   handleSubmit = event => {
     event.preventDefault()
-    const { user, match, msgAlert } = this.props
-    const { post } = this.state
+    const { user, match, msgAlert, throwPost } = this.props
+    const { post, opening, openingID } = this.state
     console.log(match)
     console.log(post)
     console.log(this)
@@ -48,16 +60,29 @@ class PostCreate extends Component {
       headers: {
         'Authorization': `Bearer ${user.token}`
       },
-      data: { opening: this.state.post }
+      data: { opening: opening }
     })
-      .then(res => console.log(post))
-      // .then(res => this.setState({ openingID: match.params.id }))
+      .then(res => console.log(this))
+      .then(() => console.log('THIS Printed Above'))
+      // .then(res => console.log(post))
+      // .then(() => console.log('Post Printed Above'))
+      .then(res => console.log(opening))
+      .then(() => console.log('Opening Printed Above'))
+      .then(res => this.setState({ openingID: match.params.id }))
+      .then(res => console.log(openingID))
+      .then(() => console.log('OpeningID Printed Above'))
+      .then(res => console.log(throwPost))
+      .then(() => console.log('Updated Post Printed Above'))
+      // .then(res => this.setState({ opening }))
+      // .then(() => this.setState({ updated: true }))
       // .then(res => this.setState({ createdId: res.data.post.id }))
+      // .then(() => this.setState({ opening: throwPost }))
       .then(() => msgAlert({
         heading: 'Created post Succesfully',
         message: 'post has been created successfully. Now viewing the post.',
         variant: 'success'
       }))
+      .then(() => this.state.push(`${apiUrl}/openings/${match.params.id}`))
       .catch(error => {
         console.log(this.state)
         msgAlert({
@@ -68,41 +93,21 @@ class PostCreate extends Component {
       })
   }
 
-  // when an input changes, update the state that corresponds with the input's name
-  handleChange = event => {
-    // in react, an event is actually a SyntheticEvent
-    // to ensure the properties are not set to null after handleChange is finished
-    // we must call event.persist
-    event.persist()
-    this.setState(state => {
-      // return our state changge
-      return {
-        // set the post state, to what it used to be (...state.post)
-        // but replace the property with `name` to its current `value`
-        // ex. name could be `name` or `director`
-        post: { ...state.post, [event.target.name]: event.target.value }
-      }
-    })
-  }
-
   render () {
   // destructure our posts and createdId state
-    const { post, createdId, openingID } = this.state
+    const { opening, updated, post } = this.state
 
     // if the post has been created and we sits id
-    if (createdId) {
-      console.log(createdId)
-    }
-
-    if (openingID) {
-      console.log(openingID)
+    if (updated) {
+      console.log('This is the loop in render coming from the alert boxes.')
+      console.log(post)
     }
 
     return (
       <div id='postsDiv1'>
         <h3 className='posth3'>Create post</h3>
         <PostForm
-          post={post}
+          opening={opening}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
         />
