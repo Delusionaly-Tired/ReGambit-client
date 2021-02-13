@@ -1,16 +1,17 @@
-import React, { Component, Redirect } from 'react'
-import PostForm from './PostForm'
-// import { withRouter } from 'react-router-dom'
+import React, { Component } from 'react'
+// import PostForm from './PostForm'
+import { Redirect } from 'react-router-dom'
 // import axios from 'axios'
 // import apiUrl from '../../apiConfig'
 import { postCreate } from '../../api/posts'
+import PostForm from './PostForm'
 // import './PostsAll.scss'
 
 class PostCreate extends Component {
   constructor (props) {
     super(props)
 
-    // initially our opening states will be empty until they are filled in
+    // initially our movies title and director will be empty until they are filled in
     this.state = {
       post: {
         title: '',
