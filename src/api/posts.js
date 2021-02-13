@@ -9,20 +9,14 @@ export const postIndex = user => {
   })
 }
 
-export const postCreate = async (content, title, user, openingID) => {
+export const postCreate = (post, user) => {
   return axios({
     url: apiUrl + '/posts',
     method: 'POST',
     headers: {
       'Authorization': `Bearer ${user.token}`
     },
-    data: {
-      post: {
-        title: title.title,
-        content: content.content,
-        openingID: openingID
-      }
-    }
+    data: { post }
   })
 }
 

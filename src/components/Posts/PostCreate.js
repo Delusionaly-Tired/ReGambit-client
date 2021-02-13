@@ -6,7 +6,7 @@ import PostForm from './PostForm'
 import { postCreate } from '../../api/posts'
 // import './PostsAll.scss'
 
-class PostCreate extends Component {
+export class PostCreate extends Component {
   constructor (props) {
     super(props)
 
@@ -26,10 +26,11 @@ class PostCreate extends Component {
     const { user, msgAlert } = this.props
     const { post } = this.state
     console.log(this)
+    console.log(this.props)
+    console.log(this.props.user)
 
     // create a movie, pass it the movie data and the user for its token
     postCreate(post, user)
-      .then(console.log(post))
       .then(res => this.setState({ createdId: res.data.post._id }))
       .then(() => msgAlert({
         heading: 'Created opening Succesfully',

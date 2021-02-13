@@ -26,11 +26,9 @@ class PostCreate extends Component {
     event.preventDefault()
     const { user, msgAlert } = this.props
     const { post } = this.state
-    console.log(this)
 
     // create a movie, pass it the movie data and the user for its token
-    postCreate(post, user)
-      .then(console.log(post))
+    postCreate(title, content, user)
       .then(res => this.setState({ createdId: res.data.post._id }))
       .then(() => msgAlert({
         heading: 'Created opening Succesfully',
