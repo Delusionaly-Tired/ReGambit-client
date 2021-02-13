@@ -12,10 +12,8 @@ class PostCreate extends Component {
 
     // initially our opening states will be empty until they are filled in
     this.state = {
-      opening: {
-        posts: [],
-        openingID: this.props.match.params.id
-      },
+      post: [],
+      // openingID: this.props.match.params.id
       // createdId will be null, until we successfully create an post
       updated: false
     }
@@ -26,7 +24,7 @@ class PostCreate extends Component {
     try {
       const res = await axios(`${apiUrl}/openings/${this.props.match.params.id}`)
       console.log(res)
-      console.log(res.data.opening.posts)
+      console.log(res.data.post)
       // this.setState({ opening: res.data.opening })
       // console.log(res)
     } catch (err) {
@@ -42,7 +40,7 @@ class PostCreate extends Component {
       const storedPost = {
         [event.target.name]: event.target.value
       }
-      const throwPost = { ...currState.opening, ...storedPost }
+      const throwPost = { ...currState.post, ...storedPost }
       return { opening: throwPost }
     })
   }
@@ -82,7 +80,8 @@ class PostCreate extends Component {
         message: 'post has been created successfully. Now viewing the post.',
         variant: 'success'
       }))
-      .then(() => this.state.push(`${apiUrl}/openings/${match.params.id}`))
+      .then(() => this.setState({ post: this.state.post.concat() }, () => console.log(this.state)))
+      // .then(() => this.state.concat(`${apiUrl}/openings/${match.params.id}`))
       .catch(error => {
         console.log(this.state)
         msgAlert({
@@ -95,7 +94,7 @@ class PostCreate extends Component {
 
   render () {
   // destructure our posts and createdId state
-    const { opening, updated, post } = this.state
+    const { updated, post } = this.state
 
     // if the post has been created and we sits id
     if (updated) {
@@ -107,7 +106,7 @@ class PostCreate extends Component {
       <div id='postsDiv1'>
         <h3 className='posth3'>Create post</h3>
         <PostForm
-          opening={opening}
+          post={post}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
         />
