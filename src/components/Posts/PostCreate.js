@@ -1,6 +1,6 @@
-import React, { Component, Redirect } from 'react'
+import React, { Component } from 'react'
 import PostForm from './PostForm'
-// import { withRouter } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 // import axios from 'axios'
 // import apiUrl from '../../apiConfig'
 import { postCreate } from '../../api/posts'
