@@ -36,12 +36,14 @@ class PostCreate extends Component {
   // when an input changes, update the state that corresponds with the input's name
   handleChange = (event) => {
     event.persist()
-    this.setState(currState => {
-      const storedPost = {
-        [event.target.name]: event.target.value
+    this.setState(state => {
+      // const storedPost = {
+      //   [event.target.name]: event.target.value
+      // }
+      // const throwPost = { ...currState.post, ...storedPost }
+      return {
+        post: { ...state.post, [event.target.name]: event.target.value }
       }
-      const throwPost = { ...currState.post, ...storedPost }
-      return { opening: throwPost }
     })
   }
 
@@ -64,7 +66,7 @@ class PostCreate extends Component {
       .then(() => console.log('THIS Printed Above'))
       // .then(res => console.log(post))
       // .then(() => console.log('Post Printed Above'))
-      .then(res => console.log(opening))
+      .then(res => console.log(this.state.opening))
       .then(() => console.log('Opening Printed Above'))
       .then(res => this.setState({ openingID: match.params.id }))
       .then(res => console.log(openingID))

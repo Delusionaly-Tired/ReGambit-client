@@ -1,6 +1,6 @@
 import apiUrl from '../apiConfig'
 import axios from 'axios'
-import { withRouter } from 'react-router-dom'
+// import { withRouter } from 'react-router-dom'
 
 export const postIndex = user => {
   return axios({
