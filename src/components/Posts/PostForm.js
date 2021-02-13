@@ -9,7 +9,7 @@ const PostForm = ({ opening, handleSubmit, handleChange }) => (
       placeholder='Enter name of post'
       // this name should line up with the state we want to change
       name='title'
-      defaultValue={opening.posts.title}
+      defaultValue={this.title}
       onChange={handleChange}
     />
     <label>Content</label>
@@ -18,8 +18,8 @@ const PostForm = ({ opening, handleSubmit, handleChange }) => (
       placeholder='Enter post type'
       // this name should line up with the state we want to change
       name='content'
-      defaultValue={opening.posts.content}
       onChange={handleChange}
+      onSubmit={handleSubmit}
     />
     <div className='submitOpen'>
       <button type='submit' className='submitBtn'>Submit Post</button>

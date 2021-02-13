@@ -17,7 +17,7 @@ import OpeningIndex from './components/Openings/OpeningIndex'
 import OpeningShow from './components/Openings/OpeningShow'
 import UpdateOpening from './components/Openings/OpeningEdit'
 import Landing from './components/Landing/Landing'
-import PostCreate from './components/Posts/PostCreate'
+import PostCreateOld from './components/Posts/PostCreateOld'
 
 class App extends Component {
   constructor (props) {
@@ -81,7 +81,7 @@ class App extends Component {
             <OpeningIndex msgAlert={this.msgAlert} user={user} />
           )} />
           <AuthenticatedRoute user={user} path='/posts' render={() => (
-            <PostCreate msgAlert={this.msgAlert} user={user} />
+            <PostCreateOld msgAlert={this.msgAlert} user={user} />
           )} />
           <Route user={user} path='/openings/:id' render={() => (
             <OpeningShow msgAlert={this.msgAlert} user={user} />

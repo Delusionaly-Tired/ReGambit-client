@@ -5,7 +5,7 @@ import { withRouter, Redirect, Link } from 'react-router-dom'
 import { openingShow } from '../../api/openings'
 import apiUrl from '../../apiConfig'
 import axios from 'axios'
-import PostCreate from './../Posts/PostCreate.js'
+import PostCreateOld from './../Posts/PostCreateOld.js'
 
 class OpeningShow extends Component {
   constructor (props) {
@@ -99,7 +99,7 @@ class OpeningShow extends Component {
         </div>
         <button onClick={this.deleteOpening} className='submitBtn'>Delete Opening</button>  <button className='submitBtn'><Link to={`/update-opening/${opening._id}`}>Update Opening</Link></button>
         <div>
-          <PostCreate/>
+          <PostCreateOld/>
         </div>
         <h4 className="skillTest">TITLE</h4>
         <p className="testTitle">tester</p>
