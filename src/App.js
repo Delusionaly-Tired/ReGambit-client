@@ -18,6 +18,8 @@ import OpeningShow from './components/Openings/OpeningShow'
 import UpdateOpening from './components/Openings/OpeningEdit'
 import Landing from './components/Landing/Landing'
 import PostCreate from './components/Posts/PostCreate'
+// import PostUpdate from './components/Posts/PostUpdate'
+// import PostShow from './components/Posts/PostShow'
 
 class App extends Component {
   constructor (props) {
