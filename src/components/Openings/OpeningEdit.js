@@ -78,7 +78,7 @@ class UpdateOpening extends Component {
     return (
       <main className='updatePage'>
         <Fragment>
-          <h2 className='updateForm'>Update an Opening:</h2>
+          <h2 className='updateForm'>Update an Opening</h2>
           <form onSubmit={this.handleSubmit} className='openingsDiv2'>
             <input
               name="name"
@@ -95,10 +95,17 @@ class UpdateOpening extends Component {
               onChange={this.handleInputChange}
             />
             <input
-              name="SKILL"
+              name="skill"
               type="text"
               placeholder="Opening skill here"
               value={this.state.opening.skill}
+              onChange={this.handleInputChange}
+            />
+            <input
+              name="blogPost"
+              type="text"
+              placeholder="Edit your post here"
+              value={this.state.opening.blogPost}
               onChange={this.handleInputChange}
             />
             <button type="submit" className='submitBtn'>Submit</button>

@@ -79,9 +79,8 @@ class OpeningShow extends Component {
         <h3 className='openingEdit'>{opening.name}</h3>
         <h3 className='openType'>{opening.type}</h3>
         <h3 className='openType'>{opening.skill}</h3>
-        <div className='blogForm'>Non quis quis qui ea sit proident ipsum sunt mollit qui. Exercitation amet consequat exercitation est ut velit magna sint nisi adipisicing nisi aute. Anim aliquip proident fugiat id. Et sunt laborum nisi dolor sit eu culpa.
-          <button onClick={this.deleteOpening} className='submitBtn'>Delete Opening</button>  <button className='submitBtn'><Link to={`/update-opening/${opening._id}`}>Update Opening</Link></button>
-        </div>
+        <div className='blogForm'>{opening.blogPost}</div>
+        <button onClick={this.deleteOpening} className='submitBtn'>Delete Opening</button>  <button className='submitBtn'><Link to={`/update-opening/${opening._id}`}>Update Opening</Link></button>
         <div>
           <h3>Placeholder Text</h3>
         </div>

@@ -30,6 +30,15 @@ const OpeningsForm = ({ opening, handleSubmit, handleChange }) => (
       defaultValue={opening.skill}
       onChange={handleChange}
     />
+    <label>Blog Post</label>
+    <input
+      required
+      placeholder='Type your post here.'
+      // this name should line up with the state we want to change
+      name='blogPost'
+      defaultValue={opening.blogPost}
+      onChange={handleChange}
+    />
     <div className='submitOpen'>
       <button type='submit' className='submitBtn'>Submit</button>
     </div>

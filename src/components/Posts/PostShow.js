@@ -19,7 +19,6 @@ const ShowPosts = props => {
     {post.content}
   ))
 
-
   return (
     <div>
         {postsJsx}

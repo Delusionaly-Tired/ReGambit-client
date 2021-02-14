@@ -9,13 +9,13 @@
     justify-content: center;
     font-family: 'Gorditas', cursive;
     text-align: center;
-    
+
 }
 .showOpeningDiv{
     display: flex;
     flex-direction: column;
     // justify-content: center;
-   -webkit-text-stroke: 1px rgb(2, 0, 0); 
+   -webkit-text-stroke: 1px rgb(2, 0, 0);
     // margin: 10px ;
     text-align: left;
     // border: solid 1px rgb(243, 200, 200);
@@ -35,7 +35,7 @@ color: rgb(102, 23, 23);
     display: flex;
     flex-direction: column;
     justify-content: center;
-   -webkit-text-stroke: 1px rgb(2, 0, 0); 
+   -webkit-text-stroke: 1px rgb(2, 0, 0);
     font-size: 20px;
     text-align: center;
     // border: solid 1px rgb(12, 5, 5);
@@ -89,7 +89,7 @@ text-align: center;
         font-size: 60px;
         font-family: 'Gorditas', cursive;
         text-shadow:  8px 9px 2px rgb(88, 19, 19);
-        
+
     }
     .openingsDiv2{
         display: flex;
@@ -107,12 +107,17 @@ margin: auto;
     }
     .openType {
 color: white;
-        
+
     }
     .blogForm{
-        display: flex;
-border: 1px outset rgb(41, 16, 16);
-        box-shadow: inset 2px 2px 10px rgb(34, 2, 2);
+      text-indent: 4px;
+      margin: 2px;
+      padding: 2px;
+      font-size: 24px;
+      text-align: center;
+      display: flex;
+      border: 1px outset rgb(41, 16, 16);
+      box-shadow: inset 2px 2px 6px rgb(34, 2, 2);
 
     }
     .testTitle {
@@ -124,4 +129,3 @@ border: 1px outset rgb(41, 16, 16);
         font-size: 30px;
         justify-content: left;
     }
-    
