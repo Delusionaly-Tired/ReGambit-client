@@ -3,7 +3,7 @@ import Spinner from 'react-bootstrap/Spinner'
 // import withRouter so we have access to the match route prop
 import { withRouter, Redirect, Link } from 'react-router-dom'
 import { openingShow } from '../../api/openings'
-import PostCreate from './../Posts/PostCreate'
+// import PostCreate from './../Posts/PostCreate'
 import apiUrl from '../../apiConfig'
 import axios from 'axios'
 
@@ -83,7 +83,7 @@ class OpeningShow extends Component {
           <button onClick={this.deleteOpening} className='submitBtn'>Delete Opening</button>  <button className='submitBtn'><Link to={`/update-opening/${opening._id}`}>Update Opening</Link></button>
         </div>
         <div>
-          <PostCreate />
+          <h3>Placeholder Text</h3>
         </div>
         <h4 className="skillTest">TITLE</h4>
         <p className="testTitle">tester</p>

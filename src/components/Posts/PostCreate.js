@@ -75,7 +75,7 @@ class PostCreate extends Component {
 
     return (
       <div>
-        <h3>Create post</h3>
+        <h3>Create post (Sidepost Box)</h3>
         <PostForm
           post={post}
           handleChange={this.handleChange}
