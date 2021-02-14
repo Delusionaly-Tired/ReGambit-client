@@ -10,6 +10,7 @@ export const postIndex = user => {
 }
 
 export const postCreate = (post, user) => {
+  console.log(post)
   return axios({
     url: apiUrl + '/posts',
     method: 'POST',

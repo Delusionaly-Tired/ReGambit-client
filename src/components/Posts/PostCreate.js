@@ -6,7 +6,7 @@ import { Redirect } from 'react-router-dom'
 import { postCreate } from '../../api/posts'
 // import './PostsAll.scss'
 
-export class PostCreate extends Component {
+class PostCreate extends Component {
   constructor (props) {
     super(props)
 
