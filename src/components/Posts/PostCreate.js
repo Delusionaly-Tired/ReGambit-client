@@ -14,7 +14,8 @@ class PostCreate extends Component {
     this.state = {
       post: {
         title: '',
-        content: ''
+        content: '',
+        openingId: ''
       },
       // createdId will be null, until we successfully create a movie
       createdId: null
@@ -31,7 +32,7 @@ class PostCreate extends Component {
 
     // create a movie, pass it the movie data and the user for its token
     postCreate(post, user)
-      .then(res => this.setState({ createdId: res.data.post._id }))
+      .then(res => this.setState({ createdId: res.data.opening.posts._id }))
       .then(() => msgAlert({
         heading: 'Created opening Succesfully',
         message: 'opening has been created successfully. Now viewing the opening.',

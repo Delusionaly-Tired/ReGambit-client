@@ -9,8 +9,7 @@ export const postIndex = user => {
   })
 }
 
-export const postCreate = (post, user) => {
-  console.log(post)
+export const postCreate = (post, user, openingId) => {
   return axios({
     url: apiUrl + '/posts',
     method: 'POST',
