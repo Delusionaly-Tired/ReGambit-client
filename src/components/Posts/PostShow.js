@@ -8,8 +8,11 @@ class ShowPosts extends Component {
   constructor (props) {
     super(props)
 
+    // const { match, openingId } = props
+
     this.state = {
       posts: [],
+      postId: null,
       updated: false,
       deleted: false
     }
@@ -17,10 +20,11 @@ class ShowPosts extends Component {
 
   componentDidMount () {
     const { user, match, msgAlert } = this.props
+    const { openingId, postId } = this.state
     console.log(user)
     console.log(match)
     // make a request for a single opening
-    postShow(match.params._id, user)
+    postShow(openingId, user, postId)
     // set the opening state to the opening we got back in the resopnse's data
       .then(res => this.setState({ posts: res.data.posts }))
       .then(() => msgAlert({
@@ -60,7 +64,6 @@ class ShowPosts extends Component {
   }
 
   render () {
-    // let postsJsx
     const { posts } = this.state
     console.log(posts)
     const postsJsx = posts.map(post => (

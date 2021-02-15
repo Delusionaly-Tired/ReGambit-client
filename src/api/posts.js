@@ -2,9 +2,9 @@ import apiUrl from '../apiConfig'
 import axios from 'axios'
 // import { withRouter } from 'react-router-dom'
 
-export const postShow = (postId, user, openingId) => {
+export const postShow = (postId, openingId) => {
   return axios({
-    url: apiUrl + '/posts/' + postId,
+    url: apiUrl + '/openings/' + openingId + '/posts/' + postId,
     method: 'GET'
   })
 }
