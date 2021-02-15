@@ -11,22 +11,23 @@ class ShowPosts extends Component {
     // const { match, openingId } = props
 
     this.state = {
-      posts: [],
-      postId: null,
-      updated: false,
-      deleted: false
+      opening: {
+        posts: [],
+        updated: false,
+        deleted: false
+      }
     }
   }
 
   componentDidMount () {
     const { user, match, msgAlert } = this.props
-    const { openingId, postId } = this.state
+    // const { openingId } = this.state
     console.log(user)
     console.log(match)
     // make a request for a single opening
-    postShow(openingId, user, postId)
+    postShow(match.params.id)
     // set the opening state to the opening we got back in the resopnse's data
-      .then(res => this.setState({ posts: res.data.posts }))
+      .then(res => this.setState({ opening: res.data.opening }))
       .then(() => msgAlert({
         heading: 'Showing Post Successfully',
         message: 'The post is now displayed.',
@@ -64,9 +65,9 @@ class ShowPosts extends Component {
   }
 
   render () {
-    const { posts } = this.state
-    console.log(posts)
-    const postsJsx = posts.map(post => (
+    const { opening } = this.state
+    console.log('this is ', opening.posts)
+    const postsJsx = opening.posts.map(post => (
       <div
         key={post._id}>
         {post.title}
