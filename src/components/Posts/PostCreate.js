@@ -34,14 +34,14 @@ class PostCreate extends Component {
     postCreate(post, user)
       .then(res => this.setState({ createdId: res.data.opening.posts._id }))
       .then(() => msgAlert({
-        heading: 'Created opening Succesfully',
-        message: 'opening has been created successfully. Now viewing the opening.',
+        heading: 'Created Post Succesfully',
+        message: 'Nice.',
         variant: 'success'
       }))
       .catch(error => {
         msgAlert({
-          heading: 'Failed to Create Opening',
-          message: 'Could not create opening with error: ' + error.message,
+          heading: 'Failed to Create Post',
+          message: 'Could not create post with error: ' + error.message,
           variant: 'danger'
         })
       })

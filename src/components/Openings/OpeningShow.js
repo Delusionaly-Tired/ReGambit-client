@@ -6,6 +6,7 @@ import { openingShow } from '../../api/openings'
 // import PostCreate from './../Posts/PostCreate'
 import apiUrl from '../../apiConfig'
 import axios from 'axios'
+import ShowPosts from './../Posts/PostShow'
 
 class OpeningShow extends Component {
   constructor (props) {
@@ -82,12 +83,9 @@ class OpeningShow extends Component {
         <div className='blogForm'>{opening.blogPost}</div>
         <button onClick={this.deleteOpening} className='submitBtn'>Delete Opening</button>  <button className='submitBtn'><Link to={`/update-opening/${opening._id}`}>Update Opening</Link></button>
         <div>
-          <h3>Placeholder Text</h3>
+          <h3>User posts displayed below!</h3>
+          <ShowPosts />
         </div>
-        <h4 className="skillTest">TITLE</h4>
-        <p className="testTitle">tester</p>
-        <h4 className="skillTest">TITLE</h4>
-        <p className="testTitle">tester</p>
         {deleted ? <Redirect to="/openings"/> : openingJsx}
       </div>
     )

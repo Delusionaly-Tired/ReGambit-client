@@ -2,19 +2,12 @@ import apiUrl from '../apiConfig'
 import axios from 'axios'
 // import { withRouter } from 'react-router-dom'
 
-// export const postIndex = user => {
-//   return axios({
-//     url: apiUrl + '/posts',
-//     method: 'GET'
-//   })
-// }
-//
-// export const postShow = (id, user) => {
-//   return axios({
-//     url: apiUrl + '/posts/' + id,
-//     method: 'GET'
-//   })
-// }
+export const postShow = (postId, user, openingId) => {
+  return axios({
+    url: apiUrl + '/posts/' + postId,
+    method: 'GET'
+  })
+}
 
 export const postCreate = (post, user, openingId) => {
   return axios({
@@ -48,3 +41,10 @@ export const postDestroy = (post, user, openingId, postId) => {
     data: { openingId }
   })
 }
+
+// export const postIndex = user => {
+//   return axios({
+//     url: apiUrl + '/posts',
+//     method: 'GET'
+//   })
+// }

@@ -19,7 +19,7 @@ import UpdateOpening from './components/Openings/OpeningEdit'
 import Landing from './components/Landing/Landing'
 import PostCreate from './components/Posts/PostCreate'
 // import PostUpdate from './components/Posts/PostUpdate'
-// import PostShow from './components/Posts/PostShow'
+import PostShow from './components/Posts/PostShow'
 
 class App extends Component {
   constructor (props) {
@@ -84,6 +84,9 @@ class App extends Component {
           )} />
           <Route user={user} path='/openings/:id' render={() => (
             <OpeningShow msgAlert={this.msgAlert} user={user} />
+          )} />
+          <Route user={user} path='/openings/:id' render={() => (
+            <PostShow msgAlert={this.msgAlert} user={user} />
           )} />
           <AuthenticatedRoute user={user} path='/openings/:id' render={() => (
             <PostCreate msgAlert={this.msgAlert} user={user} />
