@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Spinner from 'react-bootstrap/Spinner'
+// import Spinner from 'react-bootstrap/Spinner'
 // import withRouter so we have access to the match route prop
 import { withRouter, Redirect, Link } from 'react-router-dom'
 import { openingShow } from '../../api/openings'
@@ -70,9 +70,9 @@ class OpeningShow extends Component {
     if (!opening) {
       // A Spinner is just a nice loading message we get from react bootstrap
       return (
-        <Spinner animation="border" role="status">
-          <span className="sr-only">Loading...</span>
-        </Spinner>
+        <div>
+          <h2>There is no openings! Go make one.</h2>
+        </div>
       )
     }
 
