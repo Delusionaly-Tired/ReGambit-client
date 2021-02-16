@@ -10,16 +10,19 @@
     font-family: 'Gorditas', cursive;
     text-align: center;
 
+}.contents{
+    min-height: fit-content;
 }
 .showOpeningDiv{
     display: flex;
     flex-direction: column;
     // justify-content: center;
    -webkit-text-stroke: 1px rgb(2, 0, 0);
-    // margin: 10px ;
+    margin: 10px ;
+    margin-right: 10vh;
     text-align: left;
-    // border: solid 1px rgb(243, 200, 200);
-    // box-shadow: 0px 10px 25px 1px rgb(54, 20, 18);
+    border: solid 1px rgb(243, 200, 200);
+    box-shadow: 0px 10px 25px 1px rgb(54, 20, 18);
     font-family: 'Gorditas', cursive;
     min-width: 70%;
     height: 90vh;
@@ -61,15 +64,15 @@ color: rgb(102, 23, 23);
 box-shadow: 0px 10px 25px 1px rgb(54, 20, 18);
 
     }
-    .createh3, {
+    .createh3, .signUph3 , .h3{
         color: white;
         -webkit-text-stroke: 1px black;
         display: flex;
-        // border: 1px solid (255, 124, 124);
+        border: 1px solid (255, 124, 124);
         font-size: 60px ;
         text-align: center;
         justify-content: center;
-        // text-shadow:  8px 9px 2px rgb(88, 19, 19);
+        text-shadow:  8px 9px 2px rgb(88, 19, 19);
         margin-bottom: 10vh;
     }
     .openingDiv1 , .openingEdit, .updateH2{

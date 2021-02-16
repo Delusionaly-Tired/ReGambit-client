@@ -4,7 +4,7 @@ import './Sidebar.scss'
 const Sidebar = () => (
   <div className="sidebar">
     <h1>Dutch Defense</h1>
-    <p>The Dutch Defence is a chess opening characterised by the moves:
+    <p className="sideBarRight">The Dutch Defence is a chess opening characterised by the moves:
 
     1. d4 f5
 

@@ -74,7 +74,7 @@ class OpeningsCreate extends Component {
 
     return (
       <div id='openingsDiv1'>
-        <h3 className='openingh3'>Create Opening</h3>
+        {/* <h3 className='openingh3'>Create Opening</h3> */}
         <OpeningsForm
           opening={opening}
           handleChange={this.handleChange}
