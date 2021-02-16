@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
-import Spinner from 'react-bootstrap/Spinner'
+// import Spinner from 'react-bootstrap/Spinner'
 // import withRouter so we have access to the match route prop
 import { withRouter, Redirect, Link } from 'react-router-dom'
 import { openingShow } from '../../api/openings'
+// import PostCreate from './../Posts/PostCreate'
 import apiUrl from '../../apiConfig'
 import axios from 'axios'
+import ShowPosts from './../Posts/PostShow'
 
 class OpeningShow extends Component {
   constructor (props) {
@@ -58,6 +60,7 @@ class OpeningShow extends Component {
 
   render () {
     let openingJsx
+    const { msgAlert, user } = this.props
     const { opening, deleted } = this.state
 
     if (deleted) {
@@ -67,21 +70,23 @@ class OpeningShow extends Component {
     if (!opening) {
       // A Spinner is just a nice loading message we get from react bootstrap
       return (
-        <Spinner animation="border" role="status">
-          <span className="sr-only">Loading...</span>
-        </Spinner>
+        <div>
+          <h2>There is no openings! Go make one.</h2>
+        </div>
       )
     }
 
     return (
-      <div>
-        <h3>{opening.name}</h3>
-        <h4>Type: {opening.type}</h4>
-        <h4>Skill: {opening.skill}</h4>
-        <button onClick={this.deleteOpening}>Delete Opening</button>
-        <button>
-          <Link to={`/update-opening/${opening._id}`}>Update Opening</Link>
-        </button>
+      <div className="showOpeningDiv">
+        <h3 className='openingEdit'>{opening.name}</h3>
+        <h3 className='openType'>{opening.type}</h3>
+        <h3 className='openType'>{opening.skill}</h3>
+        <div className='blogForm'>{opening.blogPost}</div>
+        <button onClick={this.deleteOpening} className='submitBtn'>Delete Opening</button>  <button className='submitBtn'><Link to={`/update-opening/${opening._id}`}>Update Opening</Link></button>
+        <div>
+          <h3>User posts displayed below!</h3>
+          <ShowPosts msgAlert={msgAlert} user={user}/>
+        </div>
         {deleted ? <Redirect to="/openings"/> : openingJsx}
       </div>
     )

@@ -1,22 +1,23 @@
 import React, { Component } from 'react'
-import OpeningsForm from './OpeningsForm'
+// import PostForm from './PostForm'
 import { Redirect } from 'react-router-dom'
-import { openingCreate } from '../../api/openings'
-import './OpeningAll.scss'
+// import axios from 'axios'
+// import apiUrl from '../../apiConfig'
+import { postCreate } from '../../api/posts'
+import PostForm from './PostForm'
+// import './PostsAll.scss'
 
-class OpeningsCreate extends Component {
+class PostCreate extends Component {
   constructor (props) {
     super(props)
 
-    // initially our opening states will be empty until they are filled in
+    // initially our movies title and director will be empty until they are filled in
     this.state = {
-      opening: {
-        name: '',
-        type: '',
-        skill: '',
-        blogPost: ''
+      post: {
+        title: '',
+        content: ''
       },
-      // createdId will be null, until we successfully create an opening
+      // createdId will be null, until we successfully create a movie
       createdId: null
     }
   }
@@ -24,12 +25,11 @@ class OpeningsCreate extends Component {
   handleSubmit = event => {
     event.preventDefault()
     const { user, msgAlert } = this.props
-    const { opening } = this.state
+    const { post } = this.state
 
-    // create an opening, pass it the opening data and the user for its token
-    openingCreate(opening, user)
-      // set the createdId to the id of the opening we just created
-      .then(res => this.setState({ createdId: res.data.opening._id }))
+    // create a movie, pass it the movie data and the user for its token
+    postCreate(title, content, user)
+      .then(res => this.setState({ createdId: res.data.post._id }))
       .then(() => msgAlert({
         heading: 'Created opening Succesfully',
         message: 'opening has been created successfully. Now viewing the opening.',
@@ -43,40 +43,39 @@ class OpeningsCreate extends Component {
         })
       })
   }
-
   // when an input changes, update the state that corresponds with the input's name
   handleChange = event => {
     // in react, an event is actually a SyntheticEvent
     // to ensure the properties are not set to null after handleChange is finished
     // we must call event.persist
     event.persist()
+
     this.setState(state => {
       // return our state changge
       return {
-        // set the opening state, to what it used to be (...state.opening)
+        // set the post state, to what it used to be (...state.post)
         // but replace the property with `name` to its current `value`
-        // ex. name could be `name` or `director`
-        opening: { ...state.opening, [event.target.name]: event.target.value }
+        // ex. name could be `title` or `director`
+        post: { ...state.post, [event.target.name]: event.target.value }
       }
     })
   }
 
   render () {
-  // destructure our openings and createdId state
-    const { opening, createdId } = this.state
+    // destructure our post and createdId state
+    const { post, createdId } = this.state
 
-    // if the opening has been created and we sits id
+    // if the post has been created and we set its id
     if (createdId) {
-      console.log(createdId)
-      // redirect to the openings show page
-      return <Redirect to={`/openings/${createdId}`} />
+      // redirect to the posts show page
+      return <Redirect to={`/posts/${createdId}`} />
     }
 
     return (
-      <div id='openingsDiv1'>
-        <h3 className='openingh3'>Create Opening</h3>
-        <OpeningsForm
-          opening={opening}
+      <div>
+        <h3>Create post</h3>
+        <PostForm
+          post={post}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
         />
@@ -85,4 +84,4 @@ class OpeningsCreate extends Component {
   }
 }
 
-export default OpeningsCreate
+export default PostCreate

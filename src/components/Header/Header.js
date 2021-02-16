@@ -5,6 +5,7 @@ import './Header.scss'
 
 const authenticatedOptions = (
   <Fragment>
+    <Nav.Link href="#create-opening">Create An Opening</Nav.Link>
     <Nav.Link href="#change-password">Change Password</Nav.Link>
     <Nav.Link href="#sign-out">Sign Out</Nav.Link>
   </Fragment>
@@ -20,9 +21,7 @@ const unauthenticatedOptions = (
 const alwaysOptions = (
   <Fragment>
     <Nav.Link href="#/">Home</Nav.Link>
-    <Nav.Link href="#openings">Beginner</Nav.Link>
-    <Nav.Link href="#create-opening">Experienced</Nav.Link>
-    <Nav.Link href="#advanced">Advanced</Nav.Link>
+    <Nav.Link href="#openings">Openings</Nav.Link>
   </Fragment>
 )
 
@@ -30,7 +29,7 @@ const Header = ({ user }) => (
   <main className='testing'>
     <Navbar expand="md">
       {/* <Navbar.Brand href="#"> */}
-      RE-Gambit
+      ReGambit <span>&nbsp;&nbsp;</span>
       {/* </Navbar.Brand> */}
       <Navbar.Toggle aria-controls="basic-navbar-nav"/>
       <Navbar.Collapse id="basic-navbar-nav">

@@ -1,37 +1,43 @@
 @import '~bootstrap/scss/bootstrap';
-@import url('https://fonts.googleapis.com/css2?family=Hanalei+Fill&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap');
 
 .questions{
     display: flex;
     flex-direction: column;
-    margin: 0px 2px;
     justify-content: left;
     text-align: left;
     height: fit-content;
-    border: solid 2px black;
-    box-shadow: inset 0px 0px 10px 0px rgba(58, 37, 13, 0.863);
-}
+    font-size: 18px;
+    box-shadow: inset 0px 0px 10px 5px rgba(34, 14, 14, 0.863);
+    text-shadow: .9px .2px rgb(0, 0, 0);
+    border-radius: 10px ;
+    border: solid 4px black;
+   }
 
-h3{
+.expHead{
   display: flex;
-  font-family: 'Hanalei Fill', cursive;
-  color: rgb(92, 44, 12);
-  -webkit-text-stroke: 1px rgb(235, 217, 217);
-  text-align: center;
+  font-family: 'Yusei Magic', sans-serif;
+  color: rgb(255, 223, 200);
+  -webkit-text-stroke: .4px rgb(44, 23, 23);
+  }
+  .expHead {
+    display: flex;
+    margin-bottom: -2vh;
+    min-height: fit-content;
+  }
   
+.beginner, .experienced, .advanced{
+  font-family: 'Yusei Magic', sans-serif;
+    font-size: 16px;
+  text-shadow: .33px .4px 1px rgb(78, 6, 6);
+  border-top: 1px solid rgb(71, 8, 8);
 }
 
-
-.beginner, .experienced, .advanced{
-  display: flex;
-  text-align: left;
-  justify-content: left;
-    font-family: 'Hanalei Fill', cursive;
-    font-size: 16px;
-    text-align: left;
-    border-top: 2px solid black;
-
-      
-  // -webkit-text-stroke: .8px rgb(241, 228, 228);
-  text-shadow: .33px .4px 1px white;
+.expDiv {
+display:flex;
+flex-direction: column;
+justify-content: left;
+text-align: left;
+margin-top: 25vh;
+// border-top: 1px solid blanchedalmond;
 }
