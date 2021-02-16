@@ -22,7 +22,6 @@ const alwaysOptions = (
   <Fragment>
     <Nav.Link href="#/">Home</Nav.Link>
     <Nav.Link href="#openings">Openings</Nav.Link>
-    <Nav.Link href="#blog">Main Blog</Nav.Link>
   </Fragment>
 )
 
