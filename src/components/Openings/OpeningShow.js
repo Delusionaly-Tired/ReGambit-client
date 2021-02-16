@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
-import Spinner from 'react-bootstrap/Spinner'
+// import Spinner from 'react-bootstrap/Spinner'
 // import withRouter so we have access to the match route prop
 import { withRouter, Redirect, Link } from 'react-router-dom'
 import { openingShow } from '../../api/openings'
+// import PostCreate from './../Posts/PostCreate'
 import apiUrl from '../../apiConfig'
 import axios from 'axios'
+import ShowPosts from './../Posts/PostShow'
 
 class OpeningShow extends Component {
   constructor (props) {
@@ -58,6 +60,7 @@ class OpeningShow extends Component {
 
   render () {
     let openingJsx
+    const { msgAlert, user } = this.props
     const { opening, deleted } = this.state
 
     if (deleted) {
@@ -67,9 +70,9 @@ class OpeningShow extends Component {
     if (!opening) {
       // A Spinner is just a nice loading message we get from react bootstrap
       return (
-        <Spinner animation="border" role="status">
-          <span className="sr-only">Loading...</span>
-        </Spinner>
+        <div>
+          <h2>There is no openings! Go make one.</h2>
+        </div>
       )
     }
 
@@ -78,13 +81,12 @@ class OpeningShow extends Component {
         <h3 className='openingEdit'>{opening.name}</h3>
         <h3 className='openType'>{opening.type}</h3>
         <h3 className='openType'>{opening.skill}</h3>
-        <div className='blogForm'>Non quis quis qui ea sit proident ipsum sunt mollit qui. Exercitation amet consequat exercitation est ut velit magna sint nisi adipisicing nisi aute. Anim aliquip proident fugiat id. Et sunt laborum nisi dolor sit eu culpa.
-          <button onClick={this.deleteOpening} className='submitBtn'>Delete Opening</button>  <button className='submitBtn'><Link to={`/update-opening/${opening._id}`}>Update Opening</Link></button>
+        <div className='blogForm'>{opening.blogPost}</div>
+        <button onClick={this.deleteOpening} className='submitBtn'>Delete Opening</button>  <button className='submitBtn'><Link to={`/update-opening/${opening._id}`}>Update Opening</Link></button>
+        <div>
+          <h3>User posts displayed below!</h3>
+          <ShowPosts msgAlert={msgAlert} user={user}/>
         </div>
-        <h4 className="skillTest">TITLE</h4>
-        <p className="testTitle">tester</p>
-        <h4 className="skillTest">TITLE</h4>
-        <p className="testTitle">tester</p>
         {deleted ? <Redirect to="/openings"/> : openingJsx}
       </div>
     )

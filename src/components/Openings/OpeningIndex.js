@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import Spinner from 'react-bootstrap/Spinner'
+// import Spinner from 'react-bootstrap/Spinner'
 import { openingIndex } from '../../api/openings'
 import './OpeningAll.scss'
 
@@ -11,7 +11,7 @@ class OpeningIndex extends Component {
     // keep track of the openings in our application
     // initially they will be null until we have fetched them from the api
     this.state = {
-      openings: null
+      openings: []
     }
   }
 
@@ -45,12 +45,12 @@ class OpeningIndex extends Component {
     const { openings } = this.state
     console.log(openings)
     // if we haven't fetched any openings yet from the API
-    if (!openings) {
+    if (openings.length === 0) {
       // A Spinner is just a nice loading message we get from react bootstrap
       return (
-        <Spinner animation="border" role="status">
-          <span className="sr-only">Loading...</span>
-        </Spinner>
+        <div>
+          <h2>There is no openings! Go make one.</h2>
+        </div>
       )
     }
 

@@ -21,6 +21,15 @@ const PostForm = ({ post, handleSubmit, handleChange }) => (
       defaultValue={post.content}
       onChange={handleChange}
     />
+    <label>Opening ID</label>
+    <input
+      required
+      placeholder='Enter the opening ID here.'
+      // this name should line up with the state we want to change
+      name='openingId'
+      defaultValue={post.openingId}
+      onChange={handleChange}
+    />
     <div className='submitOpen'>
       <button type='submit' className='submitBtn'>Submit Post</button>
     </div>
