@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import Spinner from 'react-bootstrap/Spinner'
+// import Spinner from 'react-bootstrap/Spinner'
 import { openingIndex } from '../../api/openings'
 import './OpeningAll.scss'
 
@@ -48,9 +48,9 @@ class OpeningIndex extends Component {
     if (!openings) {
       // A Spinner is just a nice loading message we get from react bootstrap
       return (
-        <Spinner animation="border" role="status">
-          <span className="sr-only">Loading...</span>
-        </Spinner>
+        <div>
+          <h2>There is no openings! Go make one.</h2>
+        </div>
       )
     }
 
