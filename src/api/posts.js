@@ -22,7 +22,7 @@ export const postCreate = (post, user, openingId) => {
 
 export const postUpdate = (post, user, openingId, postId) => {
   return axios({
-    url: apiUrl + '/posts' + postId,
+    url: apiUrl + '/posts/' + postId,
     method: 'PATCH',
     headers: {
       'Authorization': `Bearer ${user.token}`
@@ -31,14 +31,13 @@ export const postUpdate = (post, user, openingId, postId) => {
   })
 }
 
-export const postDestroy = (post, user, openingId, postId) => {
+export const postDestroy = (user, openingId, postId) => {
   return axios({
-    url: apiUrl + '/posts' + postId,
+    url: apiUrl + '/posts/' + postId,
     method: 'DELETE',
     headers: {
       'Authorization': `Bearer ${user.token}`
-    },
-    data: { openingId }
+    }
   })
 }
 

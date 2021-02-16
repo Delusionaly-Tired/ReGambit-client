@@ -1,14 +1,12 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
-import { postDestroy, postUpdate, postShow } from '../../api/posts'
+import { postUpdate, postShow } from '../../api/posts'
 import { withRouter } from 'react-router-dom'
 
 class ShowPosts extends Component {
   constructor (props) {
     super(props)
-
-    // const { match, openingId } = props
 
     this.state = {
       opening: {
@@ -46,17 +44,16 @@ class ShowPosts extends Component {
     const { user, match } = this.props
     console.log(user)
     console.log(match)
-    console.log(postDestroy)
+    console.log(this.state.opening.posts[1])
     axios({
-      url: `${apiUrl}/posts/${match.params.id}`,
+      url: `${apiUrl}/posts/${this.state.opening}`,
       method: 'DELETE',
       headers: {
         'Authorization': `Bearer ${user.token}`
       }
     })
-      .then(() => {
-        this.setState({ deleted: true })
-      })
+      .then(res => this.setState({ postId: res.data.opening.posts._id }))
+      .then(res => this.setState({ deleted: true }))
       .catch(console.error)
   }
 
@@ -70,16 +67,16 @@ class ShowPosts extends Component {
     const postsJsx = opening.posts.map(post => (
       <div
         key={post._id}>
-        {post.title}
-        {post.content}
+        <h2>{post.title}</h2>
+        <p>{post.content}</p>
+        <button onClick={this.deletePost} className='submitBtn'>Delete Post</button>
+        <button onClick={this.updatePost} className='submitBtn'>Update Post</button>
       </div>
     ))
 
     return (
       <div>
         {postsJsx}
-        <button onClick={this.deletePost} className='submitBtn'>Delete Post</button>
-        <button className='submitBtn'>Update Post</button>
       </div>
     )
   }

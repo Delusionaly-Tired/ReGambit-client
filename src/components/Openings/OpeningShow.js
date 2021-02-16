@@ -60,7 +60,7 @@ class OpeningShow extends Component {
 
   render () {
     let openingJsx
-    const { msgAlert } = this.props
+    const { msgAlert, user } = this.props
     const { opening, deleted } = this.state
 
     if (deleted) {
@@ -85,7 +85,7 @@ class OpeningShow extends Component {
         <button onClick={this.deleteOpening} className='submitBtn'>Delete Opening</button>  <button className='submitBtn'><Link to={`/update-opening/${opening._id}`}>Update Opening</Link></button>
         <div>
           <h3>User posts displayed below!</h3>
-          <ShowPosts msgAlert={msgAlert}/>
+          <ShowPosts msgAlert={msgAlert} user={user}/>
         </div>
         {deleted ? <Redirect to="/openings"/> : openingJsx}
       </div>
