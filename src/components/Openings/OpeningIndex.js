@@ -11,7 +11,7 @@ class OpeningIndex extends Component {
     // keep track of the openings in our application
     // initially they will be null until we have fetched them from the api
     this.state = {
-      openings: null
+      openings: []
     }
   }
 
@@ -45,7 +45,7 @@ class OpeningIndex extends Component {
     const { openings } = this.state
     console.log(openings)
     // if we haven't fetched any openings yet from the API
-    if (!openings) {
+    if (openings.length === 0) {
       // A Spinner is just a nice loading message we get from react bootstrap
       return (
         <div>
