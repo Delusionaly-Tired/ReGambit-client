@@ -3,6 +3,8 @@ import OpeningsForm from './OpeningsForm'
 import { Redirect } from 'react-router-dom'
 import { openingCreate } from '../../api/openings'
 import './OpeningAll.scss'
+import Board from '../Board/Board'
+// import Chess from 'chess.js'
 
 class OpeningsCreate extends Component {
   constructor (props) {
@@ -14,7 +16,8 @@ class OpeningsCreate extends Component {
         name: '',
         type: '',
         skill: '',
-        blogPost: ''
+        blogPost: '',
+        PGN: ''
       },
       // createdId will be null, until we successfully create an opening
       createdId: null
@@ -80,6 +83,8 @@ class OpeningsCreate extends Component {
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
         />
+        <h2>What are the moves for this opening?</h2>
+        <Board />
       </div>
     )
   }

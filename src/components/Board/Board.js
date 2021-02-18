@@ -1,13 +1,36 @@
 import React, { Component } from 'react'
 import Chessboard from 'chessboardjsx'
 import './Board.scss'
-// import Chess from 'chess.js'
+import Chess from 'chess.js'
+
+// let board = null
+const chess = new Chess()
+// let status = $('#status')
+// let pgn = $('#pgn')
 
 export default class Board extends Chessboard {
+  componentDidMount () {
+    this.game = new Chess()
+    console.log(this.game)
+  }
+
+  onDrop = ({ sourceSquare, targetSquare }) => {
+    const move = chess.move({ from: sourceSquare, to: targetSquare })
+    console.log(move)
+    if (move) { console.log('Lets go') }
+  }
+
   render () {
     return (
       <div className="board">
-        <Chessboard position='start'/>
+        <Chessboard
+          position = "start"
+          onDrop={(move) => ({
+            from: move.sourceSquare,
+            to: move.targetSquare,
+            promotion: 'q' }
+          )}
+        />
       </div>
     )
   }
@@ -18,16 +41,6 @@ export class MoveCheck extends Component {
     fen: 'start',
     dropSquareStyle: {},
     square: ''
-  }
-
-  // componentDidMount () {
-  //   this.game = new Chess()
-  // }
-
-  onDrop = ({ sourceSquare, targetSquare }) => {
-    const move = this.game.move({ from: sourceSquare, to: targetSquare })
-    console.log(move)
-    if (move === 'e4') { console.log('Lets go') }
   }
 
   render () {
