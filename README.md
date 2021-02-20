@@ -28,6 +28,8 @@ The app itself is relatively simple. A user signs up on the [website](https://de
 - SASS
 - JSX
 - Axios
+- Chess.js
+- Chessboardjsx
 
 ## Unsolved Problems/Planned Updates
 
