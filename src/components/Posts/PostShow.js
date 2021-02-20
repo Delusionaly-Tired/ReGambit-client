@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
 import { postShow } from '../../api/posts'
@@ -19,14 +19,14 @@ class ShowPosts extends Component {
   }
 
   componentDidMount () {
-    const { user, match, msgAlert } = this.props
+    const { match, msgAlert, handleChange } = this.props
     // const { openingId } = this.state
-    console.log(user)
-    console.log(match)
+    // console.log(user)
+    // console.log(match)
     // make a request for a single opening
     postShow(match.params.id)
     // set the opening state to the opening we got back in the resopnse's data
-      .then(res => this.setState({ opening: res.data.opening }))
+      .then(res => handleChange({ opening: res.data.opening }))
       .then(() => msgAlert({
         heading: 'Showing Post Successfully',
         message: 'The post is now displayed.',
@@ -42,27 +42,27 @@ class ShowPosts extends Component {
   }
 
   deletePost = (postId, openingId) => {
-    const { user, match } = this.props
+    const { user, match, opening, handleChange } = this.props
 
     console.log(user)
     console.log(match)
-    console.log(this.state.opening.posts)
+    console.log(opening.posts)
     axios({
       url: `${apiUrl}/posts/${postId}`,
       method: 'DELETE',
       headers: {
         'Authorization': `Bearer ${user.token}`
       },
-      data: { opening: this.state.opening }
+      data: { opening: opening }
     })
-      .then(res => this.setState({ opening: { ...this.state.opening, posts: this.state.opening.posts.filter((post) => post._id !== postId) } }
+      .then(res => handleChange({ opening: { ...opening, posts: opening.posts.filter((post) => post._id !== postId) } }
       ))
       .then(console.log(this.state))
       .catch(console.error)
   }
 
   updatePost = async (postId, post) => {
-    const { user } = this.props
+    const { user, handleChange } = this.props
     axios({
       url: `${apiUrl}/posts/${postId}`,
       method: 'PATCH',
@@ -71,11 +71,7 @@ class ShowPosts extends Component {
       },
       data: { post: post }
     })
-      .then(res => {
-        console.log(res)
-        return res
-      })
-      .then(res => this.setState({ opening: res.data.opening }
+      .then(res => handleChange({ opening: res.data.opening }
       ))
       .catch(console.error)
   }
@@ -86,17 +82,21 @@ class ShowPosts extends Component {
   }
 
   render () {
-    const { opening, selected } = this.state
+    const { selected } = this.state
+    const { opening, user } = this.props
     console.log('this is ', opening.posts)
     const postsJsx = opening.posts.map(post => (
       <div
         key={post._id}>
         <h2>{post.title}</h2>
         <p>{post.content}</p>
-        <button onClick={() => this.deletePost(post._id)} className='submitBtn'>Delete Post</button>
-        { selected === post
-          ? <button onClick={() => this.selectPost(null)} className='submitBtn'>Close Editing Form</button>
-          : <button onClick={() => this.selectPost(post)} className='submitBtn'>Update Post</button> }
+        { post.owner === user._id
+          ? <Fragment>
+            <button onClick={() => this.deletePost(post._id)} className='submitBtn'>Delete Post</button>
+            { selected === post
+              ? <button onClick={() => this.selectPost(null)} className='submitBtn'>Close Editing Form</button>
+              : <button onClick={() => this.selectPost(post)} className='submitBtn'>Update Post</button> }
+          </Fragment> : null }
       </div>
     ))
 
@@ -104,7 +104,7 @@ class ShowPosts extends Component {
       <div>
         {postsJsx}
         {selected
-          ? <PostUpdateForm post={selected} updatePost={this.updatePost} openingId={this.state.opening._id} />
+          ? <PostUpdateForm post={selected} updatePost={this.updatePost} openingId={opening._id} />
           : null
         }
       </div>

@@ -11,15 +11,18 @@ export default class Board extends Chessboard {
       fen: 'start',
       move: '',
       PGN: '',
-      history: []
+      history: [],
+      game: null
     }
   }
 
   componentDidMount () {
-    this.game = new Chess()
-    console.log(this.game)
-    console.log(this.state)
-    console.log(this.game.load_pgn)
+    this.setState({ game: new Chess() })
+    if (this.state.game) {
+      console.log(this)
+    }
+    // console.log(this.state)
+    // console.log(this.game.load_pgn)
   }
 
   onDrop = ({ sourceSquare, targetSquare }) => {

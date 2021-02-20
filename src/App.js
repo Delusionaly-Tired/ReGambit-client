@@ -17,7 +17,7 @@ import OpeningIndex from './components/Openings/OpeningIndex'
 import OpeningShow from './components/Openings/OpeningShow'
 import UpdateOpening from './components/Openings/OpeningEdit'
 import Landing from './components/Landing/Landing'
-import PostCreate from './components/Posts/PostCreate'
+// import PostCreate from './components/Posts/PostCreate'
 // import PostUpdate from './components/Posts/PostUpdate'
 // import PostShow from './components/Posts/PostShow'
 
@@ -84,9 +84,6 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/openings/:id' render={() => (
             <OpeningShow msgAlert={this.msgAlert} user={user} />
-          )} />
-          <AuthenticatedRoute user={user} path='/openings/:id' render={() => (
-            <PostCreate msgAlert={this.msgAlert} user={user} />
           )} />
           <AuthenticatedRoute user={user} path='/update-opening/:id' render={() => (
             <UpdateOpening msgAlert={this.msgAlert} user={user} />

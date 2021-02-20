@@ -32,7 +32,11 @@ class PostCreate extends Component {
 
     // create a movie, pass it the movie data and the user for its token
     postCreate(post, user)
-      .then(res => this.setState({ createdId: res.data.opening.posts._id }))
+      .then(res => {
+        this.setState({ createdId: res.data.opening.posts._id })
+        return res
+      })
+      .then(res => this.props.handleOpeningChange({ opening: res.data.opening }))
       .then(() => msgAlert({
         heading: 'Created Post Succesfully',
         message: 'Nice.',

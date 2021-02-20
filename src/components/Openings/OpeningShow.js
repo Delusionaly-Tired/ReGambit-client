@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 // import Spinner from 'react-bootstrap/Spinner'
 // import withRouter so we have access to the match route prop
 import { withRouter, Redirect, Link } from 'react-router-dom'
 import { openingShow } from '../../api/openings'
-// import PostCreate from './../Posts/PostCreate'
+import PostCreate from './../Posts/PostCreate'
 import apiUrl from '../../apiConfig'
 import axios from 'axios'
 import ShowPosts from './../Posts/PostShow'
@@ -39,6 +39,10 @@ class OpeningShow extends Component {
           variant: 'danger'
         })
       })
+  }
+
+  handleChange = (opening) => {
+    this.setState(opening)
   }
 
   deleteOpening = () => {
@@ -77,18 +81,21 @@ class OpeningShow extends Component {
     }
 
     return (
-      <div className="showOpeningDiv">
-        <h3 className='openingEdit'>{opening.name}</h3>
-        <h3 className='openType'>{opening.type}</h3>
-        <h3 className='openType'>{opening.skill}</h3>
-        <div className='blogForm'>{opening.blogPost}</div>
-        <button onClick={this.deleteOpening} className='submitBtn'>Delete Opening</button>  <button className='submitBtn'><Link to={`/update-opening/${opening._id}`}>Update Opening</Link></button>
-        <div>
-          <h3>User posts displayed below!</h3>
-          <ShowPosts msgAlert={msgAlert} user={user}/>
+      <Fragment>
+        <div className="showOpeningDiv">
+          <h3 className='openingEdit'>{opening.name}</h3>
+          <h3 className='openType'>{opening.type}</h3>
+          <h3 className='openType'>{opening.skill}</h3>
+          <div className='blogForm'>{opening.blogPost}</div>
+          <button onClick={this.deleteOpening} className='submitBtn'>Delete Opening</button>  <button className='submitBtn'><Link to={`/update-opening/${opening._id}`}>Update Opening</Link></button>
+          <div>
+            <h3>User posts displayed below!</h3>
+            <ShowPosts msgAlert={msgAlert} user={user} handleChange={this.handleChange} opening={this.state.opening}/>
+          </div>
+          {deleted ? <Redirect to="/openings"/> : openingJsx}
         </div>
-        {deleted ? <Redirect to="/openings"/> : openingJsx}
-      </div>
+        <PostCreate msgAlert={msgAlert} user={user} handleOpeningChange={this.handleChange}/>
+      </Fragment>
     )
   }
 }
