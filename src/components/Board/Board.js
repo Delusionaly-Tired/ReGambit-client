@@ -3,21 +3,55 @@ import Chessboard from 'chessboardjsx'
 import './Board.scss'
 import Chess from 'chess.js'
 
-// let board = null
-const chess = new Chess()
-// let status = $('#status')
-// let pgn = $('#pgn')
-
 export default class Board extends Chessboard {
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      fen: 'start',
+      move: '',
+      PGN: '',
+      history: []
+    }
+  }
+
   componentDidMount () {
     this.game = new Chess()
     console.log(this.game)
+    console.log(this.state)
+    console.log(this.game.load_pgn)
   }
 
   onDrop = ({ sourceSquare, targetSquare }) => {
-    const move = chess.move({ from: sourceSquare, to: targetSquare })
-    console.log(move)
-    if (move) { console.log('Lets go') }
+    const move = this.game.move({
+      from: sourceSquare,
+      to: targetSquare,
+      promotion: 'q'
+    })
+
+    if (move === null) return
+
+    this.setState(({ move, history }) => ({
+      history: this.game.history,
+      fen: this.game.fen() }))
+  }
+
+  clearBoard = () => {
+    this.game = new Chess()
+    this.game.move('e4')
+    this.game.pgn()
+    // this.setState({ position: 'start' })
+    console.log(this.state)
+    console.log(this.props.position)
+  }
+
+  getPosition = () => {
+    // const { position, newPosition } = this.props
+    // chess.load_pgn('1. e4')
+    this.setState({ position: '1. e4: wK' })
+    console.log(this.state)
+    console.log(this.props)
+    // this.state.position = this.props.position
   }
 
   render () {
@@ -25,22 +59,23 @@ export default class Board extends Chessboard {
       <div className="board">
         <Chessboard
           position = "start"
-          onDrop={(move) => ({
-            from: move.sourceSquare,
-            to: move.targetSquare,
-            promotion: 'q' }
-          )}
         />
+        <button onClick={this.clearBoard} className='submitBtn'>Clear Board</button>
+        <button onClick={this.getPosition} className='submitBtn'>Submit Opening</button>
       </div>
     )
   }
 }
 
 export class MoveCheck extends Component {
-  state = {
-    fen: 'start',
-    dropSquareStyle: {},
-    square: ''
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      fen: 'start',
+      dropSquareStyle: {},
+      square: ''
+    }
   }
 
   render () {

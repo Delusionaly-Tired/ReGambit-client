@@ -48,17 +48,10 @@ class PostCreate extends Component {
   }
   // when an input changes, update the state that corresponds with the input's name
   handleChange = event => {
-    // in react, an event is actually a SyntheticEvent
-    // to ensure the properties are not set to null after handleChange is finished
-    // we must call event.persist
     event.persist()
 
     this.setState(state => {
-      // return our state changge
       return {
-        // set the post state, to what it used to be (...state.post)
-        // but replace the property with `name` to its current `value`
-        // ex. name could be `title` or `director`
         post: { ...state.post, [event.target.name]: event.target.value }
       }
     })
