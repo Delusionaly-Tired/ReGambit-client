@@ -47,7 +47,6 @@ class Landing extends React.Component {
     this.game = new Chess()
     this.game.load('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR9')
     this.setState({ pgn: 'start' })
-    this.game.move('e4')
     console.log(this.game.ascii())
   }
 
