@@ -25,38 +25,6 @@ export default class Board extends Chessboard {
     // console.log(this.game.load_pgn)
   }
 
-  onDrop = ({ sourceSquare, targetSquare }) => {
-    const move = this.game.move({
-      from: sourceSquare,
-      to: targetSquare,
-      promotion: 'q'
-    })
-
-    if (move === null) return
-
-    this.setState(({ move, history }) => ({
-      history: this.game.history,
-      fen: this.game.fen() }))
-  }
-
-  clearBoard = () => {
-    this.game = new Chess()
-    this.game.move('e4')
-    this.game.pgn()
-    // this.setState({ position: 'start' })
-    console.log(this.state)
-    console.log(this.props.position)
-  }
-
-  getPosition = () => {
-    // const { position, newPosition } = this.props
-    // chess.load_pgn('1. e4')
-    this.setState({ position: '1. e4: wK' })
-    console.log(this.state)
-    console.log(this.props)
-    // this.state.position = this.props.position
-  }
-
   render () {
     return (
       <div className="board">

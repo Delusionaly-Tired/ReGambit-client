@@ -1,12 +1,13 @@
 import React, { Component, Fragment } from 'react'
 // import Spinner from 'react-bootstrap/Spinner'
-// import withRouter so we have access to the match route prop
 import { withRouter, Redirect, Link } from 'react-router-dom'
 import { openingShow } from '../../api/openings'
 import PostCreate from './../Posts/PostCreate'
 import apiUrl from '../../apiConfig'
 import axios from 'axios'
 import ShowPosts from './../Posts/PostShow'
+// import Board from './../Board/Board'
+import Chessboard from 'chessboardjsx'
 
 class OpeningShow extends Component {
   constructor (props) {
@@ -95,6 +96,10 @@ class OpeningShow extends Component {
           {deleted ? <Redirect to="/openings"/> : openingJsx}
         </div>
         <PostCreate msgAlert={msgAlert} user={user} handleOpeningChange={this.handleChange}/>
+        <Chessboard
+          width={400}
+          draggable={false}
+        />
       </Fragment>
     )
   }

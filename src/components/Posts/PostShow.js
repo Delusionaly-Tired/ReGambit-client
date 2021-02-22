@@ -42,7 +42,7 @@ class ShowPosts extends Component {
   }
 
   deletePost = (postId, openingId) => {
-    const { user, match, opening, handleChange } = this.props
+    const { user, match, opening, handleChange, msgAlert } = this.props
 
     console.log(user)
     console.log(match)
@@ -57,12 +57,22 @@ class ShowPosts extends Component {
     })
       .then(res => handleChange({ opening: { ...opening, posts: opening.posts.filter((post) => post._id !== postId) } }
       ))
-      .then(console.log(this.state))
-      .catch(console.error)
+      .then(() => msgAlert({
+        heading: 'Post Bombed!',
+        message: 'There is no spo- post.',
+        variant: 'success'
+      }))
+      .catch(error => {
+        msgAlert({
+          heading: 'Failed to Delete Post',
+          message: 'Failed to show post with error: ' + error.message,
+          variant: 'danger'
+        })
+      })
   }
 
   updatePost = async (postId, post) => {
-    const { user, handleChange } = this.props
+    const { user, handleChange, msgAlert } = this.props
     axios({
       url: `${apiUrl}/posts/${postId}`,
       method: 'PATCH',
@@ -73,7 +83,18 @@ class ShowPosts extends Component {
     })
       .then(res => handleChange({ opening: res.data.opening }
       ))
-      .catch(console.error)
+      .then(() => msgAlert({
+        heading: 'Post Updated Successfully',
+        message: 'Your post is displayed below.',
+        variant: 'success'
+      }))
+      .catch(error => {
+        msgAlert({
+          heading: 'Post Failed to Update',
+          message: 'Failed to update post with error: ' + error.message,
+          variant: 'danger'
+        })
+      })
   }
 
   selectPost = (post) => {

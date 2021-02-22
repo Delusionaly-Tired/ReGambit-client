@@ -17,7 +17,7 @@ class OpeningsCreate extends Component {
         type: '',
         skill: '',
         blogPost: '',
-        PGN: ''
+        pgn: ''
       },
       // createdId will be null, until we successfully create an opening
       createdId: null
