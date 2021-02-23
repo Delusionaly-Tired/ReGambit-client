@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 // import Board from '../Board/Board'
 import Sidebar from '../Sidebar/Sidebar'
-import Experience from '../Experience/Experience'
+// import Experience from '../Experience/Experience'
 import './Landing.scss'
 import Board from './../Board/Board'
 import Chess from 'chess.js'
@@ -84,9 +84,11 @@ class Landing extends React.Component {
     console.log(pgn)
     return (
       <Fragment>
-        <div className='landQuestions'>
-          <Experience />
-        </div>
+        {
+        // <div className='landQuestions'>
+        //   <Experience />
+        // </div>
+        }
         <div>
           <Board
             width={600}
