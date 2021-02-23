@@ -7,7 +7,7 @@ import apiUrl from '../../apiConfig'
 import axios from 'axios'
 import ShowPosts from './../Posts/PostShow'
 // import Board from './../Board/Board'
-import Chessboard from 'chessboardjsx'
+import Board from './../Board/Board'
 
 class OpeningShow extends Component {
   constructor (props) {
@@ -16,7 +16,8 @@ class OpeningShow extends Component {
     // initially our opening state will be null, until it is fetched from the api
     this.state = {
       opening: null,
-      deleted: false
+      deleted: false,
+      updated: false
     }
   }
 
@@ -65,11 +66,15 @@ class OpeningShow extends Component {
 
   render () {
     let openingJsx
-    const { msgAlert, user } = this.props
-    const { opening, deleted } = this.state
+    const { msgAlert, user, match } = this.props
+    const { opening, deleted, updated } = this.state
 
     if (deleted) {
       return <Redirect to="/openings"/>
+    }
+
+    if (updated) {
+      return <Redirect to={`openings/${match.params.id}`}/>
     }
     // if we don't have a opening yet
     if (!opening) {
@@ -84,22 +89,29 @@ class OpeningShow extends Component {
     return (
       <Fragment>
         <div className="showOpeningDiv">
+          <span className='ownerDisplay'>Written by {opening.owner}</span>
           <h3 className='openingEdit'>{opening.name}</h3>
           <h3 className='openType'>{opening.type}</h3>
           <h3 className='openType'>{opening.skill}</h3>
           <div className='blogForm'>{opening.blogPost}</div>
-          <button onClick={this.deleteOpening} className='submitBtn'>Delete Opening</button>  <button className='submitBtn'><Link to={`/update-opening/${opening._id}`}>Update Opening</Link></button>
+          { opening.owner === user._id
+            ? <Fragment>
+              <button onClick={this.deleteOpening} className='submitBtn'>Delete Opening</button>
+              <button className='submitBtn'><Link to={`/update-opening/${opening._id}`}>Update Opening</Link></button>
+            </Fragment> : null }
           <div>
             <h3>User posts displayed below!</h3>
             <ShowPosts msgAlert={msgAlert} user={user} handleChange={this.handleChange} opening={this.state.opening}/>
           </div>
           {deleted ? <Redirect to="/openings"/> : openingJsx}
         </div>
-        <PostCreate msgAlert={msgAlert} user={user} handleOpeningChange={this.handleChange}/>
-        <Chessboard
-          width={400}
-          draggable={false}
-        />
+        <div>
+          <PostCreate msgAlert={msgAlert} user={user} handleOpeningChange={this.handleChange}/>
+          <Board
+            width={400}
+            draggable={false}
+          />
+        </div>
       </Fragment>
     )
   }

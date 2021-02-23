@@ -1,24 +1,50 @@
-.contents{
+.landSidebar {
+  background-color: #007700;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin: -4px;
+  margin: 10px;
+  font-family: 'Yusei Magic', sans-serif;
 }
+
+.landQuestions {
+  background-color: #997700;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10px auto;
+  text-align: center;
+  height: fit-content;
+  font-size: 24px;
+  box-shadow: inset 0px 0px 4px 1px rgba(34, 14, 14, 0.863);
+  border-radius: 2px ;
+  border: solid 4px black;
+  font-family: 'Yusei Magic', sans-serif;
+}
+
+.btnQuestions {
+  background-color: #007799;
+  display: flex;
+  font-family: 'Yusei Magic', sans-serif;
+  font-size: 12px;
+}
+
+.expHead {
+  background-color: #292929;
+  display: flex;
+  font-family: 'Yusei Magic', sans-serif;
+  color: rgb(255, 223, 200);
+  -webkit-text-stroke: .4px rgb(44, 23, 23);
+  }
+
+.expDiv {
+  background-color: #002200;
+  font-family: 'Yusei Magic', sans-serif;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid blanchedalmond;
+  }
 
 #root {
-  background-image:url(https://thumbs.dreamstime.com/t/wood-texture-background-brown-and-yellow-color-background-woodgrain-texture-180815201.jpg) ;
-}
-
-.boardControl {
-  margin: 4px;
-  display: flex;
-  flex-direction: row;
-  box-shadow: 2px;
-}
-
-#gambitDisplay {
-  color: red;
-  font-size: 48px;
-  text-align: center;
-
+  background-image:url(https://thumbs.dreamstime.com/t/wood-texture-background-brown-and-yellow-color-background-woodgrain-texture-180815201.jpg);
 }

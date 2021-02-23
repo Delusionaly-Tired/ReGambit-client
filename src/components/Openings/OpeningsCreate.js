@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom'
 import { openingCreate } from '../../api/openings'
 import './OpeningAll.scss'
 import Board from '../Board/Board'
-// import Chess from 'chess.js'
+import Chess from 'chess.js'
 
 class OpeningsCreate extends Component {
   constructor (props) {
@@ -24,6 +24,19 @@ class OpeningsCreate extends Component {
     }
   }
 
+  componentDidMount () {
+    this.game = new Chess()
+  }
+
+  setPGN = () => {
+    console.log('COME ERE GEORGE')
+    // console.log(this.game.history())
+    // this.game.load_pgn(this.game.history())
+    // this.game.fen()
+    // console.log(this.game.fen())
+    // this.setState({ opening: this.game.fen() })
+  }
+
   handleSubmit = event => {
     event.preventDefault()
     const { user, msgAlert } = this.props
@@ -33,6 +46,8 @@ class OpeningsCreate extends Component {
     openingCreate(opening, user)
       // set the createdId to the id of the opening we just created
       .then(res => this.setState({ createdId: res.data.opening._id }))
+      .then(() => this.setPGN())
+      // .then(() => this.setState({ opening: pgn }))
       .then(() => msgAlert({
         heading: 'Created opening Succesfully',
         message: 'opening has been created successfully. Now viewing the opening.',
@@ -84,7 +99,10 @@ class OpeningsCreate extends Component {
           handleSubmit={this.handleSubmit}
         />
         <h2>What are the moves for this opening?</h2>
-        <Board />
+        <Board
+          position={this.state.opening.pgn}
+          onDrop={this.setPGN()}
+        />
       </div>
     )
   }

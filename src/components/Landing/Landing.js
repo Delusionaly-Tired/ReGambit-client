@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 // import Board from '../Board/Board'
 import Sidebar from '../Sidebar/Sidebar'
 import Experience from '../Experience/Experience'
 import './Landing.scss'
-import Chessboard from 'chessboardjsx'
+import Board from './../Board/Board'
 import Chess from 'chess.js'
 
 class Landing extends React.Component {
@@ -83,24 +83,21 @@ class Landing extends React.Component {
     const { pgn } = this.state
     console.log(pgn)
     return (
-      <div className="contents">
-        <div className="board">
-          <h1 id="gambitDisplay">{this.state.tactic}</h1>
-          <Chessboard
+      <Fragment>
+        <div className='landQuestions'>
+          <Experience />
+        </div>
+        <div>
+          <Board
             width={600}
             position={this.state.pgn}
             onDrop={this.onDrop}
           />
-          <button onClick={this.clearBoard} className='boardControl'>Clear Board</button>
-          <button onClick={this.getPosition} className='boardControl'>Get Position</button>
-          <button onClick={this.checkOnDrop} className='boardControl'>Check PGN</button>
-          <button onClick={this.nextMove} className='boardControl'>Play e5</button>
-          <button onClick={this.checkLegal} className='boardControl'>Check Moves</button>
-          <button onClick={this.loadMikePGN} className='boardControl'>Set Mike PGN</button>
         </div>
-        <Experience />
-        <Sidebar />
-      </div>
+        <div className='landSidebar'>
+          <Sidebar />
+        </div>
+      </Fragment>
     )
   }
 }

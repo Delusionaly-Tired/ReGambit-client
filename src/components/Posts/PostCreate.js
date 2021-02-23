@@ -24,14 +24,16 @@ class PostCreate extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    const { user, msgAlert } = this.props
+    const { user, msgAlert, match } = this.props
     const { post } = this.state
     console.log(this)
     console.log(this.props)
+    console.log(match)
     console.log(this.props.user)
 
     // create a movie, pass it the movie data and the user for its token
     postCreate(post, user)
+      // .then(res => this.setState({ post: res.data.opening._id }))
       .then(res => {
         this.setState({ createdId: res.data.opening.posts._id })
         return res
@@ -62,7 +64,7 @@ class PostCreate extends Component {
   }
 
   render () {
-    // destructure our post and createdId state
+    // const { opening } = this.props
     const { post, createdId } = this.state
 
     // if the post has been created and we set its id
@@ -78,6 +80,7 @@ class PostCreate extends Component {
           post={post}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
+          // openingId={this.state.post.openingId}
         />
       </div>
     )

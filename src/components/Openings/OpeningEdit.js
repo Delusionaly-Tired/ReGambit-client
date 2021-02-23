@@ -72,8 +72,10 @@ class UpdateOpening extends Component {
   }
 
   render () {
-    if (this.state.updated) {
-      return <Redirect to={`{/openings/${this.props.match.params.id}}`}/>
+    const { match } = this.props
+    const { updated } = this.state
+    if (updated) {
+      return <Redirect to={`/openings/${match.params.id}`}/>
     }
     return (
       <main className='updatePage'>

@@ -1,8 +1,6 @@
 @import '~bootstrap/scss/bootstrap';
 @import url('https://fonts.googleapis.com/css2?family=Gorditas&display=swap');
 
-
-
 #openingsDiv1{
     display: flex;
     flex-direction: column;
@@ -21,9 +19,8 @@
     // border: solid 1px rgb(243, 200, 200);
     // box-shadow: 0px 10px 25px 1px rgb(54, 20, 18);
     font-family: 'Gorditas', cursive;
-    min-width: 70%;
+    width: inherit;
     height: 90vh;
-
 }
 
 label{

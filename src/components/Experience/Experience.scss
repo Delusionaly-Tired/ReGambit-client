@@ -1,43 +1,40 @@
 @import '~bootstrap/scss/bootstrap';
 @import url('https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap');
 
-.questions{
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-    text-align: left;
-    height: fit-content;
-    font-size: 18px;
-    box-shadow: inset 0px 0px 10px 5px rgba(34, 14, 14, 0.863);
-    text-shadow: .9px .2px rgb(0, 0, 0);
-    border-radius: 10px ;
-    border: solid 4px black;
-   }
+// .questions{
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: left;
+//     text-align: left;
+//     height: fit-content;
+//     font-size: 18px;
+//     box-shadow: inset 0px 0px 10px 5px rgba(34, 14, 14, 0.863);
+//     text-shadow: .9px .2px rgb(0, 0, 0);
+//     border-radius: 10px ;
+//     border: solid 4px black;
+//    }
 
-.expHead{
-  display: flex;
-  font-family: 'Yusei Magic', sans-serif;
-  color: rgb(255, 223, 200);
-  -webkit-text-stroke: .4px rgb(44, 23, 23);
-  }
-  .expHead {
-    display: flex;
-    margin-bottom: -2vh;
-    min-height: fit-content;
-  }
-  
-.beginner, .experienced, .advanced{
-  font-family: 'Yusei Magic', sans-serif;
-    font-size: 16px;
-  text-shadow: .33px .4px 1px rgb(78, 6, 6);
-  border-top: 1px solid rgb(71, 8, 8);
-}
-
-.expDiv {
-display:flex;
-flex-direction: column;
-justify-content: left;
-text-align: left;
-margin-top: 25vh;
-// border-top: 1px solid blanchedalmond;
-}
+// .expHead{
+//   display: flex;
+//   font-family: 'Yusei Magic', sans-serif;
+//   color: rgb(255, 223, 200);
+//   -webkit-text-stroke: .4px rgb(44, 23, 23);
+//   margin-bottom: -2vh;
+//   min-height: fit-content;
+//   }
+//
+// .beginner, .experienced, .advanced{
+//   font-family: 'Yusei Magic', sans-serif;
+//     font-size: 16px;
+//   text-shadow: .33px .4px 1px rgb(78, 6, 6);
+//   border-top: 1px solid rgb(71, 8, 8);
+// }
+//
+// .expDiv {
+// display:flex;
+// flex-direction: column;
+// justify-content: left;
+// text-align: left;
+// margin-top: 25vh;
+// // border-top: 1px solid blanchedalmond;
+// }

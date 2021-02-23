@@ -24,7 +24,7 @@ const PostForm = ({ post, handleSubmit, handleChange }) => (
     <label>Opening ID</label>
     <input
       required
-      placeholder='Enter the opening ID here.'
+      placeholder='Enter post type'
       // this name should line up with the state we want to change
       name='openingId'
       defaultValue={post.openingId}
