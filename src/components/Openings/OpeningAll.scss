@@ -1,15 +1,17 @@
 @import '~bootstrap/scss/bootstrap';
 @import url('https://fonts.googleapis.com/css2?family=Gorditas&display=swap');
 
-#openingsDiv1{
+#openingsDiv1 {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     font-family: 'Gorditas', cursive;
     text-align: center;
-
+    background-color: #990000;
+    width: inherit;
 }
-.showOpeningDiv{
+
+.showOpeningDiv {
     display: flex;
     flex-direction: column;
     // justify-content: center;
@@ -23,17 +25,24 @@
     height: 90vh;
 }
 
+.createOpeningBoard {
+  display: flex;
+  flex-direction: column;
+  margin: 8px;
+}
+
 label{
 color: rgb(102, 23, 23);
     justify-content: center;
    -webkit-text-stroke: 1px rgb(2, 0, 0);
 }
+
 .createForm {
     display: flex;
     flex-direction: column;
     justify-content: center;
    -webkit-text-stroke: 1px rgb(2, 0, 0);
-    font-size: 20px;
+    font-size: 24px;
     text-align: center;
     // border: solid 1px rgb(12, 5, 5);
     // box-shadow: 0px 10px 25px 1px rgb(54, 20, 18);

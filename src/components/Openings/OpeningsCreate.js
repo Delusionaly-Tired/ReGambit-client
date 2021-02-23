@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import OpeningsForm from './OpeningsForm'
 import { Redirect } from 'react-router-dom'
 import { openingCreate } from '../../api/openings'
@@ -28,15 +28,6 @@ class OpeningsCreate extends Component {
     this.game = new Chess()
   }
 
-  setPGN = () => {
-    console.log('COME ERE GEORGE')
-    // console.log(this.game.history())
-    // this.game.load_pgn(this.game.history())
-    // this.game.fen()
-    // console.log(this.game.fen())
-    // this.setState({ opening: this.game.fen() })
-  }
-
   handleSubmit = event => {
     event.preventDefault()
     const { user, msgAlert } = this.props
@@ -46,7 +37,6 @@ class OpeningsCreate extends Component {
     openingCreate(opening, user)
       // set the createdId to the id of the opening we just created
       .then(res => this.setState({ createdId: res.data.opening._id }))
-      .then(() => this.setPGN())
       // .then(() => this.setState({ opening: pgn }))
       .then(() => msgAlert({
         heading: 'Created opening Succesfully',
@@ -61,6 +51,32 @@ class OpeningsCreate extends Component {
         })
       })
   }
+
+  renderPGN = (taco) => {
+    this.setState(currPGN => {
+      const updatedPGN = {
+        pgn: taco
+      }
+      const newPgn = { ...currPGN.opening, ...updatedPGN }
+      return { opening: newPgn }
+    })
+    // this.setState({ opening: { ...this.state.opening, pgn: pgn } })
+    console.log(this.state.opening)
+  }
+  // setPGN = () => {
+  //   this.game = new Chess()
+  //   console.log('COME ERE GEORGE')
+  //   console.log(this.game.history())
+  //   const moveHistory = this.game.history()
+  //   if (moveHistory.length > 1) {
+  //     moveHistory.join('')
+  //     return moveHistory
+  //   }
+  //
+  //   console.log(moveHistory)
+  //   // this.game.load_pgn(this.game.history())
+  //   // this.setState({ opening: this.game.fen() })
+  // }
 
   // when an input changes, update the state that corresponds with the input's name
   handleChange = event => {
@@ -82,7 +98,7 @@ class OpeningsCreate extends Component {
   render () {
   // destructure our openings and createdId state
     const { opening, createdId } = this.state
-
+    // console.log(this.state.opening.pgn)
     // if the opening has been created and we sits id
     if (createdId) {
       console.log(createdId)
@@ -92,17 +108,28 @@ class OpeningsCreate extends Component {
 
     return (
       <div id='openingsDiv1'>
-        <h3 className='openingh3'>Create Opening</h3>
-        <OpeningsForm
-          opening={opening}
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-        />
-        <h2>What are the moves for this opening?</h2>
-        <Board
-          position={this.state.opening.pgn}
-          onDrop={this.setPGN()}
-        />
+        <Fragment>
+          <div>
+            <h3 className='openingh3'>Create Opening</h3>
+            <OpeningsForm
+              opening={opening}
+              handleChange={this.handleChange}
+              handleSubmit={this.handleSubmit}
+            />
+            <div>
+              <p className='Notation'>
+                {opening.pgn}
+              </p>
+            </div>
+          </div>
+          <div className='createOpeningBoard'>
+            <h2>What are the moves for this opening?</h2>
+            <Board
+              position={opening.pgn}
+              renderPGN={this.renderPGN}
+            />
+          </div>
+        </Fragment>
       </div>
     )
   }
