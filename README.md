@@ -44,6 +44,9 @@ The app itself is relatively simple. A user signs up on the [website](https://de
 
 ## Wireframe
 
-
+### V1
 ![Landing Page](https://i.imgur.com/6683KaS.jpg)
 ![Home Page](https://i.imgur.com/RUBA09K.jpg)
+
+### V2
+![Overall visual update idea](https://i.imgur.com/EsphHz1.jpg)
