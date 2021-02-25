@@ -69,8 +69,12 @@ class Board extends React.Component {
     const gambitCheck = this.game.fen()
     if (gambitCheck === 'rnbqkbnr/ppp1pppp/8/3p4/2PP4/8/PP2PPPP/RNBQKBNR b KQkq c3 0 2') {
       this.setState({ tactic: 'The Queens Gambit' })
+    } else if (gambitCheck === 'rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 1 1') {
+      this.setState({ tactic: 'Zukertort' })
+    } else if (gambitCheck === 'rnbqkbnr/ppp1pppp/8/3p4/3P1B2/8/PPP1PPPP/RN1QKBNR b KQkq - 1 2') {
+      this.setState({ tactic: 'The London System' })
     } else {
-      this.setState({ tactic: '' })
+      this.setState({ tactic: 'Unknown? Why not make a post about it?' })
     }
   }
 
