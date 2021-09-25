@@ -74,7 +74,7 @@ class Board extends React.Component {
     } else if (gambitCheck === 'rnbqkbnr/ppp1pppp/8/3p4/3P1B2/8/PPP1PPPP/RN1QKBNR b KQkq - 1 2') {
       this.setState({ tactic: 'The London System' })
     } else {
-      this.setState({ tactic: 'Unknown? Why not make a post about it?' })
+      this.setState({ tactic: 'Unknown? \n Why not make a post about it?' })
     }
   }
 
@@ -90,7 +90,7 @@ class Board extends React.Component {
     console.log(pgn)
     return (
       <div>
-        <h1 id="gambitDisplay">{this.state.tactic}</h1>
+        <h1>{this.state.tactic}</h1>
         <div className='board'>
           <Chessboard
             width={600}

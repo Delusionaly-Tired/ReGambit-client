@@ -7,7 +7,7 @@ class Sidebar extends React.Component {
 
     this.state = {
       pgn: 'Welcome to ReGambit',
-      openingInfo: 'Try making a move to being your journey.'
+      openingInfo: 'Try making a move to begin your journey.'
     }
   }
 
