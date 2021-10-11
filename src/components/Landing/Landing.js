@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 // import Board from '../Board/Board'
 import Sidebar from '../Sidebar/Sidebar'
 // import Experience from '../Experience/Experience'
-import './Landing.scss'
+import './Landing.css'
 import Board from './../Board/Board'
 import Chess from 'chess.js'
 

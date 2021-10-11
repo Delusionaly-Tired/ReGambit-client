@@ -1,4 +1,4 @@
-@import '~bootstrap/scss/bootstrap';
+@import '~bootstrap/dist/css/bootstrap.css';
 @import url('https://fonts.googleapis.com/css2?family=Hanalei+Fill&display=swap');
 
 
@@ -44,7 +44,7 @@
   }
 }
 .containerAlerts{
-  text-size: 10px;
+  font-size: 10px;
     font-family: 'Gorditas', cursive;
     -webkit-text-stroke: .33px rgb(0, 0, 0);
     outline-color: 10px solid black;

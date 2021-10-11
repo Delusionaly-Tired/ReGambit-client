@@ -1,4 +1,4 @@
-@import '~bootstrap/scss/bootstrap';
+@import '~bootstrap/dist/css/bootstrap.css';
 @import url('https://fonts.googleapis.com/css2?family=Gorditas&display=swap');
 
 #openingsDiv1 {

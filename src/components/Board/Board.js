@@ -1,7 +1,7 @@
 import React from 'react'
 // import Board from '../Board/Board'
 // import './Landing.scss'
-import './Board.scss'
+import './Board.css'
 import Chessboard from 'chessboardjsx'
 import Chess from 'chess.js'
 

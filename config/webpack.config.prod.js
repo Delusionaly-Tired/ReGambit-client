@@ -155,12 +155,12 @@ module.exports = {
             },
           },
           {
-            test: /\.scss$/,
+            test: /\.(sass|scss)$/,
             include: paths.appSrc,
             loaders: [
               require.resolve('style-loader'),
-              require.resolve('css-loader'),
-              require.resolve('sass-loader')
+              require.resolve('css-loader')
+              // require.resolve('sass-loader')
             ]
           },
           // The notation here is somewhat confusing.

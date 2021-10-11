@@ -6,7 +6,7 @@ import messages from '../AutoDismissAlert/messages'
 
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-import './SignUp.scss'
+import './SignUp.css'
 
 class SignUp extends Component {
   constructor (props) {

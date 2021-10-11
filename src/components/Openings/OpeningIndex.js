@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 // import Spinner from 'react-bootstrap/Spinner'
 import { openingIndex } from '../../api/openings'
-import './OpeningAll.scss'
+import './OpeningAll.css'
 
 class OpeningIndex extends Component {
   constructor (props) {

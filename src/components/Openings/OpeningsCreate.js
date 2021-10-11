@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import OpeningsForm from './OpeningsForm'
 import { Redirect } from 'react-router-dom'
 import { openingCreate } from '../../api/openings'
-import './OpeningAll.scss'
+import './OpeningAll.css'
 import Board from '../Board/Board'
 import Chess from 'chess.js'
 

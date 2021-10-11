@@ -1,5 +1,5 @@
 import React from 'react'
-import './OpeningAll.scss'
+import './OpeningAll.css'
 
 const OpeningsForm = ({ opening, handleSubmit, handleChange }) => (
   <form className="createForm" onSubmit={handleSubmit}>

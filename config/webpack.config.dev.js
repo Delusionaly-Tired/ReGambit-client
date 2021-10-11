@@ -152,12 +152,12 @@ module.exports = {
             },
           },
           {
-            test: /\.scss$/,
+            test: /\.(sass|scss)$/,
             include: paths.appSrc,
             loaders: [
               require.resolve('style-loader'),
-              require.resolve('css-loader'),
-              require.resolve('sass-loader')
+              require.resolve('css-loader')
+              // require.resolve('sass-loader')
             ]
           },
           // "postcss" loader applies autoprefixer to our CSS.
